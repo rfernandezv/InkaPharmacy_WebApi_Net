@@ -1,8 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
-using EnterprisePatterns.Api.BankAccounts.Application.Assembler;
-using EnterprisePatterns.Api.BankAccounts.Domain.Entity;
-using EnterprisePatterns.Api.BankAccounts.Domain.Repository;
 using EnterprisePatterns.Api.Common.Application.Dto;
 using System;
 using EnterprisePatterns.Api.Common.Application;
@@ -24,7 +21,6 @@ namespace EnterprisePatterns.Api.Controllers
     using EnterprisePatterns.Api.Empleado.Domain.Entity;
     using EnterprisePatterns.Api.Empleado.Application.Dto;
 
-    //[Route("v1/customers/{customerId}/bank-accounts")]
     [Route("api/Security/Login")]
     [ApiController]
     public class SecurityController : ControllerBase
@@ -64,14 +60,9 @@ namespace EnterprisePatterns.Api.Controllers
                 {
                     throw new ArgumentException("Employee doesn't logueado");
                 }
-                employee = empleados.FirstOrDefault();
-
-                EmployeeDto empleadosDto = _empleadoLoginAssembler.toDto(employee);
-
+           
+                EmployeeDto empleadosDto = _empleadoLoginAssembler.toDto(empleados.FirstOrDefault());
                 var token = GenerateToken(empleadosDto.Username);
-
-                //return StatusCode(StatusCodes.Status200OK, empleadosDto);
-
                 return Ok(this.responseHandler.getOkCommandResponse("bearer " + token, Constantes.HttpStatus.Success, empleadosDto));
 
             }
@@ -116,27 +107,5 @@ namespace EnterprisePatterns.Api.Controllers
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
-        //[HttpPost]
-        //public IActionResult Create(int ci, [FromBody] EmployeeDto empleadoLoginDto)
-        //{
-        //    bool uowStatus = false;
-        //    try
-        //    {
-        //        uowStatus = _unitOfWork.BeginTransaction();
-        //        empleadoLoginDto.ci = ci;
-        //        //TODO: Validations with Notification Pattern
-        //        Employee employee = _empleadoLoginAssembler.toEntity(empleadoLoginDto);
-        //        _securityRepository.Create(employee);
-        //        _unitOfWork.Commit(uowStatus);
-        //        return StatusCode(StatusCodes.Status201Created, new ApiStringResponseDto("Employee Created!"));
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        _unitOfWork.Rollback(uowStatus);
-        //        Console.WriteLine(ex.StackTrace);
-        //        return StatusCode(StatusCodes.Status500InternalServerError, new ApiStringResponseDto("Internal Server Error"));
-
-        //    }
-        //}
     }
 }

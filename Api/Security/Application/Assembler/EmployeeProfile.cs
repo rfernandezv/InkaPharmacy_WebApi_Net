@@ -1,6 +1,4 @@
 ﻿using AutoMapper;
-using EnterprisePatterns.Api.BankAccounts.Application.Dto;
-using EnterprisePatterns.Api.BankAccounts.Domain.Entity;
 using EnterprisePatterns.Api.Common.Domain.ValueObject;
 using EnterprisePatterns.Api.Customers;
 

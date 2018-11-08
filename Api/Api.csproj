@@ -8,10 +8,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="BankAccounts\**" />
     <Compile Remove="Cliente\**" />
+    <Compile Remove="Movies\**" />
+    <Content Remove="BankAccounts\**" />
     <Content Remove="Cliente\**" />
+    <Content Remove="Movies\**" />
+    <EmbeddedResource Remove="BankAccounts\**" />
     <EmbeddedResource Remove="Cliente\**" />
+    <EmbeddedResource Remove="Movies\**" />
+    <None Remove="BankAccounts\**" />
     <None Remove="Cliente\**" />
+    <None Remove="Movies\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -62,6 +70,7 @@
 
   <ItemGroup>
     <Folder Include="Common\Application\Assembler\" />
+    <Folder Include="Perfil\Application\Dto\" />
     <Folder Include="Security\Application\Dto\" />
     <Folder Include="Security\Domain\Entity\" />
     <Folder Include="wwwroot\" />

@@ -1,5 +1,4 @@
-﻿using EnterprisePatterns.Api.BankAccounts.Domain.Entity;
-using FluentNHibernate.Mapping;
+﻿using FluentNHibernate.Mapping;
 
 namespace EnterprisePatterns.Api.BankAccounts.Infrastructure.Persistence.NHibernate.Mapping
 {

@@ -12,9 +12,12 @@ using Microsoft.AspNetCore.Mvc;
 using EnterprisePatterns.Api.Product;
 using EnterprisePatterns.Api.Customers.Application.Assembler;
 using EnterprisePatterns.Api.Product.Infrastructure.Persistence.NHibernate.Specification;
+using Microsoft.AspNetCore.Authorization;
+using EnterprisePatterns.Api.Common.Application.Dto;
 
 namespace Api.Products.Controllers
 {
+    [Authorize]
     [Route("api/Products")]
     [ApiController]
     public class ProductController : ControllerBase
@@ -44,12 +47,27 @@ namespace Api.Products.Controllers
             bool uowStatus = false;
             try
             {
+                Product product = new Product();
+                Notification notification = product.validateFindByProductName(ProductName);
+
+                if (notification.hasErrors())
+                {
+                    throw new ArgumentException(notification.errorMessage());
+                }
+
                 Specification<Product> specification = GetFindByName(ProductName);
+
                 uowStatus = _unitOfWork.BeginTransaction();
                 Product Product = _ProductRepository.FindByProductName(specification);
                 _unitOfWork.Commit(uowStatus);
+
                 ProductDto ProductsDto = _ProductAssembler.FromProductToProductDto(Product);
+
                 return StatusCode(StatusCodes.Status200OK, ProductsDto);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(this.responseHandler.getAppCustomErrorResponse(ex.Message));
             }
             catch (Exception ex)
             {
@@ -90,8 +108,7 @@ namespace Api.Products.Controllers
             {
                 _unitOfWork.Rollback(uowStatus);
                 Console.WriteLine(ex.StackTrace);
-                return Ok();
-                //return StatusCode(StatusCodes.Status500InternalServerError, new ApiStringResponseDto("Internal Server Error"));
+                return StatusCode(StatusCodes.Status500InternalServerError, new ApiStringResponseDto(ex.Message));
             }
 
         }
@@ -104,12 +121,26 @@ namespace Api.Products.Controllers
             bool uowStatus = false;
             try
             {
+                Product product = new Product();
+                Notification notification = product.validateGetProductById(ProductId);
+
+                if (notification.hasErrors())
+                {
+                    throw new ArgumentException(notification.errorMessage());
+                }
+
                 Specification<Product> specification = GetById(ProductId);
+
                 uowStatus = _unitOfWork.BeginTransaction();
-                Product Product = _ProductRepository.GetById(specification);
+                product = _ProductRepository.GetById(specification);
                 _unitOfWork.Commit(uowStatus);
-                ProductDto ProductsDto = _ProductAssembler.FromProductToProductDto(Product);
+
+                ProductDto ProductsDto = _ProductAssembler.FromProductToProductDto(product);
                 return StatusCode(StatusCodes.Status200OK, ProductsDto);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(this.responseHandler.getAppCustomErrorResponse(ex.Message));
             }
             catch (Exception ex)
             {
@@ -130,12 +161,14 @@ namespace Api.Products.Controllers
                 uowStatus = _unitOfWork.BeginTransaction();
 
                 Product product = _ProductAssembler.FromProductDtoToProduct(ProductDto);
-                //notification = customer.validateForSave();
+                notification = product.validateForSave();
 
                 if (notification.hasErrors())
                 {
-                    return StatusCode(StatusCodes.Status400BadRequest, notification.ToString());
+                    throw new ArgumentException(notification.errorMessage());
                 }
+
+                product.Status = 1;
                 _ProductRepository.Create(product);
                 _unitOfWork.Commit(uowStatus);
 
@@ -143,13 +176,17 @@ namespace Api.Products.Controllers
                 //KipubitRabbitMQ.SendMessage(message);
                 return StatusCode(StatusCodes.Status201Created, product);
             }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(this.responseHandler.getAppCustomErrorResponse(ex.Message));
+            }
             catch (Exception ex)
             {
                 _unitOfWork.Rollback(uowStatus);
                 Console.WriteLine(ex.StackTrace);
                 var message = "Internal Server Error";
                 //KipubitRabbitMQ.SendMessage(message);
-                return StatusCode(StatusCodes.Status500InternalServerError /*, new ApiStringResponseDto(message)*/ );
+                return StatusCode(StatusCodes.Status500InternalServerError, new ApiStringResponseDto(ex.Message));
 
             }
         }
@@ -164,11 +201,11 @@ namespace Api.Products.Controllers
                 uowStatus = _unitOfWork.BeginTransaction();
 
                 Product product = _ProductAssembler.FromProductDtoToProduct(ProductDto);
-                //notification = customer.validateForSave();
+                notification = product.validateForSave("U");
 
                 if (notification.hasErrors())
                 {
-                    return StatusCode(StatusCodes.Status400BadRequest, notification.ToString());
+                    throw new ArgumentException(notification.errorMessage());
                 }
                 _ProductRepository.Update(product);
                 _unitOfWork.Commit(uowStatus);
@@ -177,13 +214,63 @@ namespace Api.Products.Controllers
                 //KipubitRabbitMQ.SendMessage(message);
                 return StatusCode(StatusCodes.Status200OK, product);
             }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(this.responseHandler.getAppCustomErrorResponse(ex.Message));
+            }
             catch (Exception ex)
             {
                 _unitOfWork.Rollback(uowStatus);
                 Console.WriteLine(ex.StackTrace);
                 var message = "Internal Server Error";
                 //KipubitRabbitMQ.SendMessage(message);
-                return StatusCode(StatusCodes.Status500InternalServerError /*, new ApiStringResponseDto(message)*/ );
+                return StatusCode(StatusCodes.Status500InternalServerError, new ApiStringResponseDto(ex.Message));
+
+            }
+        }
+
+
+        [HttpDelete]
+        public IActionResult Delete([FromBody] ProductDto ProductDto)
+        {
+            Notification notification = new Notification();
+            bool uowStatus = false;
+            try
+            {
+                Product product = new Product();
+                product = _ProductAssembler.FromProductDtoToProduct(ProductDto);
+
+                notification = product.validateDeleteProduct(product);
+                if (notification.hasErrors())
+                {
+                    throw new ArgumentException(notification.errorMessage());
+                }
+
+                uowStatus = _unitOfWork.BeginTransaction();
+            
+                Specification<Product> specification = GetById(product.Id);
+                product = _ProductRepository.GetById(specification);
+                _unitOfWork.Commit(uowStatus);
+
+                product.Status = 0;
+                _ProductRepository.Update(product);
+                _unitOfWork.Commit(uowStatus);
+
+                var message = "Product Updated!";
+                //KipubitRabbitMQ.SendMessage(message);
+                return StatusCode(StatusCodes.Status200OK, product);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(this.responseHandler.getAppCustomErrorResponse(ex.Message));
+            }
+            catch (Exception ex)
+            {
+                _unitOfWork.Rollback(uowStatus);
+                Console.WriteLine(ex.StackTrace);
+                var message = "Internal Server Error";
+                //KipubitRabbitMQ.SendMessage(message);
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message /*, new ApiStringResponseDto(message)*/ );
 
             }
         }
