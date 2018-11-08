@@ -1,14 +1,14 @@
-﻿using EnterprisePatterns.Api.Common.Infrastructure.Persistence.NHibernate;
+﻿using InkaPharmacy.Api.Common.Infrastructure.Persistence.NHibernate;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EnterprisePatterns.Api.Employee.Infrastructure.Persistence.NHibernate.Repository
+namespace InkaPharmacy.Api.Employee.Infrastructure.Persistence.NHibernate.Repository
 {
-    using EnterprisePatterns.Api.Common.Domain.Specification;
-    using EnterprisePatterns.Api.Empleado.Domain.Entity;
-    using EnterprisePatterns.Api.Employee.Domain.Repository;
+    using InkaPharmacy.Api.Common.Domain.Specification;
+    using InkaPharmacy.Api.Employee.Domain.Entity;
+    using InkaPharmacy.Api.Employee.Domain.Repository;
 
     public class EmployeeNHibernateRepository : BaseNHibernateRepository<Employee>, IEmployeeRepository
     {
@@ -22,12 +22,12 @@ namespace EnterprisePatterns.Api.Employee.Infrastructure.Persistence.NHibernate.
             int page = 0, 
             int pageSize = 5)
         {
-            List<Employee> empleados = new List<Employee>();
+            List<Employee> Employees = new List<Employee>();
             bool uowStatus = false;
             try
             {
                 uowStatus = _unitOfWork.BeginTransaction();
-                empleados = _unitOfWork.GetSession().Query<Employee>()
+                Employees = _unitOfWork.GetSession().Query<Employee>()
                     .Where(specification.ToExpression())
                     .Skip(page * pageSize)
                     .Take(pageSize)
@@ -40,7 +40,7 @@ namespace EnterprisePatterns.Api.Employee.Infrastructure.Persistence.NHibernate.
                 _unitOfWork.Rollback(uowStatus);
                 throw ex;
             }
-            return empleados;
+            return Employees;
         }
     }
 }

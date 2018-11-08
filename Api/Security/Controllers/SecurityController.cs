@@ -1,25 +1,25 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
-using EnterprisePatterns.Api.Common.Application.Dto;
+using InkaPharmacy.Api.Common.Application.Dto;
 using System;
-using EnterprisePatterns.Api.Common.Application;
+using InkaPharmacy.Api.Common.Application;
 using System.Linq;
 
-namespace EnterprisePatterns.Api.Controllers
+namespace InkaPharmacy.Api.Controllers
 {
-    using EnterprisePatterns.Api.Security.Application.Assembler;
-    using EnterprisePatterns.Api.Security.Domain.Repository;
-    using EnterprisePatterns.Api.Common.Domain.Specification;
+    using InkaPharmacy.Api.Security.Application.Assembler;
+    using InkaPharmacy.Api.Security.Domain.Repository;
+    using InkaPharmacy.Api.Common.Domain.Specification;
     using System.Collections.Generic;
 
-    using EnterprisePatterns.Api.Security.Infrastructure.Persistence.NHibernate.Specification;
+    using InkaPharmacy.Api.Security.Infrastructure.Persistence.NHibernate.Specification;
     using System.Security.Claims;
     using System.IdentityModel.Tokens.Jwt;
     using Microsoft.IdentityModel.Tokens;
     using System.Text;
-    using EnterprisePatterns.Api.Common.Constantes;
-    using EnterprisePatterns.Api.Empleado.Domain.Entity;
-    using EnterprisePatterns.Api.Empleado.Application.Dto;
+    using InkaPharmacy.Api.Common.Constantes;
+    using InkaPharmacy.Api.Employee.Domain.Entity;
+    using InkaPharmacy.Api.Employee.Application.Dto;
 
     [Route("api/Security/Login")]
     [ApiController]
@@ -33,11 +33,11 @@ namespace EnterprisePatterns.Api.Controllers
         public SecurityController(
             IUnitOfWork unitOfWork,
             ISecurityRepository securityRepository,
-            EmployeeAssembler empleadoLoginAssembler)
+            EmployeeAssembler EmployeeLoginAssembler)
         {
             _unitOfWork = unitOfWork;
             _securityRepository = securityRepository;
-            _empleadoLoginAssembler = empleadoLoginAssembler;
+            _empleadoLoginAssembler = EmployeeLoginAssembler;
             responseHandler = new ResponseHandler();
         }
 
@@ -53,17 +53,17 @@ namespace EnterprisePatterns.Api.Controllers
             {
                 Specification<Employee> specification = GetLogingSpecification(usu, clave);
                 uowStatus = _unitOfWork.BeginTransaction();
-                List<Employee> empleados = _securityRepository.GetList(specification);
+                List<Employee> Employees = _securityRepository.GetList(specification);
                 _unitOfWork.Commit(uowStatus);
 
-                if ( empleados.FirstOrDefault() == null)
+                if ( Employees.FirstOrDefault() == null)
                 {
                     throw new ArgumentException("Employee doesn't logueado");
                 }
            
-                EmployeeDto empleadosDto = _empleadoLoginAssembler.toDto(empleados.FirstOrDefault());
-                var token = GenerateToken(empleadosDto.Username);
-                return Ok(this.responseHandler.getOkCommandResponse("bearer " + token, Constantes.HttpStatus.Success, empleadosDto));
+                EmployeeDto EmployeesDto = _empleadoLoginAssembler.toDto(Employees.FirstOrDefault());
+                var token = GenerateToken(EmployeesDto.Username);
+                return Ok(this.responseHandler.getOkCommandResponse("bearer " + token, Constantes.HttpStatus.Success, EmployeesDto));
 
             }
             catch (ArgumentException ex)

@@ -2,7 +2,7 @@
 using FluentNHibernate.Conventions.Instances;
 using FluentNHibernate.Mapping;
 
-namespace EnterprisePatterns.Api.Common.Infrastructure.Persistence.NHibernate
+namespace InkaPharmacy.Api.Common.Infrastructure.Persistence.NHibernate
 {
     public class OtherConversions : IHasManyConvention, IReferenceConvention
     {

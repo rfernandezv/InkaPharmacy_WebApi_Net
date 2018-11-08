@@ -1,13 +1,13 @@
-﻿namespace EnterprisePatterns.Api.Security.Domain.Repository
+﻿namespace InkaPharmacy.Api.Security.Domain.Repository
 {
-    using EnterprisePatterns.Api.Common.Domain.Specification;
-    using EnterprisePatterns.Api.Empleado.Domain.Entity;
+    using InkaPharmacy.Api.Common.Domain.Specification;
+    using InkaPharmacy.Api.Employee.Domain.Entity;
     using System.Collections.Generic;
 
     public interface ISecurityRepository
     {
-        //void Create(Employee empleado);
-        //void Delete(Employee empleado);
+        //void Create(Employee employee);
+        //void Delete(Employee employee);
         //Employee Read(int id);
 
         List<Employee> GetList(

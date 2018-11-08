@@ -1,7 +1,7 @@
-﻿using EnterprisePatterns.Api.Common.Domain.Specification;
+﻿using InkaPharmacy.Api.Common.Domain.Specification;
 using System.Collections.Generic;
 
-namespace EnterprisePatterns.Api.Customers.Domain.Repository
+namespace InkaPharmacy.Api.Customers.Domain.Repository
 {
     public interface ICustomerRepository
     {

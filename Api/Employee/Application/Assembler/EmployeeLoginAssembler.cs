@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
-using EnterprisePatterns.Api.Empleado.Application.Dto;
+using InkaPharmacy.Api.Employee.Application.Dto;
 
-namespace EnterprisePatterns.Api.Empleado.Application.Assembler
+namespace InkaPharmacy.Api.Employee.Application.Assembler
 {
-    using EnterprisePatterns.Api.Empleado.Domain.Entity;
+    using InkaPharmacy.Api.Employee.Domain.Entity;
 
     public class EmployeeAssembler
     {
@@ -18,9 +18,9 @@ namespace EnterprisePatterns.Api.Empleado.Application.Assembler
             _mapper = mapper;
         }
 
-        public Employee toEntity(EmployeeDto empleadoLoginDto)
+        public Employee toEntity(EmployeeDto EmployeeLoginDto)
         {
-            return _mapper.Map<Employee>(empleadoLoginDto);
+            return _mapper.Map<Employee>(EmployeeLoginDto);
         }
     }
 

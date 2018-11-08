@@ -4,22 +4,22 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using EnterprisePatterns.Api.Common.Infrastructure.Persistence.NHibernate;
+using InkaPharmacy.Api.Common.Infrastructure.Persistence.NHibernate;
 
-using EnterprisePatterns.Api.Accounts.Infrastructure.Persistence.NHibernate.Repository;
-using EnterprisePatterns.Api.Customers.Domain.Repository;
-using EnterprisePatterns.Api.Customers.Infrastructure.Persistence.NHibernate.Repository;
+using InkaPharmacy.Api.Accounts.Infrastructure.Persistence.NHibernate.Repository;
+using InkaPharmacy.Api.Customers.Domain.Repository;
+using InkaPharmacy.Api.Customers.Infrastructure.Persistence.NHibernate.Repository;
 using AutoMapper;
-using EnterprisePatterns.Api.Common.Application;
-using EnterprisePatterns.Api.Security.Application.Assembler;
-using EnterprisePatterns.Api.Security.Domain.Repository;
-using EnterprisePatterns.Api.Customers.Application.Assembler;
-using EnterprisePatterns.Api.Products.Application.Assembler;
-using EnterprisePatterns.Api.Product.Domain.Repository;
-using EnterprisePatterns.Api.Employee.Domain.Repository;
-using EnterprisePatterns.Api.Employee.Infrastructure.Persistence.NHibernate.Repository;
+using InkaPharmacy.Api.Common.Application;
+using InkaPharmacy.Api.Security.Application.Assembler;
+using InkaPharmacy.Api.Security.Domain.Repository;
+using InkaPharmacy.Api.Customers.Application.Assembler;
+using InkaPharmacy.Api.Products.Application.Assembler;
+using InkaPharmacy.Api.Product.Domain.Repository;
+using InkaPharmacy.Api.Employee.Domain.Repository;
+using InkaPharmacy.Api.Employee.Infrastructure.Persistence.NHibernate.Repository;
 
-namespace EnterprisePatterns.Api
+namespace InkaPharmacy.Api
 {
     public class Startup
     {

@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EnterprisePatterns.Api.Empleado.Domain.Entity
+namespace InkaPharmacy.Api.Employee.Domain.Entity
 {
-    using EnterprisePatterns.Api.Common.Application;
-    using EnterprisePatterns.Api.Perfil.Domain.Entity;
-    using EnterprisePatterns.Api.Tienda.Domain.Entity;
-
+    using InkaPharmacy.Api.Common.Application;
+  
     public class Employee
     {
         public virtual long Id { get; set; }

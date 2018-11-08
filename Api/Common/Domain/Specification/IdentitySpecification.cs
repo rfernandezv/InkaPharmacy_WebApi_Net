@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
 
-namespace EnterprisePatterns.Api.Common.Domain.Specification
+namespace InkaPharmacy.Api.Common.Domain.Specification
 {
     internal sealed class  IdentitySpecification<T> : Specification<T>
     {

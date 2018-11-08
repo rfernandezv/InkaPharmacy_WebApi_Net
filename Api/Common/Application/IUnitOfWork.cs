@@ -1,6 +1,6 @@
 ﻿using System.Data;
 
-namespace EnterprisePatterns.Api.Common.Application
+namespace InkaPharmacy.Api.Common.Application
 {
     public interface IUnitOfWork
     {

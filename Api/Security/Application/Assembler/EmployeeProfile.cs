@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
-using EnterprisePatterns.Api.Common.Domain.ValueObject;
-using EnterprisePatterns.Api.Customers;
+using InkaPharmacy.Api.Common.Domain.ValueObject;
+using InkaPharmacy.Api.Customers;
 
-namespace EnterprisePatterns.Api.Security.Application.Assembler
+namespace InkaPharmacy.Api.Security.Application.Assembler
 {
-    using EnterprisePatterns.Api.Empleado.Domain.Entity;
-    using EnterprisePatterns.Api.Empleado.Application.Dto;
+    using InkaPharmacy.Api.Employee.Domain.Entity;
+    using InkaPharmacy.Api.Employee.Application.Dto;
 
     public class EmployeeProfile : Profile
     {
@@ -15,7 +15,7 @@ namespace EnterprisePatterns.Api.Security.Application.Assembler
 
             CreateMap<Employee, EmployeeDto>()
 
-                /*  CreateMap<EmpleadoLoginDto, Empleado>()
+                /*  CreateMap<EmpleadoLoginDto, Employee>()
                       .ForMember(
                           dest => dest.ci,
                           x => x.MapFrom(src => src.ci)

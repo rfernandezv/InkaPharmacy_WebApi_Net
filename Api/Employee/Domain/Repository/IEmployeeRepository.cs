@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EnterprisePatterns.Api.Employee.Domain.Repository
+namespace InkaPharmacy.Api.Employee.Domain.Repository
 {
-    using EnterprisePatterns.Api.Common.Domain.Specification;
-    using EnterprisePatterns.Api.Empleado.Domain.Entity;
+    using InkaPharmacy.Api.Common.Domain.Specification;
+    using InkaPharmacy.Api.Employee.Domain.Entity;
 
     public interface IEmployeeRepository
     {
-        //void Create(Employee empleado);
-        //void Delete(Employee empleado);
+        //void Create(Employee employee);
+        //void Delete(Employee employee);
         //Employee Read(int id);
 
         List<Employee> GetList(

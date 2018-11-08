@@ -1,8 +1,8 @@
-﻿using EnterprisePatterns.Api.Common.Application.Dto;
+﻿using InkaPharmacy.Api.Common.Application.Dto;
 using Microsoft.AspNetCore.Mvc;
 using System;
 
-namespace EnterprisePatterns.Api.Common.Controllers
+namespace InkaPharmacy.Api.Common.Controllers
 {
     [Produces("application/json")]
     [Route("")]

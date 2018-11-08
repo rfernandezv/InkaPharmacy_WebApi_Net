@@ -1,12 +1,12 @@
-﻿using EnterprisePatterns.Api.Common.Domain.Specification;
+﻿using InkaPharmacy.Api.Common.Domain.Specification;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EnterprisePatterns.Api.Security.Infrastructure.Persistence.NHibernate.Specification
+namespace InkaPharmacy.Api.Security.Infrastructure.Persistence.NHibernate.Specification
 {
-    using EnterprisePatterns.Api.Empleado.Domain.Entity;
+    using InkaPharmacy.Api.Employee.Domain.Entity;
     using System.Linq.Expressions;
 
     public class LoginBySpecification : Specification<Employee>
@@ -22,7 +22,7 @@ namespace EnterprisePatterns.Api.Security.Infrastructure.Persistence.NHibernate.
 
         public override Expression<Func<Employee, bool>> ToExpression()
         {
-            return empleado => (empleado.Password == _clave && empleado.Username == _usu);
+            return employee => (employee.Password == _clave && employee.Username == _usu);
         }
 
     }

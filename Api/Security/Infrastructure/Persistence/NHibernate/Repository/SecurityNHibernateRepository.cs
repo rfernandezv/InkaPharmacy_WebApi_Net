@@ -1,15 +1,15 @@
-﻿using EnterprisePatterns.Api.Common.Infrastructure.Persistence.NHibernate;
+﻿using InkaPharmacy.Api.Common.Infrastructure.Persistence.NHibernate;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EnterprisePatterns.Api.Accounts.Infrastructure.Persistence.NHibernate.Repository
+namespace InkaPharmacy.Api.Accounts.Infrastructure.Persistence.NHibernate.Repository
 {
     using System.Collections.Generic;
-    using EnterprisePatterns.Api.Common.Domain.Specification;
-    using EnterprisePatterns.Api.Security.Domain.Repository;
-    using EnterprisePatterns.Api.Empleado.Domain.Entity;
+    using InkaPharmacy.Api.Common.Domain.Specification;
+    using InkaPharmacy.Api.Security.Domain.Repository;
+    using InkaPharmacy.Api.Employee.Domain.Entity;
 
     public class SecurityNHibernateRepository : BaseNHibernateRepository<Employee>, ISecurityRepository
     {
@@ -19,12 +19,12 @@ namespace EnterprisePatterns.Api.Accounts.Infrastructure.Persistence.NHibernate.
 
         public List<Employee> GetList(Specification<Employee> specification)
         {
-            List<Employee> empleados = new List<Employee>();
+            List<Employee> Employees = new List<Employee>();
             bool uowStatus = false;
             try
             {
                 uowStatus = _unitOfWork.BeginTransaction();
-                empleados = _unitOfWork.GetSession().Query<Employee>()
+                Employees = _unitOfWork.GetSession().Query<Employee>()
                     .Where(specification.ToExpression())
                     .ToList();
                 _unitOfWork.Commit(uowStatus);
@@ -34,7 +34,7 @@ namespace EnterprisePatterns.Api.Accounts.Infrastructure.Persistence.NHibernate.
                 _unitOfWork.Rollback(uowStatus);
                 throw ex;
             }
-            return empleados;
+            return Employees;
         }
     }
 }

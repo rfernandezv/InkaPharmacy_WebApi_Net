@@ -11,15 +11,23 @@
     <Compile Remove="BankAccounts\**" />
     <Compile Remove="Cliente\**" />
     <Compile Remove="Movies\**" />
+    <Compile Remove="Perfil\**" />
+    <Compile Remove="Tienda\**" />
     <Content Remove="BankAccounts\**" />
     <Content Remove="Cliente\**" />
     <Content Remove="Movies\**" />
+    <Content Remove="Perfil\**" />
+    <Content Remove="Tienda\**" />
     <EmbeddedResource Remove="BankAccounts\**" />
     <EmbeddedResource Remove="Cliente\**" />
     <EmbeddedResource Remove="Movies\**" />
+    <EmbeddedResource Remove="Perfil\**" />
+    <EmbeddedResource Remove="Tienda\**" />
     <None Remove="BankAccounts\**" />
     <None Remove="Cliente\**" />
     <None Remove="Movies\**" />
+    <None Remove="Perfil\**" />
+    <None Remove="Tienda\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -70,7 +78,6 @@
 
   <ItemGroup>
     <Folder Include="Common\Application\Assembler\" />
-    <Folder Include="Perfil\Application\Dto\" />
     <Folder Include="Security\Application\Dto\" />
     <Folder Include="Security\Domain\Entity\" />
     <Folder Include="wwwroot\" />
