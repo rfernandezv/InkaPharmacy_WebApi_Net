@@ -18,9 +18,9 @@ namespace InkaPharmacy.Api.Employee.Application.Assembler
             _mapper = mapper;
         }
 
-        public Employee toEntity(EmployeeDto empleadoLoginDto)
+        public Employee toEntity(EmployeeDto EmployeeLoginDto)
         {
-            return _mapper.Map<Employee>(empleadoLoginDto);
+            return _mapper.Map<Employee>(EmployeeLoginDto);
         }
     }
 

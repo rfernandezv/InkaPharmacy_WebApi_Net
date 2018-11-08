@@ -15,7 +15,7 @@ namespace InkaPharmacy.Api.Security.Application.Assembler
 
             CreateMap<Employee, EmployeeDto>()
 
-                /*  CreateMap<EmpleadoLoginDto, Empleado>()
+                /*  CreateMap<EmpleadoLoginDto, Employee>()
                       .ForMember(
                           dest => dest.ci,
                           x => x.MapFrom(src => src.ci)

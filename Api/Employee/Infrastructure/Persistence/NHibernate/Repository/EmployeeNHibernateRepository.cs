@@ -22,12 +22,12 @@ namespace InkaPharmacy.Api.Employee.Infrastructure.Persistence.NHibernate.Reposi
             int page = 0, 
             int pageSize = 5)
         {
-            List<Employee> empleados = new List<Employee>();
+            List<Employee> Employees = new List<Employee>();
             bool uowStatus = false;
             try
             {
                 uowStatus = _unitOfWork.BeginTransaction();
-                empleados = _unitOfWork.GetSession().Query<Employee>()
+                Employees = _unitOfWork.GetSession().Query<Employee>()
                     .Where(specification.ToExpression())
                     .Skip(page * pageSize)
                     .Take(pageSize)
@@ -40,7 +40,7 @@ namespace InkaPharmacy.Api.Employee.Infrastructure.Persistence.NHibernate.Reposi
                 _unitOfWork.Rollback(uowStatus);
                 throw ex;
             }
-            return empleados;
+            return Employees;
         }
     }
 }

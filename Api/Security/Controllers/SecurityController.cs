@@ -33,11 +33,11 @@ namespace InkaPharmacy.Api.Controllers
         public SecurityController(
             IUnitOfWork unitOfWork,
             ISecurityRepository securityRepository,
-            EmployeeAssembler empleadoLoginAssembler)
+            EmployeeAssembler EmployeeLoginAssembler)
         {
             _unitOfWork = unitOfWork;
             _securityRepository = securityRepository;
-            _empleadoLoginAssembler = empleadoLoginAssembler;
+            _empleadoLoginAssembler = EmployeeLoginAssembler;
             responseHandler = new ResponseHandler();
         }
 
@@ -53,17 +53,17 @@ namespace InkaPharmacy.Api.Controllers
             {
                 Specification<Employee> specification = GetLogingSpecification(usu, clave);
                 uowStatus = _unitOfWork.BeginTransaction();
-                List<Employee> empleados = _securityRepository.GetList(specification);
+                List<Employee> Employees = _securityRepository.GetList(specification);
                 _unitOfWork.Commit(uowStatus);
 
-                if ( empleados.FirstOrDefault() == null)
+                if ( Employees.FirstOrDefault() == null)
                 {
                     throw new ArgumentException("Employee doesn't logueado");
                 }
            
-                EmployeeDto empleadosDto = _empleadoLoginAssembler.toDto(empleados.FirstOrDefault());
-                var token = GenerateToken(empleadosDto.Username);
-                return Ok(this.responseHandler.getOkCommandResponse("bearer " + token, Constantes.HttpStatus.Success, empleadosDto));
+                EmployeeDto EmployeesDto = _empleadoLoginAssembler.toDto(Employees.FirstOrDefault());
+                var token = GenerateToken(EmployeesDto.Username);
+                return Ok(this.responseHandler.getOkCommandResponse("bearer " + token, Constantes.HttpStatus.Success, EmployeesDto));
 
             }
             catch (ArgumentException ex)

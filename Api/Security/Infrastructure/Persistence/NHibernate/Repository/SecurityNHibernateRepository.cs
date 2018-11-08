@@ -19,12 +19,12 @@ namespace InkaPharmacy.Api.Accounts.Infrastructure.Persistence.NHibernate.Reposi
 
         public List<Employee> GetList(Specification<Employee> specification)
         {
-            List<Employee> empleados = new List<Employee>();
+            List<Employee> Employees = new List<Employee>();
             bool uowStatus = false;
             try
             {
                 uowStatus = _unitOfWork.BeginTransaction();
-                empleados = _unitOfWork.GetSession().Query<Employee>()
+                Employees = _unitOfWork.GetSession().Query<Employee>()
                     .Where(specification.ToExpression())
                     .ToList();
                 _unitOfWork.Commit(uowStatus);
@@ -34,7 +34,7 @@ namespace InkaPharmacy.Api.Accounts.Infrastructure.Persistence.NHibernate.Reposi
                 _unitOfWork.Rollback(uowStatus);
                 throw ex;
             }
-            return empleados;
+            return Employees;
         }
     }
 }

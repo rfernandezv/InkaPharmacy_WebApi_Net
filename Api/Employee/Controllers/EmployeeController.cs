@@ -6,35 +6,27 @@ using InkaPharmacy.Api.Common.Application;
 
 namespace InkaPharmacy.Api.Controllers
 {
-
     using InkaPharmacy.Api.Security.Application.Assembler;
-    using InkaPharmacy.Api.Security.Domain.Repository;
-    using InkaPharmacy.Api.Common.Domain.Specification;
- 
-    using System.Collections.Generic;
-    using InkaPharmacy.Api.Employee.Infrastructure.Persistence.NHibernate.Specification;
-    using InkaPharmacy.Api.Employee.Domain.Entity;
-    using InkaPharmacy.Api.Employee.Application.Dto;
     using InkaPharmacy.Api.Employee.Domain.Repository;
     using Microsoft.AspNetCore.Authorization;
 
     [Authorize]
-    [Route("v1/empleado/loggin")]
+    [Route("v1/employee/loggin")]
     [ApiController]
-    public class EmpleadoController : ControllerBase
+    public class EmployeeController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IEmployeeRepository _empleadoRepository;
         private readonly EmployeeAssembler _empleadoLoginAssembler;
 
-        public EmpleadoController(
+        public EmployeeController(
             IUnitOfWork unitOfWork,
-            IEmployeeRepository empleadoRepository,
-            EmployeeAssembler empleadoLoginAssembler)
+            IEmployeeRepository EmployeeRepository,
+            EmployeeAssembler EmployeeLoginAssembler)
         {
             _unitOfWork = unitOfWork;
-            _empleadoRepository = empleadoRepository;
-            _empleadoLoginAssembler = empleadoLoginAssembler;
+            _empleadoRepository = EmployeeRepository;
+            _empleadoLoginAssembler = EmployeeLoginAssembler;
         }
 
 

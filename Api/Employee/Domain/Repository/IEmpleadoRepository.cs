@@ -10,8 +10,8 @@ namespace InkaPharmacy.Api.Employee.Domain.Repository
 
     public interface IEmployeeRepository
     {
-        //void Create(Employee empleado);
-        //void Delete(Employee empleado);
+        //void Create(Employee employee);
+        //void Delete(Employee employee);
         //Employee Read(int id);
 
         List<Employee> GetList(

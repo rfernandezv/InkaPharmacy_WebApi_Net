@@ -23,7 +23,7 @@ namespace InkaPharmacy.Api.Employee.Infrastructure.Persistence.NHibernate.Specif
 
         public override Expression<Func<Employee, bool>> ToExpression()
         {
-            return empleado => (empleado.Password == _clave && empleado.Username == _usu);
+            return employee => (employee.Password == _clave && employee.Username == _usu);
         }
 
     }

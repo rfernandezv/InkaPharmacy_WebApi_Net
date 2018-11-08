@@ -15,14 +15,14 @@ namespace InkaPharmacy.Api.Security.Application.Assembler
             _mapper = mapper;
         }
 
-        public Employee toEntity(EmployeeDto empleadoLoginDto)
+        public Employee toEntity(EmployeeDto EmployeeLoginDto)
         {
-            return _mapper.Map<Employee>(empleadoLoginDto);
+            return _mapper.Map<Employee>(EmployeeLoginDto);
         }
 
-        public EmployeeDto toDto(Employee empleado)
+        public EmployeeDto toDto(Employee employee)
         {
-            return _mapper.Map<EmployeeDto>(empleado);
+            return _mapper.Map<EmployeeDto>(employee);
         }
 
         public List<EmployeeDto> toDtoList(List<Employee> movieList)
