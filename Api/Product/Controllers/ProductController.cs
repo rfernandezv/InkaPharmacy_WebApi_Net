@@ -2,22 +2,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using InkaPhatmacy.Api.Common.Application;
-using InkaPhatmacy.Api.Common.Domain.Specification;
-using InkaPhatmacy.Api.Products.Application.Assembler;
-using InkaPhatmacy.Api.Product.Application.Dto;
-using InkaPhatmacy.Api.Product.Domain.Repository;
+using InkaPharmacy.Api.Common.Application;
+using InkaPharmacy.Api.Common.Domain.Specification;
+using InkaPharmacy.Api.Products.Application.Assembler;
+using InkaPharmacy.Api.Product.Application.Dto;
+using InkaPharmacy.Api.Product.Domain.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using InkaPhatmacy.Api.Product;
-using InkaPhatmacy.Api.Customers.Application.Assembler;
-using InkaPhatmacy.Api.Product.Infrastructure.Persistence.NHibernate.Specification;
+using InkaPharmacy.Api.Product;
+using InkaPharmacy.Api.Customers.Application.Assembler;
+using InkaPharmacy.Api.Product.Infrastructure.Persistence.NHibernate.Specification;
 using Microsoft.AspNetCore.Authorization;
-using InkaPhatmacy.Api.Common.Application.Dto;
+using InkaPharmacy.Api.Common.Application.Dto;
 
 namespace Api.Products.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [Route("api/Products")]
     [ApiController]
     public class ProductController : ControllerBase

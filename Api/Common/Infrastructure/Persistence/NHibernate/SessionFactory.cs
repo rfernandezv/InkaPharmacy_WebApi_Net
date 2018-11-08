@@ -5,7 +5,7 @@ using System.Reflection;
 using FluentNHibernate.Conventions.Helpers;
 using FluentNHibernate.Conventions.AcceptanceCriteria;
 
-namespace InkaPhatmacy.Api.Common.Infrastructure.Persistence.NHibernate
+namespace InkaPharmacy.Api.Common.Infrastructure.Persistence.NHibernate
 {
     public class SessionFactory
     {

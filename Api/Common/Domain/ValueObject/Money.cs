@@ -1,6 +1,6 @@
-﻿using InkaPhatmacy.Api.Common.Application.Enum;
+﻿using InkaPharmacy.Api.Common.Application.Enum;
 
-namespace InkaPhatmacy.Api.Common.Domain.ValueObject
+namespace InkaPharmacy.Api.Common.Domain.ValueObject
 {
     public class Money
     {

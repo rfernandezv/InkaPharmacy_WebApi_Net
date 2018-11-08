@@ -1,11 +1,11 @@
-﻿using InkaPhatmacy.Api.Common.Application.Dto;
+﻿using InkaPharmacy.Api.Common.Application.Dto;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace InkaPhatmacy.Api.Common.Application
+namespace InkaPharmacy.Api.Common.Application
 {
     public class ResponseHandler
     {

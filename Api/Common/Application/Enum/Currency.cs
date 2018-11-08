@@ -1,4 +1,4 @@
-﻿namespace InkaPhatmacy.Api.Common.Application.Enum
+﻿namespace InkaPharmacy.Api.Common.Application.Enum
 {
     public enum Currency
     {

@@ -1,13 +1,13 @@
 ﻿using AutoMapper;
-using InkaPhatmacy.Api.Empleado.Application.Dto;
+using InkaPharmacy.Api.Employee.Application.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace InkaPhatmacy.Api.Empleado.Application.Assembler
+namespace InkaPharmacy.Api.Employee.Application.Assembler
 {
-    using InkaPhatmacy.Api.Empleado.Domain.Entity;
+    using InkaPharmacy.Api.Employee.Domain.Entity;
 
     public class EmployeeProfile : Profile
     {

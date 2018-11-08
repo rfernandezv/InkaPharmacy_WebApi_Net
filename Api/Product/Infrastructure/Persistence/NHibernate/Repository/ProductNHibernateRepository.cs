@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using InkaPhatmacy.Api.Common.Domain.Specification;
-using InkaPhatmacy.Api.Common.Infrastructure.Persistence.NHibernate;
-using InkaPhatmacy.Api.Customers.Domain.Repository;
+using InkaPharmacy.Api.Common.Domain.Specification;
+using InkaPharmacy.Api.Common.Infrastructure.Persistence.NHibernate;
+using InkaPharmacy.Api.Customers.Domain.Repository;
 
-namespace InkaPhatmacy.Api.Customers.Infrastructure.Persistence.NHibernate.Repository
+namespace InkaPharmacy.Api.Customers.Infrastructure.Persistence.NHibernate.Repository
 {
-    using InkaPhatmacy.Api.Product;
-    using InkaPhatmacy.Api.Product.Domain.Repository;
+    using InkaPharmacy.Api.Product;
+    using InkaPharmacy.Api.Product.Domain.Repository;
 
     class ProductNHibernateRepository : BaseNHibernateRepository<Product>, IProductRepository
     {

@@ -1,11 +1,11 @@
-﻿    using InkaPhatmacy.Api.Common.Domain.Specification;
+﻿    using InkaPharmacy.Api.Common.Domain.Specification;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace InkaPhatmacy.Api.Product.Infrastructure.Persistence.NHibernate.Specification
+namespace InkaPharmacy.Api.Product.Infrastructure.Persistence.NHibernate.Specification
 {
 
     public class FindByCategoryBySpecification : Specification<Product>

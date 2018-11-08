@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace InkaPhatmacy.Api.Empleado.Domain.Entity
+namespace InkaPharmacy.Api.Employee.Domain.Entity
 {
-    using InkaPhatmacy.Api.Common.Application;
+    using InkaPharmacy.Api.Common.Application;
   
     public class Employee
     {

@@ -1,8 +1,8 @@
 ﻿using FluentNHibernate.Mapping;
 
-namespace InkaPhatmacy.Api.BankAccounts.Infrastructure.Persistence.NHibernate.Mapping
+namespace InkaPharmacy.Api.BankAccounts.Infrastructure.Persistence.NHibernate.Mapping
 {
-    using InkaPhatmacy.Api.Empleado.Domain.Entity;
+    using InkaPharmacy.Api.Employee.Domain.Entity;
 
     public class EmployeeMap : ClassMap<Employee>
     {

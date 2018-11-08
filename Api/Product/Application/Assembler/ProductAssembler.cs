@@ -1,13 +1,13 @@
 ﻿using AutoMapper;
-using InkaPhatmacy.Api.Product.Application.Dto;
+using InkaPharmacy.Api.Product.Application.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace InkaPhatmacy.Api.Products.Application.Assembler
+namespace InkaPharmacy.Api.Products.Application.Assembler
 {
-    using InkaPhatmacy.Api.Product;
+    using InkaPharmacy.Api.Product;
 
     public class ProductAssembler
     {

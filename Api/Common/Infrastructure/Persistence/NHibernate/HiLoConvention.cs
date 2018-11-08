@@ -1,7 +1,7 @@
 ﻿using FluentNHibernate.Conventions;
 using FluentNHibernate.Conventions.Instances;
 
-namespace InkaPhatmacy.Api.Common.Infrastructure.Persistence.NHibernate
+namespace InkaPharmacy.Api.Common.Infrastructure.Persistence.NHibernate
 {
     public class HiLoConvention : IIdConvention
     {

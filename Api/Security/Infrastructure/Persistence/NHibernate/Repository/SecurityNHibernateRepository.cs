@@ -1,15 +1,15 @@
-﻿using InkaPhatmacy.Api.Common.Infrastructure.Persistence.NHibernate;
+﻿using InkaPharmacy.Api.Common.Infrastructure.Persistence.NHibernate;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace InkaPhatmacy.Api.Accounts.Infrastructure.Persistence.NHibernate.Repository
+namespace InkaPharmacy.Api.Accounts.Infrastructure.Persistence.NHibernate.Repository
 {
     using System.Collections.Generic;
-    using InkaPhatmacy.Api.Common.Domain.Specification;
-    using InkaPhatmacy.Api.Security.Domain.Repository;
-    using InkaPhatmacy.Api.Empleado.Domain.Entity;
+    using InkaPharmacy.Api.Common.Domain.Specification;
+    using InkaPharmacy.Api.Security.Domain.Repository;
+    using InkaPharmacy.Api.Employee.Domain.Entity;
 
     public class SecurityNHibernateRepository : BaseNHibernateRepository<Employee>, ISecurityRepository
     {

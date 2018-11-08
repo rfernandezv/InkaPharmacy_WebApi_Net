@@ -1,7 +1,7 @@
-﻿using InkaPhatmacy.Api.Common.Application.Enum;
+﻿using InkaPharmacy.Api.Common.Application.Enum;
 using System;
 
-namespace InkaPhatmacy.Api.Empleado.Application.Dto
+namespace InkaPharmacy.Api.Employee.Application.Dto
 {
     public class EmployeeDto
     {

@@ -1,25 +1,25 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
-using InkaPhatmacy.Api.Common.Application.Dto;
+using InkaPharmacy.Api.Common.Application.Dto;
 using System;
-using InkaPhatmacy.Api.Common.Application;
+using InkaPharmacy.Api.Common.Application;
 using System.Linq;
 
-namespace InkaPhatmacy.Api.Controllers
+namespace InkaPharmacy.Api.Controllers
 {
-    using InkaPhatmacy.Api.Security.Application.Assembler;
-    using InkaPhatmacy.Api.Security.Domain.Repository;
-    using InkaPhatmacy.Api.Common.Domain.Specification;
+    using InkaPharmacy.Api.Security.Application.Assembler;
+    using InkaPharmacy.Api.Security.Domain.Repository;
+    using InkaPharmacy.Api.Common.Domain.Specification;
     using System.Collections.Generic;
 
-    using InkaPhatmacy.Api.Security.Infrastructure.Persistence.NHibernate.Specification;
+    using InkaPharmacy.Api.Security.Infrastructure.Persistence.NHibernate.Specification;
     using System.Security.Claims;
     using System.IdentityModel.Tokens.Jwt;
     using Microsoft.IdentityModel.Tokens;
     using System.Text;
-    using InkaPhatmacy.Api.Common.Constantes;
-    using InkaPhatmacy.Api.Empleado.Domain.Entity;
-    using InkaPhatmacy.Api.Empleado.Application.Dto;
+    using InkaPharmacy.Api.Common.Constantes;
+    using InkaPharmacy.Api.Employee.Domain.Entity;
+    using InkaPharmacy.Api.Employee.Application.Dto;
 
     [Route("api/Security/Login")]
     [ApiController]

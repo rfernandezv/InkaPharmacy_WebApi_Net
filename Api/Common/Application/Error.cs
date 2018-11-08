@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace InkaPhatmacy.Api.Common.Application
+namespace InkaPharmacy.Api.Common.Application
 {
     public class Error
     {

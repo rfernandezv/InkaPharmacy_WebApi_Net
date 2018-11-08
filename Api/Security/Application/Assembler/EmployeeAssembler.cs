@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 
-namespace InkaPhatmacy.Api.Security.Application.Assembler
+namespace InkaPharmacy.Api.Security.Application.Assembler
 {
-    using InkaPhatmacy.Api.Empleado.Application.Dto;
-    using InkaPhatmacy.Api.Empleado.Domain.Entity;
+    using InkaPharmacy.Api.Employee.Application.Dto;
+    using InkaPharmacy.Api.Employee.Domain.Entity;
     using System.Collections.Generic;
 
     public class EmployeeAssembler
