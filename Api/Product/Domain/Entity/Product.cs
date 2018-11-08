@@ -34,6 +34,18 @@ namespace EnterprisePatterns.Api.Product
             return notification;
         }
 
+        public virtual Notification validateFindByCategory(long Category_id)
+        {
+            Notification notification = new Notification();
+
+            if (Category_id== 0)
+            {
+                notification.addError("The Category is null");
+            }
+
+            return notification;
+        }
+
         public virtual Notification validateGetProductById(long ProductId)
         {
             Notification notification = new Notification();

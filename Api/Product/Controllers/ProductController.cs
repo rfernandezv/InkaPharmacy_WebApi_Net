@@ -91,6 +91,13 @@ namespace Api.Products.Controllers
             return specification;
         }
 
+        private Specification<Product> GetFindByCategory(long Category_id)
+        {
+            Specification<Product> specification = Specification<Product>.All;
+            specification = specification.And(new FindByCategoryBySpecification(Category_id));
+            return specification;
+        }
+
 
         [HttpGet]
         public IActionResult Products([FromQuery] int page = 0, [FromQuery] int size = 5)
@@ -274,6 +281,43 @@ namespace Api.Products.Controllers
 
             }
         }
+
+        [Route("/api/Products/FindByCategory")]
+        [HttpGet]
+        public IActionResult FindByCategory([FromQuery] long Category_id, [FromQuery] int page = 0, [FromQuery] int size = 5)
+        {
+            bool uowStatus = false;
+            try
+            {
+                Product product = new Product();
+                Notification notification = product.validateFindByCategory(Category_id);
+
+                if (notification.hasErrors())
+                {
+                    throw new ArgumentException(notification.errorMessage());
+                }
+
+                Specification<Product> specification = GetFindByCategory(Category_id);
+
+                uowStatus = _unitOfWork.BeginTransaction();
+                List<Product> products = _ProductRepository.GetListFindByCategory(specification, page, size );
+                _unitOfWork.Commit(uowStatus);
+                List<ProductDto> productsDto = _ProductAssembler.FromListProductToListProductDto(products);
+                return StatusCode(StatusCodes.Status200OK, productsDto);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(this.responseHandler.getAppCustomErrorResponse(ex.Message));
+            }
+            catch (Exception ex)
+            {
+                _unitOfWork.Rollback(uowStatus);
+                Console.WriteLine(ex.StackTrace);
+                return StatusCode(StatusCodes.Status500InternalServerError, new ApiStringResponseDto(ex.Message));
+            }
+
+        }
+
 
     }
 }
