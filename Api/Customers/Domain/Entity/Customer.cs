@@ -1,4 +1,6 @@
-﻿namespace EnterprisePatterns.Api.Customers
+﻿using EnterprisePatterns.Api.Common.Application;
+
+namespace EnterprisePatterns.Api.Customers
 {
     public class Customer
     {
@@ -11,10 +13,23 @@
         public virtual string Email { get; set; }
         public virtual string Document_Number { get; set; }
         public virtual int Status { get; set; }
-        
+
         public Customer()
         {
         }
+
+        public virtual Notification validateFindByDocumentNumber(string DocumentNumber)
+        {
+            Notification notification = new Notification();
+
+            if (string.IsNullOrEmpty(DocumentNumber))
+            {
+                notification.addError("The Document Number is null");
+            }
+
+            return notification;
+        }
+
 
     }
 }

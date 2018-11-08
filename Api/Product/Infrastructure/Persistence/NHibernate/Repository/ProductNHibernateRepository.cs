@@ -75,7 +75,28 @@ namespace EnterprisePatterns.Api.Customers.Infrastructure.Persistence.NHibernate
             return products;
         }
 
+        public List<Product> GetListFindByCategory(Specification<Product> specification, int page = 0, int pageSize = 5)
+        {
+            List<Product> products = new List<Product>();
+            bool uowStatus = false;
+            try
+            {
+                       //.Where(specification.ToExpression())
 
-
+                uowStatus = _unitOfWork.BeginTransaction();
+                products = _unitOfWork.GetSession().Query<Product>()
+                       .Where(specification.ToExpression())
+                        .Skip(page * pageSize)
+                        .Take(pageSize)
+                        .ToList();
+                _unitOfWork.Commit(uowStatus);
+            }
+            catch (Exception ex)
+            {
+                _unitOfWork.Rollback(uowStatus);
+                throw ex;
+            }
+            return products;
+        }
     }
 }

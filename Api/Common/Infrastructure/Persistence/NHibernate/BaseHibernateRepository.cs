@@ -69,5 +69,23 @@ namespace EnterprisePatterns.Api.Common.Infrastructure.Persistence.NHibernate
                 throw ex;
             }
         }
+
+        //private void SaveOrUpdate2(T entity)
+        //{
+        //    bool uowStatus = false;
+        //    try
+        //    {
+        //        uowStatus = _unitOfWork.BeginTransaction();
+        //        _unitOfWork.GetSession().SaveOrUpdate(entity);
+        //        _unitOfWork.Commit(uowStatus);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        _unitOfWork.Rollback(uowStatus);
+        //        throw ex;
+        //    }
+        //}
+
+
     }
 }

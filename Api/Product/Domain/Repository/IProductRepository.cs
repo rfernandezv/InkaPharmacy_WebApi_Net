@@ -13,6 +13,12 @@ namespace EnterprisePatterns.Api.Product.Domain.Repository
             int page = 0,
             int pageSize = 5);
 
+        List<Product> GetListFindByCategory(
+             Specification<Product> specification,
+           int page = 0,
+           int pageSize = 5
+          );
+
         void Create(Product product);
 
         void Update(Product product);

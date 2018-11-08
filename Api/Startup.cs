@@ -5,15 +5,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using EnterprisePatterns.Api.Common.Infrastructure.Persistence.NHibernate;
-using EnterprisePatterns.Api.BankAccounts.Domain.Repository;
+
 using EnterprisePatterns.Api.Accounts.Infrastructure.Persistence.NHibernate.Repository;
 using EnterprisePatterns.Api.Customers.Domain.Repository;
 using EnterprisePatterns.Api.Customers.Infrastructure.Persistence.NHibernate.Repository;
 using AutoMapper;
-using EnterprisePatterns.Api.BankAccounts.Application.Assembler;
-using EnterprisePatterns.Api.Movies.Domain.Repository;
-using EnterprisePatterns.Api.Movies.Infrastructure.Persistence.NHibernate.Repository;
-using EnterprisePatterns.Api.Movies.Application.Assembler;
 using EnterprisePatterns.Api.Common.Application;
 using EnterprisePatterns.Api.Security.Application.Assembler;
 using EnterprisePatterns.Api.Security.Domain.Repository;
@@ -45,8 +41,8 @@ namespace EnterprisePatterns.Api
             services.AddSingleton(new ProductAssembler(mapper));
             services.AddSingleton(new CustomerAssembler(mapper));
             services.AddSingleton(new EmployeeAssembler(mapper));
-            services.AddSingleton(new BankAccountCreateAssembler(mapper));
-            services.AddSingleton(new MovieAssembler(mapper));
+            //services.AddSingleton(new BankAccountCreateAssembler(mapper));
+            //services.AddSingleton(new MovieAssembler(mapper));
 
             services.AddScoped<IUnitOfWork, UnitOfWorkNHibernate>();
 
@@ -69,11 +65,11 @@ namespace EnterprisePatterns.Api
             });
 
 
-            services.AddTransient<IBankAccountRepository, BankAccountNHibernateRepository>((ctx) =>
-            {
-                IUnitOfWork unitOfWork = ctx.GetService<IUnitOfWork>();
-                return new BankAccountNHibernateRepository((UnitOfWorkNHibernate)unitOfWork);
-            });
+            //services.AddTransient<IBankAccountRepository, BankAccountNHibernateRepository>((ctx) =>
+            //{
+            //    IUnitOfWork unitOfWork = ctx.GetService<IUnitOfWork>();
+            //    return new BankAccountNHibernateRepository((UnitOfWorkNHibernate)unitOfWork);
+            //});
 
             services.AddTransient<ICustomerRepository, CustomerCustomerNHibernateRepository>((ctx) =>
             {
@@ -81,11 +77,11 @@ namespace EnterprisePatterns.Api
                 return new CustomerCustomerNHibernateRepository((UnitOfWorkNHibernate)unitOfWork);
             });
 
-            services.AddTransient<IMovieRepository, MovieNHibernateRepository>((ctx) =>
-            {
-                IUnitOfWork unitOfWork = ctx.GetService<IUnitOfWork>();
-                return new MovieNHibernateRepository((UnitOfWorkNHibernate)unitOfWork);
-            });
+            //services.AddTransient<IMovieRepository, MovieNHibernateRepository>((ctx) =>
+            //{
+            //    IUnitOfWork unitOfWork = ctx.GetService<IUnitOfWork>();
+            //    return new MovieNHibernateRepository((UnitOfWorkNHibernate)unitOfWork);
+            //});
 
         }
 

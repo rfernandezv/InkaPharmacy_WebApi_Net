@@ -1,20 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using EnterprisePatterns.Api.Common.Application;
-using EnterprisePatterns.Api.Common.Application.Dto;
 using EnterprisePatterns.Api.Common.Domain.Specification;
 using EnterprisePatterns.Api.Customers;
 using EnterprisePatterns.Api.Customers.Application.Assembler;
 using EnterprisePatterns.Api.Customers.Application.Dto;
 using EnterprisePatterns.Api.Customers.Domain.Repository;
 using EnterprisePatterns.Api.Customers.Infrastructure.Persistence.NHibernate.Specification;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Customers.Controllers
 {
+    [Authorize]
     [Route("api/Customers")]
     [ApiController]
     public class CustomerController : ControllerBase
@@ -43,12 +41,24 @@ namespace Api.Customers.Controllers
             bool uowStatus = false;
             try
             {
-                Specification< Customer> specification = GetFindByDocumentNumber(DocumentNumber);
+                Customer customer = new Customer();
+               Notification notification = customer.validateFindByDocumentNumber(DocumentNumber);
+
+                if (notification.hasErrors())
+                {
+                    throw new ArgumentException(notification.errorMessage());
+                }
+
+                Specification<Customer> specification = GetFindByDocumentNumber(DocumentNumber);
                 uowStatus = _unitOfWork.BeginTransaction();
-                Customer customer  = _customerRepository.FindByDocumentNumber(specification);
+                customer = _customerRepository.FindByDocumentNumber(specification);
                 _unitOfWork.Commit(uowStatus);
                 CustomerDto customersDto = _customerAssembler.FromCustomerToCustomerDto(customer);
                 return StatusCode(StatusCodes.Status200OK, customersDto);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(this.responseHandler.getAppCustomErrorResponse(ex.Message));
             }
             catch (Exception ex)
             {
@@ -61,7 +71,7 @@ namespace Api.Customers.Controllers
         private Specification<Customer> GetFindByDocumentNumber(string DocumentNumber)
         {
             Specification<Customer> specification = Specification<Customer>.All;
-            specification = specification.And(new FindByDocumentNumberBySpecification( DocumentNumber));
+            specification = specification.And(new FindByDocumentNumberBySpecification(DocumentNumber));
             return specification;
         }
 

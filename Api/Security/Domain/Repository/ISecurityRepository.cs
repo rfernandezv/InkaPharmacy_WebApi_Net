@@ -1,6 +1,4 @@
-﻿using EnterprisePatterns.Api.BankAccounts.Domain.Entity;
-
-namespace EnterprisePatterns.Api.Security.Domain.Repository
+﻿namespace EnterprisePatterns.Api.Security.Domain.Repository
 {
     using EnterprisePatterns.Api.Common.Domain.Specification;
     using EnterprisePatterns.Api.Empleado.Domain.Entity;
