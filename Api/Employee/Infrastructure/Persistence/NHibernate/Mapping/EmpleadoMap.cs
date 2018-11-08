@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EnterprisePatterns.Api.Empleado.Infrastructure.Persistence.NHibernate.Mapping
+namespace InkaPhatmacy.Api.Empleado.Infrastructure.Persistence.NHibernate.Mapping
 {
-    using EnterprisePatterns.Api.Empleado.Domain.Entity;
+    using InkaPhatmacy.Api.Empleado.Domain.Entity;
 
     public class EmployeeMap : ClassMap<Employee>
     {

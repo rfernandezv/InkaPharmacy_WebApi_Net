@@ -1,7 +1,7 @@
-﻿using EnterprisePatterns.Api.Common.Domain.Specification;
+﻿using InkaPhatmacy.Api.Common.Domain.Specification;
 using System.Collections.Generic;
 
-namespace EnterprisePatterns.Api.Product.Domain.Repository
+namespace InkaPhatmacy.Api.Product.Domain.Repository
 {
     public interface IProductRepository
     {

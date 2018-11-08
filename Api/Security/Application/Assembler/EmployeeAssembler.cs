@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 
-namespace EnterprisePatterns.Api.Security.Application.Assembler
+namespace InkaPhatmacy.Api.Security.Application.Assembler
 {
-    using EnterprisePatterns.Api.Empleado.Application.Dto;
-    using EnterprisePatterns.Api.Empleado.Domain.Entity;
+    using InkaPhatmacy.Api.Empleado.Application.Dto;
+    using InkaPhatmacy.Api.Empleado.Domain.Entity;
     using System.Collections.Generic;
 
     public class EmployeeAssembler

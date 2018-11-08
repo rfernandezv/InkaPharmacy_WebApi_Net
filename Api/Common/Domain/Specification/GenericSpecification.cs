@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
 
-namespace EnterprisePatterns.Api.Common.Domain.Specification
+namespace InkaPhatmacy.Api.Common.Domain.Specification
 {
     public class GenericSpecification<T>
     {

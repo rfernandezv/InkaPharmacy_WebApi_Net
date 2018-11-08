@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
-using EnterprisePatterns.Api.Common.Domain.ValueObject;
-using EnterprisePatterns.Api.Customers;
+using InkaPhatmacy.Api.Common.Domain.ValueObject;
+using InkaPhatmacy.Api.Customers;
 
-namespace EnterprisePatterns.Api.Security.Application.Assembler
+namespace InkaPhatmacy.Api.Security.Application.Assembler
 {
-    using EnterprisePatterns.Api.Empleado.Domain.Entity;
-    using EnterprisePatterns.Api.Empleado.Application.Dto;
+    using InkaPhatmacy.Api.Empleado.Domain.Entity;
+    using InkaPhatmacy.Api.Empleado.Application.Dto;
 
     public class EmployeeProfile : Profile
     {

@@ -1,6 +1,6 @@
-﻿using EnterprisePatterns.Api.Common.Application;
+﻿using InkaPhatmacy.Api.Common.Application;
 
-namespace EnterprisePatterns.Api.Customers
+namespace InkaPhatmacy.Api.Customers
 {
     public class Customer
     {

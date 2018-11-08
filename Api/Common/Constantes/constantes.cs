@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EnterprisePatterns.Api.Common.Constantes
+namespace InkaPhatmacy.Api.Common.Constantes
 {
     public class Constantes
     {

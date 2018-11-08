@@ -1,8 +1,8 @@
-﻿using EnterprisePatterns.Api.Common.Application;
+﻿using InkaPhatmacy.Api.Common.Application;
 using NHibernate;
 using System.Data;
 
-namespace EnterprisePatterns.Api.Common.Infrastructure.Persistence.NHibernate
+namespace InkaPhatmacy.Api.Common.Infrastructure.Persistence.NHibernate
 {
     public class UnitOfWorkNHibernate : IUnitOfWork
     {

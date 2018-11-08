@@ -1,14 +1,14 @@
-﻿using EnterprisePatterns.Api.Common.Infrastructure.Persistence.NHibernate;
+﻿using InkaPhatmacy.Api.Common.Infrastructure.Persistence.NHibernate;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EnterprisePatterns.Api.Employee.Infrastructure.Persistence.NHibernate.Repository
+namespace InkaPhatmacy.Api.Employee.Infrastructure.Persistence.NHibernate.Repository
 {
-    using EnterprisePatterns.Api.Common.Domain.Specification;
-    using EnterprisePatterns.Api.Empleado.Domain.Entity;
-    using EnterprisePatterns.Api.Employee.Domain.Repository;
+    using InkaPhatmacy.Api.Common.Domain.Specification;
+    using InkaPhatmacy.Api.Empleado.Domain.Entity;
+    using InkaPhatmacy.Api.Employee.Domain.Repository;
 
     public class EmployeeNHibernateRepository : BaseNHibernateRepository<Employee>, IEmployeeRepository
     {

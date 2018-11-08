@@ -1,8 +1,8 @@
 ﻿using FluentNHibernate.Mapping;
 
-namespace EnterprisePatterns.Api.Customers.Infrastructure.Persistence.NHibernate.Mapping
+namespace InkaPhatmacy.Api.Customers.Infrastructure.Persistence.NHibernate.Mapping
 {
-    using EnterprisePatterns.Api.Product;
+    using InkaPhatmacy.Api.Product;
 
     public class ProductMap : ClassMap<Product>
     {

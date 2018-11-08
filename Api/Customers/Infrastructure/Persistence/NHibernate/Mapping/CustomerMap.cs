@@ -1,6 +1,6 @@
 ﻿using FluentNHibernate.Mapping;
 
-namespace EnterprisePatterns.Api.Customers.Infrastructure.Persistence.NHibernate.Mapping
+namespace InkaPhatmacy.Api.Customers.Infrastructure.Persistence.NHibernate.Mapping
 {
     public class CustomerMap : ClassMap<Customer>
     {

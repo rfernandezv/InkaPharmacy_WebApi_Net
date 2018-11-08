@@ -1,7 +1,7 @@
-﻿namespace EnterprisePatterns.Api.Security.Domain.Repository
+﻿namespace InkaPhatmacy.Api.Security.Domain.Repository
 {
-    using EnterprisePatterns.Api.Common.Domain.Specification;
-    using EnterprisePatterns.Api.Empleado.Domain.Entity;
+    using InkaPhatmacy.Api.Common.Domain.Specification;
+    using InkaPhatmacy.Api.Empleado.Domain.Entity;
     using System.Collections.Generic;
 
     public interface ISecurityRepository

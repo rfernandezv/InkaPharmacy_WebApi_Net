@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace EnterprisePatterns.Api.Common
+namespace InkaPhatmacy.Api.Common
 {
     public class Util
     {

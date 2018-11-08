@@ -1,15 +1,15 @@
 ﻿using AutoMapper;
-using EnterprisePatterns.Api.Customers;
-using EnterprisePatterns.Api.Customers.Application.Dto;
+using InkaPhatmacy.Api.Customers;
+using InkaPhatmacy.Api.Customers.Application.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EnterprisePatterns.Api.Products.Application.Assembler
+namespace InkaPhatmacy.Api.Products.Application.Assembler
 {
-    using EnterprisePatterns.Api.Product ;
-    using EnterprisePatterns.Api.Product.Application.Dto;
+    using InkaPhatmacy.Api.Product ;
+    using InkaPhatmacy.Api.Product.Application.Dto;
 
     public class ProductProfile : Profile
     {

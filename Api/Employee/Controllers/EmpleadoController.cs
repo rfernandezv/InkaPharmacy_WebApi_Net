@@ -1,21 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
-using EnterprisePatterns.Api.Common.Application.Dto;
+using InkaPhatmacy.Api.Common.Application.Dto;
 using System;
-using EnterprisePatterns.Api.Common.Application;
+using InkaPhatmacy.Api.Common.Application;
 
-namespace EnterprisePatterns.Api.Controllers
+namespace InkaPhatmacy.Api.Controllers
 {
 
-    using EnterprisePatterns.Api.Security.Application.Assembler;
-    using EnterprisePatterns.Api.Security.Domain.Repository;
-    using EnterprisePatterns.Api.Common.Domain.Specification;
+    using InkaPhatmacy.Api.Security.Application.Assembler;
+    using InkaPhatmacy.Api.Security.Domain.Repository;
+    using InkaPhatmacy.Api.Common.Domain.Specification;
  
     using System.Collections.Generic;
-    using EnterprisePatterns.Api.Employee.Infrastructure.Persistence.NHibernate.Specification;
-    using EnterprisePatterns.Api.Empleado.Domain.Entity;
-    using EnterprisePatterns.Api.Empleado.Application.Dto;
-    using EnterprisePatterns.Api.Employee.Domain.Repository;
+    using InkaPhatmacy.Api.Employee.Infrastructure.Persistence.NHibernate.Specification;
+    using InkaPhatmacy.Api.Empleado.Domain.Entity;
+    using InkaPhatmacy.Api.Empleado.Application.Dto;
+    using InkaPhatmacy.Api.Employee.Domain.Repository;
     using Microsoft.AspNetCore.Authorization;
 
     [Authorize]

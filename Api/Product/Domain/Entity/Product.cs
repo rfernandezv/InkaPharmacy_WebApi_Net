@@ -1,7 +1,7 @@
-﻿using EnterprisePatterns.Api.Common.Application;
+﻿using InkaPhatmacy.Api.Common.Application;
 using System;
 
-namespace EnterprisePatterns.Api.Product
+namespace InkaPhatmacy.Api.Product
 {
     public class Product
     {

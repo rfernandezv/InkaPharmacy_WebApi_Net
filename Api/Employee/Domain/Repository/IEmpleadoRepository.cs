@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EnterprisePatterns.Api.Employee.Domain.Repository
+namespace InkaPhatmacy.Api.Employee.Domain.Repository
 {
-    using EnterprisePatterns.Api.Common.Domain.Specification;
-    using EnterprisePatterns.Api.Empleado.Domain.Entity;
+    using InkaPhatmacy.Api.Common.Domain.Specification;
+    using InkaPhatmacy.Api.Empleado.Domain.Entity;
 
     public interface IEmployeeRepository
     {

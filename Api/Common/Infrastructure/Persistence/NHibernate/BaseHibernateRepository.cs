@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace EnterprisePatterns.Api.Common.Infrastructure.Persistence.NHibernate
+namespace InkaPhatmacy.Api.Common.Infrastructure.Persistence.NHibernate
 {
     public class BaseNHibernateRepository<T>
     {

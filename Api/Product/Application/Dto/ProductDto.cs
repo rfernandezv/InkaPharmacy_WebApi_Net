@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EnterprisePatterns.Api.Product.Application.Dto
+namespace InkaPhatmacy.Api.Product.Application.Dto
 {
     public class ProductDto
     {

@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace EnterprisePatterns.Api.Common.Domain.Specification
+namespace InkaPhatmacy.Api.Common.Domain.Specification
 {
     internal sealed class NotSpecification<T> : Specification<T>
     {

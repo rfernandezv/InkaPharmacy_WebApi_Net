@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
-using EnterprisePatterns.Api.Customers.Application.Dto;
+using InkaPhatmacy.Api.Customers.Application.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EnterprisePatterns.Api.Customers.Application.Assembler
+namespace InkaPhatmacy.Api.Customers.Application.Assembler
 {
     public class CustomerAssembler
     {

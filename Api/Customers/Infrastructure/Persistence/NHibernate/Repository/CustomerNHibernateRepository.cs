@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using EnterprisePatterns.Api.Common.Domain.Specification;
-using EnterprisePatterns.Api.Common.Infrastructure.Persistence.NHibernate;
-using EnterprisePatterns.Api.Customers.Domain.Repository;
+using InkaPhatmacy.Api.Common.Domain.Specification;
+using InkaPhatmacy.Api.Common.Infrastructure.Persistence.NHibernate;
+using InkaPhatmacy.Api.Customers.Domain.Repository;
 
-namespace EnterprisePatterns.Api.Customers.Infrastructure.Persistence.NHibernate.Repository
+namespace InkaPhatmacy.Api.Customers.Infrastructure.Persistence.NHibernate.Repository
 {
     class CustomerCustomerNHibernateRepository : BaseNHibernateRepository<Customer>, ICustomerRepository
     {

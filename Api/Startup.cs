@@ -4,22 +4,22 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using EnterprisePatterns.Api.Common.Infrastructure.Persistence.NHibernate;
+using InkaPhatmacy.Api.Common.Infrastructure.Persistence.NHibernate;
 
-using EnterprisePatterns.Api.Accounts.Infrastructure.Persistence.NHibernate.Repository;
-using EnterprisePatterns.Api.Customers.Domain.Repository;
-using EnterprisePatterns.Api.Customers.Infrastructure.Persistence.NHibernate.Repository;
+using InkaPhatmacy.Api.Accounts.Infrastructure.Persistence.NHibernate.Repository;
+using InkaPhatmacy.Api.Customers.Domain.Repository;
+using InkaPhatmacy.Api.Customers.Infrastructure.Persistence.NHibernate.Repository;
 using AutoMapper;
-using EnterprisePatterns.Api.Common.Application;
-using EnterprisePatterns.Api.Security.Application.Assembler;
-using EnterprisePatterns.Api.Security.Domain.Repository;
-using EnterprisePatterns.Api.Customers.Application.Assembler;
-using EnterprisePatterns.Api.Products.Application.Assembler;
-using EnterprisePatterns.Api.Product.Domain.Repository;
-using EnterprisePatterns.Api.Employee.Domain.Repository;
-using EnterprisePatterns.Api.Employee.Infrastructure.Persistence.NHibernate.Repository;
+using InkaPhatmacy.Api.Common.Application;
+using InkaPhatmacy.Api.Security.Application.Assembler;
+using InkaPhatmacy.Api.Security.Domain.Repository;
+using InkaPhatmacy.Api.Customers.Application.Assembler;
+using InkaPhatmacy.Api.Products.Application.Assembler;
+using InkaPhatmacy.Api.Product.Domain.Repository;
+using InkaPhatmacy.Api.Employee.Domain.Repository;
+using InkaPhatmacy.Api.Employee.Infrastructure.Persistence.NHibernate.Repository;
 
-namespace EnterprisePatterns.Api
+namespace InkaPhatmacy.Api
 {
     public class Startup
     {

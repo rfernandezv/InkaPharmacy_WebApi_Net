@@ -1,7 +1,7 @@
-﻿using EnterprisePatterns.Api.Common.Application.Enum;
+﻿using InkaPhatmacy.Api.Common.Application.Enum;
 using System;
 
-namespace EnterprisePatterns.Api.Empleado.Application.Dto
+namespace InkaPhatmacy.Api.Empleado.Application.Dto
 {
     public class EmployeeDto
     {

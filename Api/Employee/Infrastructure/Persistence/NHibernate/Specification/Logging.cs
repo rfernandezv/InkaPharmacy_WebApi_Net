@@ -1,13 +1,13 @@
-﻿using EnterprisePatterns.Api.Common.Domain.Specification;
+﻿using InkaPhatmacy.Api.Common.Domain.Specification;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EnterprisePatterns.Api.Employee.Infrastructure.Persistence.NHibernate.Specification
+namespace InkaPhatmacy.Api.Employee.Infrastructure.Persistence.NHibernate.Specification
 {
     using System.Linq.Expressions;
-    using EnterprisePatterns.Api.Empleado.Domain.Entity;
+    using InkaPhatmacy.Api.Empleado.Domain.Entity;
 
     public class LoggingBySpecification : Specification<Employee>
     {

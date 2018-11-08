@@ -1,11 +1,11 @@
-﻿using EnterprisePatterns.Api.Common.Domain.Specification;
+﻿using InkaPhatmacy.Api.Common.Domain.Specification;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace EnterprisePatterns.Api.Customers.Infrastructure.Persistence.NHibernate.Specification
+namespace InkaPhatmacy.Api.Customers.Infrastructure.Persistence.NHibernate.Specification
 {
     public class FindByDocumentNumberBySpecification : Specification<Customer>
     {

@@ -1,7 +1,7 @@
 ﻿using FluentMigrator;
 using System.Reflection;
 
-namespace EnterprisePatterns.Api.Migrations.MySQL
+namespace InkaPhatmacy.Api.Migrations.MySQL
 {
     [Migration(7)]
     public class CustomerTable : Migration

@@ -1,25 +1,25 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
-using EnterprisePatterns.Api.Common.Application.Dto;
+using InkaPhatmacy.Api.Common.Application.Dto;
 using System;
-using EnterprisePatterns.Api.Common.Application;
+using InkaPhatmacy.Api.Common.Application;
 using System.Linq;
 
-namespace EnterprisePatterns.Api.Controllers
+namespace InkaPhatmacy.Api.Controllers
 {
-    using EnterprisePatterns.Api.Security.Application.Assembler;
-    using EnterprisePatterns.Api.Security.Domain.Repository;
-    using EnterprisePatterns.Api.Common.Domain.Specification;
+    using InkaPhatmacy.Api.Security.Application.Assembler;
+    using InkaPhatmacy.Api.Security.Domain.Repository;
+    using InkaPhatmacy.Api.Common.Domain.Specification;
     using System.Collections.Generic;
 
-    using EnterprisePatterns.Api.Security.Infrastructure.Persistence.NHibernate.Specification;
+    using InkaPhatmacy.Api.Security.Infrastructure.Persistence.NHibernate.Specification;
     using System.Security.Claims;
     using System.IdentityModel.Tokens.Jwt;
     using Microsoft.IdentityModel.Tokens;
     using System.Text;
-    using EnterprisePatterns.Api.Common.Constantes;
-    using EnterprisePatterns.Api.Empleado.Domain.Entity;
-    using EnterprisePatterns.Api.Empleado.Application.Dto;
+    using InkaPhatmacy.Api.Common.Constantes;
+    using InkaPhatmacy.Api.Empleado.Domain.Entity;
+    using InkaPhatmacy.Api.Empleado.Application.Dto;
 
     [Route("api/Security/Login")]
     [ApiController]

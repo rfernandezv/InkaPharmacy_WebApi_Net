@@ -1,12 +1,12 @@
-﻿using EnterprisePatterns.Api.Common.Domain.Specification;
+﻿using InkaPhatmacy.Api.Common.Domain.Specification;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EnterprisePatterns.Api.Security.Infrastructure.Persistence.NHibernate.Specification
+namespace InkaPhatmacy.Api.Security.Infrastructure.Persistence.NHibernate.Specification
 {
-    using EnterprisePatterns.Api.Empleado.Domain.Entity;
+    using InkaPhatmacy.Api.Empleado.Domain.Entity;
     using System.Linq.Expressions;
 
     public class LoginBySpecification : Specification<Employee>

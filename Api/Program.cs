@@ -1,11 +1,11 @@
-﻿using EnterprisePatterns.Api.Migrations.MySQL;
+﻿using InkaPhatmacy.Api.Migrations.MySQL;
 using FluentMigrator.Runner;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 
-namespace EnterprisePatterns.Api
+namespace InkaPhatmacy.Api
 {
     public class Program
     {

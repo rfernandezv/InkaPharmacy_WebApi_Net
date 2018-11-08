@@ -2,22 +2,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using EnterprisePatterns.Api.Common.Application;
-using EnterprisePatterns.Api.Common.Domain.Specification;
-using EnterprisePatterns.Api.Products.Application.Assembler;
-using EnterprisePatterns.Api.Product.Application.Dto;
-using EnterprisePatterns.Api.Product.Domain.Repository;
+using InkaPhatmacy.Api.Common.Application;
+using InkaPhatmacy.Api.Common.Domain.Specification;
+using InkaPhatmacy.Api.Products.Application.Assembler;
+using InkaPhatmacy.Api.Product.Application.Dto;
+using InkaPhatmacy.Api.Product.Domain.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using EnterprisePatterns.Api.Product;
-using EnterprisePatterns.Api.Customers.Application.Assembler;
-using EnterprisePatterns.Api.Product.Infrastructure.Persistence.NHibernate.Specification;
+using InkaPhatmacy.Api.Product;
+using InkaPhatmacy.Api.Customers.Application.Assembler;
+using InkaPhatmacy.Api.Product.Infrastructure.Persistence.NHibernate.Specification;
 using Microsoft.AspNetCore.Authorization;
-using EnterprisePatterns.Api.Common.Application.Dto;
+using InkaPhatmacy.Api.Common.Application.Dto;
 
 namespace Api.Products.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Route("api/Products")]
     [ApiController]
     public class ProductController : ControllerBase
