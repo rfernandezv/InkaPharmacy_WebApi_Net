@@ -17,7 +17,7 @@ using InkaPharmacy.Api.Common.Application.Dto;
 
 namespace Api.Products.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [Route("api/Products")]
     [ApiController]
     public class ProductController : ControllerBase
