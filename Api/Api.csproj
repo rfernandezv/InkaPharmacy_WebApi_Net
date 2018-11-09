@@ -78,8 +78,10 @@
 
   <ItemGroup>
     <Folder Include="Common\Application\Assembler\" />
+    <Folder Include="Security\Application\Assembler\" />
     <Folder Include="Security\Application\Dto\" />
     <Folder Include="Security\Domain\Entity\" />
+    <Folder Include="Security\Infrastructure\Persistence\NHibernate\Mapping\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
@@ -94,6 +96,7 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
     <PackageReference Include="MySql.Data" Version="8.0.12" />
     <PackageReference Include="NHibernate" Version="5.1.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
   </ItemGroup>
 
 </Project>

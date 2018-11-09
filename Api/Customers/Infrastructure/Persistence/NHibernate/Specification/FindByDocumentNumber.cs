@@ -1,9 +1,6 @@
 ﻿using InkaPharmacy.Api.Common.Domain.Specification;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Threading.Tasks;
 
 namespace InkaPharmacy.Api.Customers.Infrastructure.Persistence.NHibernate.Specification
 {

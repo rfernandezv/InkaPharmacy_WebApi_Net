@@ -1,26 +1,23 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
-using InkaPharmacy.Api.Common.Application.Dto;
 using System;
 using InkaPharmacy.Api.Common.Application;
 using System.Linq;
+using InkaPharmacy.Api.Security.Domain.Repository;
+using InkaPharmacy.Api.Common.Domain.Specification;
+using System.Collections.Generic;
+using InkaPharmacy.Api.Security.Infrastructure.Persistence.NHibernate.Specification;
+using System.Security.Claims;
+using System.IdentityModel.Tokens.Jwt;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using InkaPharmacy.Api.Common.Constants;
+using InkaPharmacy.Api.Employees.Domain.Entity;
+using InkaPharmacy.Api.Employees.Application.Dto;
+using InkaPharmacy.Api.Employees.Application.Assembler;
 
 namespace InkaPharmacy.Api.Controllers
 {
-    using InkaPharmacy.Api.Security.Application.Assembler;
-    using InkaPharmacy.Api.Security.Domain.Repository;
-    using InkaPharmacy.Api.Common.Domain.Specification;
-    using System.Collections.Generic;
-
-    using InkaPharmacy.Api.Security.Infrastructure.Persistence.NHibernate.Specification;
-    using System.Security.Claims;
-    using System.IdentityModel.Tokens.Jwt;
-    using Microsoft.IdentityModel.Tokens;
-    using System.Text;
-    using InkaPharmacy.Api.Common.Constantes;
-    using InkaPharmacy.Api.Employee.Domain.Entity;
-    using InkaPharmacy.Api.Employee.Application.Dto;
-
     [Route("api/Security/Login")]
     [ApiController]
     public class SecurityController : ControllerBase
@@ -41,8 +38,6 @@ namespace InkaPharmacy.Api.Controllers
             responseHandler = new ResponseHandler();
         }
 
-
-
         [HttpGet]
         public IActionResult Login([FromQuery]string usu, [FromQuery] string clave)
         {
@@ -58,12 +53,12 @@ namespace InkaPharmacy.Api.Controllers
 
                 if ( Employees.FirstOrDefault() == null)
                 {
-                    throw new ArgumentException("Employee doesn't logueado");
+                    throw new ArgumentException("Employee is not logged in");
                 }
            
                 EmployeeDto EmployeesDto = _empleadoLoginAssembler.toDto(Employees.FirstOrDefault());
                 var token = GenerateToken(EmployeesDto.Username);
-                return Ok(this.responseHandler.getOkCommandResponse("bearer " + token, Constantes.HttpStatus.Success, EmployeesDto));
+                return Ok(this.responseHandler.getOkCommandResponse("bearer " + token, Constants.HttpStatus.Success, EmployeesDto));
 
             }
             catch (ArgumentException ex)

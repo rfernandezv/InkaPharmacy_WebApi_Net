@@ -1,25 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using InkaPharmacy.Api.Common.Domain.Specification;
+using InkaPharmacy.Api.Employees.Domain.Entity;
 
-namespace InkaPharmacy.Api.Employee.Domain.Repository
+namespace InkaPharmacy.Api.Employees.Domain.Repository
 {
-    using InkaPharmacy.Api.Common.Domain.Specification;
-    using InkaPharmacy.Api.Employee.Domain.Entity;
-
     public interface IEmployeeRepository
     {
-        //void Create(Employee employee);
-        //void Delete(Employee employee);
-        //Employee Read(int id);
-
         List<Employee> GetList(
             Specification<Employee> specification,
-            //double minimumRating,
             int page = 0,
             int pageSize = 5);
 
+        Employee FindByAnySpecificField(Specification<Employee> specification);
     }
 
 }

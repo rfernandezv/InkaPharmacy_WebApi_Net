@@ -2,30 +2,31 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using InkaPharmacy.Api.Common.Domain.Specification;
+using InkaPharmacy.Api.Providers.Domain.Repository;
+using InkaPharmacy.Api.Providers.Domain.Entity;
 
-namespace InkaPharmacy.Api.Employees.Infrastructure.Persistence.NHibernate.Repository
+namespace InkaPharmacy.Api.Providers.Infrastructure.Persistence.NHibernate.Repository
 {
-    using InkaPharmacy.Api.Common.Domain.Specification;
-    using InkaPharmacy.Api.Employees.Domain.Entity;
-    using InkaPharmacy.Api.Employees.Domain.Repository;
 
-    public class EmployeeNHibernateRepository : BaseNHibernateRepository<Employee>, IEmployeeRepository
+
+    public class ProviderNHibernateRepository : BaseNHibernateRepository<Provider>, IProviderRepository
     {
-        public EmployeeNHibernateRepository(UnitOfWorkNHibernate unitOfWork) : base(unitOfWork)
+        public ProviderNHibernateRepository(UnitOfWorkNHibernate unitOfWork) : base(unitOfWork)
         {
         }
 
-        public List<Employee> GetList(
-            Specification<Employee> specification, 
-            int page = 0, 
+        public List<Provider> GetList(
+            Specification<Provider> specification,
+            int page = 0,
             int pageSize = 5)
         {
-            List<Employee> Employees = new List<Employee>();
+            List<Provider> providers = new List<Provider>();
             bool uowStatus = false;
             try
             {
                 uowStatus = _unitOfWork.BeginTransaction();
-                Employees = _unitOfWork.GetSession().Query<Employee>()
+                providers = _unitOfWork.GetSession().Query<Provider>()
                     .Where(specification.ToExpression())
                     .Skip(page * pageSize)
                     .Take(pageSize)
@@ -37,17 +38,17 @@ namespace InkaPharmacy.Api.Employees.Infrastructure.Persistence.NHibernate.Repos
                 _unitOfWork.Rollback(uowStatus);
                 throw ex;
             }
-            return Employees;
+            return providers;
         }
 
-        public Employee FindByAnySpecificField(Specification<Employee> specification)
+        public Provider FindByAnySpecificField(Specification<Provider> specification)
         {
-            Employee employee = new Employee();
+            Provider provider = new Provider();
             bool uowStatus = false;
             try
             {
                 uowStatus = _unitOfWork.BeginTransaction();
-                employee = _unitOfWork.GetSession().Query<Employee>()
+                provider = _unitOfWork.GetSession().Query<Provider>()
                 .Where(specification.ToExpression()).FirstOrDefault();
                 _unitOfWork.Commit(uowStatus);
             }
@@ -56,7 +57,7 @@ namespace InkaPharmacy.Api.Employees.Infrastructure.Persistence.NHibernate.Repos
                 _unitOfWork.Rollback(uowStatus);
                 throw ex;
             }
-            return employee;
+            return provider;
         }
     }
 }
