@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InkaPharmacy.Api.Security.Infrastructure.Persistence.NHibernate.Specification
 {
-    using InkaPharmacy.Api.Employee.Domain.Entity;
+    using InkaPharmacy.Api.Employees.Domain.Entity;
     using System.Linq.Expressions;
 
     public class LoginBySpecification : Specification<Employee>

@@ -18,8 +18,8 @@ namespace InkaPharmacy.Api.Controllers
     using Microsoft.IdentityModel.Tokens;
     using System.Text;
     using InkaPharmacy.Api.Common.Constants;
-    using InkaPharmacy.Api.Employee.Domain.Entity;
-    using InkaPharmacy.Api.Employee.Application.Dto;
+    using InkaPharmacy.Api.Employees.Domain.Entity;
+    using InkaPharmacy.Api.Employees.Application.Dto;
 
     [Route("api/Security/Login")]
     [ApiController]

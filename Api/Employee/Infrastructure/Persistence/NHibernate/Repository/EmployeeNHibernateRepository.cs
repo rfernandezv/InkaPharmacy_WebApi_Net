@@ -2,13 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
-namespace InkaPharmacy.Api.Employee.Infrastructure.Persistence.NHibernate.Repository
+namespace InkaPharmacy.Api.Employees.Infrastructure.Persistence.NHibernate.Repository
 {
     using InkaPharmacy.Api.Common.Domain.Specification;
-    using InkaPharmacy.Api.Employee.Domain.Entity;
-    using InkaPharmacy.Api.Employee.Domain.Repository;
+    using InkaPharmacy.Api.Employees.Domain.Entity;
+    using InkaPharmacy.Api.Employees.Domain.Repository;
 
     public class EmployeeNHibernateRepository : BaseNHibernateRepository<Employee>, IEmployeeRepository
     {
@@ -18,7 +17,6 @@ namespace InkaPharmacy.Api.Employee.Infrastructure.Persistence.NHibernate.Reposi
 
         public List<Employee> GetList(
             Specification<Employee> specification, 
-            //double minimumRating, 
             int page = 0, 
             int pageSize = 5)
         {
@@ -31,7 +29,6 @@ namespace InkaPharmacy.Api.Employee.Infrastructure.Persistence.NHibernate.Reposi
                     .Where(specification.ToExpression())
                     .Skip(page * pageSize)
                     .Take(pageSize)
-                    //.Fetch(x => x.Director)
                     .ToList();
                 _unitOfWork.Commit(uowStatus);
             }
@@ -41,6 +38,25 @@ namespace InkaPharmacy.Api.Employee.Infrastructure.Persistence.NHibernate.Reposi
                 throw ex;
             }
             return Employees;
+        }
+
+        public Employee FindByAnySpecificField(Specification<Employee> specification)
+        {
+            Employee employee = new Employee();
+            bool uowStatus = false;
+            try
+            {
+                uowStatus = _unitOfWork.BeginTransaction();
+                employee = _unitOfWork.GetSession().Query<Employee>()
+                .Where(specification.ToExpression()).FirstOrDefault();
+                _unitOfWork.Commit(uowStatus);
+            }
+            catch (Exception ex)
+            {
+                _unitOfWork.Rollback(uowStatus);
+                throw ex;
+            }
+            return employee;
         }
     }
 }

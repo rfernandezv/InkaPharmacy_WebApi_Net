@@ -2,7 +2,7 @@
 
 namespace InkaPharmacy.Api.BankAccounts.Infrastructure.Persistence.NHibernate.Mapping
 {
-    using InkaPharmacy.Api.Employee.Domain.Entity;
+    using InkaPharmacy.Api.Employees.Domain.Entity;
 
     public class EmployeeMap : ClassMap<Employee>
     {
@@ -20,10 +20,6 @@ namespace InkaPharmacy.Api.BankAccounts.Infrastructure.Persistence.NHibernate.Ma
             Map(x => x.Password).Column("Password");
             Map(x => x.Email).Column("Email");
             Map(x => x.Status).Column("Status");
-
-            //References(x => x.perfil);
-            //References(x => x.tienda);
-
         }
     }
 }

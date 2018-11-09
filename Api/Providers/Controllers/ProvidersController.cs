@@ -59,7 +59,41 @@ namespace InkaPharmacy.Api.Controllers
 
                 Specification<Provider> specification = GetFindByDocumentNumber(DocumentNumber);
                 uowStatus = _unitOfWork.BeginTransaction();
-                provider = _providerRepository.FindByDocumentNumber(specification);
+                provider = _providerRepository.FindByAnySpecificField(specification);
+                _unitOfWork.Commit(uowStatus);
+                ProviderDto providersDto = _providerAssembler.FromProviderToProviderDto(provider);
+                return StatusCode(StatusCodes.Status200OK, providersDto);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(_responseHandler.getAppCustomErrorResponse(ex.Message));
+            }
+            catch (Exception ex)
+            {
+                _unitOfWork.Rollback(uowStatus);
+                Console.WriteLine(ex.StackTrace);
+                return StatusCode(StatusCodes.Status500InternalServerError, this._responseHandler.getAppExceptionResponse());
+            }
+        }
+
+        [Route("/api/Providers/FindByName")]
+        [HttpGet]
+        public IActionResult FindByName([FromQuery] string Name)
+        {
+            bool uowStatus = false;
+            try
+            {
+                Provider provider = new Provider();
+                Notification notification = provider.ValidateFindByName(Name);
+
+                if (notification.hasErrors())
+                {
+                    throw new ArgumentException(notification.errorMessage());
+                }
+
+                Specification<Provider> specification = GetFindByName(Name);
+                uowStatus = _unitOfWork.BeginTransaction();
+                provider = _providerRepository.FindByAnySpecificField(specification);
                 _unitOfWork.Commit(uowStatus);
                 ProviderDto providersDto = _providerAssembler.FromProviderToProviderDto(provider);
                 return StatusCode(StatusCodes.Status200OK, providersDto);
@@ -80,6 +114,13 @@ namespace InkaPharmacy.Api.Controllers
         {
             Specification<Provider> specification = Specification<Provider>.All;
             specification = specification.And(new FindByDocumentNumberBySpecification(DocumentNumber));
+            return specification;
+        }
+
+        private Specification<Provider> GetFindByName(string Name)
+        {
+            Specification<Provider> specification = Specification<Provider>.All;
+            specification = specification.And(new FindByNameSpecification(Name));
             return specification;
         }
 

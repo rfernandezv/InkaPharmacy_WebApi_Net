@@ -1,7 +1,4 @@
-﻿using InkaPharmacy.Api.Common.Application.Enum;
-using System;
-
-namespace InkaPharmacy.Api.Employee.Application.Dto
+﻿namespace InkaPharmacy.Api.Employees.Application.Dto
 {
     public class EmployeeDto
     {

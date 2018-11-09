@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace InkaPharmacy.Api.Employee.Domain.Entity
+namespace InkaPharmacy.Api.Employees.Domain.Entity
 {
     using InkaPharmacy.Api.Common.Application;
   
@@ -26,13 +26,13 @@ namespace InkaPharmacy.Api.Employee.Domain.Entity
         {
         }
 
-        public virtual Notification validateForLogin()
+        public virtual Notification ValidateFindByUsername(string Username)
         {
             Notification notification = new Notification();
 
-            if (this == null)
+            if (string.IsNullOrEmpty(Username))
             {
-                notification.addError("Employee doesn't logueado");
+                notification.addError("The Username is null");
             }
 
             return notification;

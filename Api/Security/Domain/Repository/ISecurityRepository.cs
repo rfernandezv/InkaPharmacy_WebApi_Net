@@ -1,7 +1,7 @@
 ﻿namespace InkaPharmacy.Api.Security.Domain.Repository
 {
     using InkaPharmacy.Api.Common.Domain.Specification;
-    using InkaPharmacy.Api.Employee.Domain.Entity;
+    using InkaPharmacy.Api.Employees.Domain.Entity;
     using System.Collections.Generic;
 
     public interface ISecurityRepository

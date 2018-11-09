@@ -1,12 +1,8 @@
 ﻿using FluentNHibernate.Mapping;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace InkaPharmacy.Api.Employee.Infrastructure.Persistence.NHibernate.Mapping
+namespace InkaPharmacy.Api.Employees.Infrastructure.Persistence.NHibernate.Mapping
 {
-    using InkaPharmacy.Api.Employee.Domain.Entity;
+    using InkaPharmacy.Api.Employees.Domain.Entity;
 
     public class EmployeeMap : ClassMap<Employee>
     {
@@ -24,10 +20,6 @@ namespace InkaPharmacy.Api.Employee.Infrastructure.Persistence.NHibernate.Mappin
             Map(x => x.Password).Column("Password");
             Map(x => x.Email).Column("Email");
             Map(x => x.Status).Column("Status");
-
-            //References(x => x.perfil);
-            //References(x => x.tienda);
-
         }
     }
 }

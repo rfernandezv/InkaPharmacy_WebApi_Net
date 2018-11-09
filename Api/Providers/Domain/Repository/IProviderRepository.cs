@@ -11,7 +11,7 @@ namespace InkaPharmacy.Api.Providers.Domain.Repository
             int page = 0,
             int pageSize = 5);
 
-        Provider FindByDocumentNumber(Specification<Provider> specification);
+        Provider FindByAnySpecificField(Specification<Provider> specification);
     }
 
 }

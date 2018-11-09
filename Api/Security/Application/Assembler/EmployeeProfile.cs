@@ -4,8 +4,8 @@ using InkaPharmacy.Api.Customers;
 
 namespace InkaPharmacy.Api.Security.Application.Assembler
 {
-    using InkaPharmacy.Api.Employee.Domain.Entity;
-    using InkaPharmacy.Api.Employee.Application.Dto;
+    using InkaPharmacy.Api.Employees.Domain.Entity;
+    using InkaPharmacy.Api.Employees.Application.Dto;
 
     public class EmployeeProfile : Profile
     {

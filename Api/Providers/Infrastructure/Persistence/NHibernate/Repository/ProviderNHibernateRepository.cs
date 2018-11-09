@@ -41,7 +41,7 @@ namespace InkaPharmacy.Api.Providers.Infrastructure.Persistence.NHibernate.Repos
             return providers;
         }
 
-        public Provider FindByDocumentNumber(Specification<Provider> specification)
+        public Provider FindByAnySpecificField(Specification<Provider> specification)
         {
             Provider provider = new Provider();
             bool uowStatus = false;

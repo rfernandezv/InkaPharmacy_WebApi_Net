@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
-using InkaPharmacy.Api.Employee.Application.Dto;
+﻿using AutoMapper;
+using InkaPharmacy.Api.Employees.Application.Dto;
 
-namespace InkaPharmacy.Api.Employee.Application.Assembler
+namespace InkaPharmacy.Api.Employees.Application.Assembler
 {
-    using InkaPharmacy.Api.Employee.Domain.Entity;
+    using InkaPharmacy.Api.Employees.Domain.Entity;
 
     public class EmployeeAssembler
     {

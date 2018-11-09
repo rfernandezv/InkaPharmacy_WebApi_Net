@@ -39,5 +39,17 @@ namespace InkaPharmacy.Api.Providers.Domain.Entity
             return notification;
         }
 
+        public virtual Notification ValidateFindByName(string Name)
+        {
+            Notification notification = new Notification();
+
+            if (string.IsNullOrEmpty(Name))
+            {
+                notification.addError("The Provider name is null");
+            }
+
+            return notification;
+        }
+
     }
 }

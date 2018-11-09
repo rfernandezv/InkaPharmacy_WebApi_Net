@@ -1,10 +1,11 @@
 ﻿using AutoMapper;
+using InkaPharmacy.Api.Employees.Application.Dto;
+using InkaPharmacy.Api.Employees.Domain.Entity;
+using System.Collections.Generic;
 
 namespace InkaPharmacy.Api.Security.Application.Assembler
 {
-    using InkaPharmacy.Api.Employee.Application.Dto;
-    using InkaPharmacy.Api.Employee.Domain.Entity;
-    using System.Collections.Generic;
+
 
     public class EmployeeAssembler
     {
@@ -15,9 +16,9 @@ namespace InkaPharmacy.Api.Security.Application.Assembler
             _mapper = mapper;
         }
 
-        public Employee toEntity(EmployeeDto EmployeeLoginDto)
+        public Employee toEntity(EmployeeDto EmployeeDto)
         {
-            return _mapper.Map<Employee>(EmployeeLoginDto);
+            return _mapper.Map<Employee>(EmployeeDto);
         }
 
         public EmployeeDto toDto(Employee employee)
@@ -25,9 +26,9 @@ namespace InkaPharmacy.Api.Security.Application.Assembler
             return _mapper.Map<EmployeeDto>(employee);
         }
 
-        public List<EmployeeDto> toDtoList(List<Employee> movieList)
+        public List<EmployeeDto> toDtoList(List<Employee> employeeList)
         {
-            return _mapper.Map<List<Employee>, List<EmployeeDto>>(movieList);
+            return _mapper.Map<List<Employee>, List<EmployeeDto>>((List<Employee>)employeeList);
         }
 
     }
