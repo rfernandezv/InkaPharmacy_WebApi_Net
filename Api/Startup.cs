@@ -22,6 +22,8 @@ using InkaPharmacy.Api.Providers.Infrastructure.Persistence.NHibernate.Repositor
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using InkaPharmacy.Api.Employees.Application.Assembler;
+using Web.Site.Common.Api.Middleware;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace InkaPharmacy.Api
 {
@@ -100,6 +102,11 @@ namespace InkaPharmacy.Api
                 };
             });
 
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "System API", Version = "v1" });
+            });
+
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -113,11 +120,22 @@ namespace InkaPharmacy.Api
                 app.UseHsts();
             }
 
-            app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+            app.UseCors(optionsx => optionsx.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
             app.UseHttpsRedirection();
             app.UseAuthentication();
             app.UseMvc();
+
+            var options = new DefaultFilesOptions();
+            options.DefaultFileNames.Clear();
+            options.DefaultFileNames.Add("index.html");
+
+            app.UseMiddleware(typeof(ErrorMiddleware))
+                .UseMvc()
+               .UseDefaultFiles(options)
+               .UseStaticFiles()
+                .UseSwagger()
+               .UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"); });
         }
     }
 }
