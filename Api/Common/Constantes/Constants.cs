@@ -1,12 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace InkaPharmacy.Api.Common.Constantes
+namespace InkaPharmacy.Api.Common.Constants
 {
-    public class Constantes
+    public class Constants
     {
         public class HttpStatus
         {

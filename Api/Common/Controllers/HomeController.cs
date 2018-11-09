@@ -9,10 +9,10 @@ namespace InkaPharmacy.Api.Common.Controllers
     [ApiController]
     public class HomeController : ControllerBase
     {
-        //[HttpGet]
-        //public Object Get()
-        //{
-        //    return string.Empty; // new ApiStringResponseDto("api root endpoint");
-        //}
+        [HttpGet]
+        public Object Get()
+        {
+            return new ApiStringResponseDto("api root endpoint");
+        }
     }
 }

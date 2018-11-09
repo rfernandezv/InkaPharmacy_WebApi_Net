@@ -17,7 +17,7 @@ namespace InkaPharmacy.Api.Controllers
     using System.IdentityModel.Tokens.Jwt;
     using Microsoft.IdentityModel.Tokens;
     using System.Text;
-    using InkaPharmacy.Api.Common.Constantes;
+    using InkaPharmacy.Api.Common.Constants;
     using InkaPharmacy.Api.Employee.Domain.Entity;
     using InkaPharmacy.Api.Employee.Application.Dto;
 
@@ -63,7 +63,7 @@ namespace InkaPharmacy.Api.Controllers
            
                 EmployeeDto EmployeesDto = _empleadoLoginAssembler.toDto(Employees.FirstOrDefault());
                 var token = GenerateToken(EmployeesDto.Username);
-                return Ok(this.responseHandler.getOkCommandResponse("bearer " + token, Constantes.HttpStatus.Success, EmployeesDto));
+                return Ok(this.responseHandler.getOkCommandResponse("bearer " + token, Constants.HttpStatus.Success, EmployeesDto));
 
             }
             catch (ArgumentException ex)
