@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using InkaPharmacy.Api.Common.Application;
-using InkaPharmacy.Api.Security.Application.Assembler;
 using InkaPharmacy.Api.Employees.Domain.Repository;
 using Microsoft.AspNetCore.Authorization;
 using InkaPharmacy.Api.Employees.Domain.Entity;
@@ -9,6 +8,7 @@ using InkaPharmacy.Api.Common.Domain.Specification;
 using Microsoft.AspNetCore.Http;
 using InkaPharmacy.Api.Employees.Application.Dto;
 using InkaPharmacy.Api.Employees.Infrastructure.Persistence.NHibernate.Specification;
+using InkaPharmacy.Api.Employees.Application.Assembler;
 
 namespace InkaPharmacy.Api.Controllers
 {

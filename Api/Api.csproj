@@ -78,8 +78,10 @@
 
   <ItemGroup>
     <Folder Include="Common\Application\Assembler\" />
+    <Folder Include="Security\Application\Assembler\" />
     <Folder Include="Security\Application\Dto\" />
     <Folder Include="Security\Domain\Entity\" />
+    <Folder Include="Security\Infrastructure\Persistence\NHibernate\Mapping\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 

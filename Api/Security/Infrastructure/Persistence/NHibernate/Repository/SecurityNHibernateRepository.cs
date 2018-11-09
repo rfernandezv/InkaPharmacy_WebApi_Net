@@ -1,8 +1,6 @@
 ﻿using InkaPharmacy.Api.Common.Infrastructure.Persistence.NHibernate;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace InkaPharmacy.Api.Accounts.Infrastructure.Persistence.NHibernate.Repository
 {

@@ -10,7 +10,6 @@ using InkaPharmacy.Api.Customers.Domain.Repository;
 using InkaPharmacy.Api.Customers.Infrastructure.Persistence.NHibernate.Repository;
 using AutoMapper;
 using InkaPharmacy.Api.Common.Application;
-using InkaPharmacy.Api.Security.Application.Assembler;
 using InkaPharmacy.Api.Security.Domain.Repository;
 using InkaPharmacy.Api.Customers.Application.Assembler;
 using InkaPharmacy.Api.Products.Application.Assembler;
@@ -22,6 +21,7 @@ using InkaPharmacy.Api.Providers.Domain.Repository;
 using InkaPharmacy.Api.Providers.Infrastructure.Persistence.NHibernate.Repository;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using InkaPharmacy.Api.Employees.Application.Assembler;
 
 namespace InkaPharmacy.Api
 {
