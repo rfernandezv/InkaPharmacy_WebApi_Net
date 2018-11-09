@@ -33,6 +33,7 @@ namespace InkaPharmacy.Api.Controllers
             _unitOfWork = unitOfWork;
             _providerRepository = providerRepository;
             _providerAssembler = providerAssembler;
+            _responseHandler = new ResponseHandler();
         }
 
         [HttpGet]
