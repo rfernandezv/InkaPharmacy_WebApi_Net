@@ -1,0 +1,388 @@
+{
+	"info": {
+		"_postman_id": "101433c2-4fb3-49eb-ba85-f44bab3405b7",
+		"name": "InkaPharma",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Security",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{AppURL}}/api/Security/Login?usu=Jhonatan.Tirado1&clave=P@ssw0rd1",
+							"host": [
+								"{{AppURL}}"
+							],
+							"path": [
+								"api",
+								"Security",
+								"Login"
+							],
+							"query": [
+								{
+									"key": "usu",
+									"value": "Jhonatan.Tirado1"
+								},
+								{
+									"key": "clave",
+									"value": "P@ssw0rd1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "FindByProductName",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{AppURL}}/api/Products/FindByProductName?ProductName=Amoxicilina",
+							"host": [
+								"{{AppURL}}"
+							],
+							"path": [
+								"api",
+								"Products",
+								"FindByProductName"
+							],
+							"query": [
+								{
+									"key": "ProductName",
+									"value": "Amoxicilina"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetProducts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{AppURL}}/api/Products",
+							"host": [
+								"{{AppURL}}"
+							],
+							"path": [
+								"api",
+								"Products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetProductById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{AppURL}}/api/Products/GetProductById?ProductId=2",
+							"host": [
+								"{{AppURL}}"
+							],
+							"path": [
+								"api",
+								"Products",
+								"GetProductById"
+							],
+							"query": [
+								{
+									"key": "ProductId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateProducts",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"name\" : \"test4\",\n  \"price\" : 12.4,\n  \"currency\" : \"PEN\",\n  \"stock\" : 1,\n  \"category_id\" : 1,\n  \"lot_number\" : \"aa\",\n    \"sanitary_registration_number\" : \"aa\"\n}"
+						},
+						"url": {
+							"raw": "{{AppURL}}/api/Products",
+							"host": [
+								"{{AppURL}}"
+							],
+							"path": [
+								"api",
+								"Products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateProducts",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"id\": 108,\n \"status\" : 0,\n  \"price\" : 12.7,\n  \"currency\" : \"PEN\",\n  \"stock\" : 5,\n  \"category_id\" : 3,\n  \"lot_number\" : \"cc\",\n  \"sanitary_registration_number\" : \"dd\"\n}"
+						},
+						"url": {
+							"raw": "{{AppURL}}/api/Products",
+							"host": [
+								"{{AppURL}}"
+							],
+							"path": [
+								"api",
+								"Products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "borradoLogico",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"id\": 107\n}"
+						},
+						"url": {
+							"raw": "{{AppURL}}/api/Products",
+							"host": [
+								"{{AppURL}}"
+							],
+							"path": [
+								"api",
+								"Products"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Customers",
+			"item": [
+				{
+					"name": "FindByDocumentNumber",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiSmhvbmF0YW4uVGlyYWRvMSIsIm5iZiI6IjE1NDE3Mzc2MTAiLCJleHAiOiIxNTQxODI0MDEwIn0.JZ4osBtvth01JuwBLsypVk7P4J3utvaJUGRcPY5MkHY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{AppURL}}/api/Customers/FindByDocumentNumber?DocumentNumber=123456788",
+							"host": [
+								"{{AppURL}}"
+							],
+							"path": [
+								"api",
+								"Customers",
+								"FindByDocumentNumber"
+							],
+							"query": [
+								{
+									"key": "DocumentNumber",
+									"value": "123456788"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Providers",
+			"item": [
+				{
+					"name": "FindByDocumentNumber",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{AppURL}}/api/Providers/FindByDocumentNumber?DocumentNumber=203030305",
+							"host": [
+								"{{AppURL}}"
+							],
+							"path": [
+								"api",
+								"Providers",
+								"FindByDocumentNumber"
+							],
+							"query": [
+								{
+									"key": "DocumentNumber",
+									"value": "203030305"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindByName",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{AppURL}}/api/Providers/FindByName?Name=Trujimed",
+							"host": [
+								"{{AppURL}}"
+							],
+							"path": [
+								"api",
+								"Providers",
+								"FindByName"
+							],
+							"query": [
+								{
+									"key": "Name",
+									"value": "Trujimed"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Employees",
+			"item": [
+				{
+					"name": "FindByUsername",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{AppURL}}/api/Employees/FindByUsername?Username=Jhonatan.Tirado1",
+							"host": [
+								"{{AppURL}}"
+							],
+							"path": [
+								"api",
+								"Employees",
+								"FindByUsername"
+							],
+							"query": [
+								{
+									"key": "Username",
+									"value": "Jhonatan.Tirado1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiSmhvbmF0YW4uVGlyYWRvMSIsIm5iZiI6IjE1NDE3MzgzNTYiLCJleHAiOiIxNTQxODI0NzU2In0.j8pDMA4SbFla4aKgxFN2vTGYNN_Bn495FHVgDcESdD0",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "d7894dab-c0b1-41ab-ba02-28a843260ab5",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "d022742b-ab9f-4edd-a198-062c921b88aa",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
