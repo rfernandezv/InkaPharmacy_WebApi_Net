@@ -2,6 +2,7 @@
 
 namespace InkaPharmacy.Api.Customers.Infrastructure.Persistence.NHibernate.Mapping
 {
+    using InkaPharmacy.Api.Common.Application.Enum;
     using InkaPharmacy.Api.Product;
 
     public class ProductMap : ClassMap<Product>
@@ -10,8 +11,11 @@ namespace InkaPharmacy.Api.Customers.Infrastructure.Persistence.NHibernate.Mappi
         {
             Id(x => x.Id).Column("Product_id");
             Map(x => x.Name).Column("Name");
-            Map(x => x.Price).Column("Price");
-            Map(x => x.Currency).Column("Currency");
+            Component(x => x.Price, m =>
+            {
+                m.Map(x => x.Amount, "Price");
+                m.Map(x => x.Currency, "Currency").CustomType<Currency>();
+            });
             Map(x => x.Stock).Column("Stock");
             Map(x => x.Category_id).Column("Category_id");
             Map(x => x.Lot_number).Column("Lot_number");
