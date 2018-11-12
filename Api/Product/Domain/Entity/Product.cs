@@ -1,4 +1,6 @@
 ﻿using InkaPharmacy.Api.Common.Application;
+using InkaPharmacy.Api.Common.Application.Enum;
+using InkaPharmacy.Api.Common.Domain.ValueObject;
 using System;
 
 namespace InkaPharmacy.Api.Product
@@ -7,8 +9,8 @@ namespace InkaPharmacy.Api.Product
     {
         public virtual long Id { get; set; }
         public virtual string Name { get; set; }
-        public virtual decimal Price { get; set; }
-        public virtual string Currency { get; set; }
+        public virtual Money Price { get; set; }
+        public virtual Currency Currency { get; set; }
         public virtual int Stock { get; set; }
         public virtual long Category_id { get; set; }
         public virtual string Lot_number { get; set; }
@@ -99,12 +101,12 @@ namespace InkaPharmacy.Api.Product
                 notification.addError("The Product doesn´t have a valid Name");
             }
 
-            if (this.Price == 0m)
+            if (this.Price == null)
             {
                 notification.addError("The Product doesn´t have a valid Price");
             }
 
-            if (string.IsNullOrEmpty(this.Currency))
+            if(this.Currency == null)
             {
                 notification.addError("The Product doesn´t have a valid Currency");
             }

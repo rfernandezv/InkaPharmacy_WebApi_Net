@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace InkaPharmacy.Api.Products.Application.Assembler
 {
+    using InkaPharmacy.Api.Common.Domain.ValueObject;
     using InkaPharmacy.Api.Product ;
     using InkaPharmacy.Api.Product.Application.Dto;
 
@@ -22,7 +23,13 @@ namespace InkaPharmacy.Api.Products.Application.Assembler
                 //)
                 ;
 
-            CreateMap<ProductDto, Product>();
+            CreateMap<ProductDto, Product>()
+                  .ForMember(
+                    dest => dest.Price,
+                    opts => opts.MapFrom(
+                        src => new Money(src.Price, src.Currency)
+                    )
+                );
 
         }
 
