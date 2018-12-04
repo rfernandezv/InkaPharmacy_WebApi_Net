@@ -1,6 +1,6 @@
 ﻿using FluentMigrator;
 
-namespace EnterprisePatterns.Api.Migrations.MySQL
+namespace InkaPharmacy.Api.Migrations.MySQL
 {
     [Migration(2)]
     public class CurrencyTable : Migration

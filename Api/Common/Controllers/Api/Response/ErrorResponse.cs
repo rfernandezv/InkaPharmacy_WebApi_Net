@@ -1,7 +1,7 @@
-﻿namespace Web.Site.Common.Api.Response
+﻿using Newtonsoft.Json;
+namespace Web.Site.Common.Api.Response
 {
-    using Newtonsoft.Json;
-    public class ErrorResponse
+     public class ErrorResponse
     {
         public int StatusCode { get; }
 

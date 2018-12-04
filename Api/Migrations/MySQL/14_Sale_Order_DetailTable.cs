@@ -1,5 +1,4 @@
 ﻿using FluentMigrator;
-using System.Reflection;
 
 namespace InkaPharmacy.Api.Migrations.MySQL
 {
