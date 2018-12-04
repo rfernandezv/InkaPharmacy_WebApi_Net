@@ -56,7 +56,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{AppURL}}/api/Products/FindByProductName?ProductName=Amoxicilina",
+							"raw": "{{AppURL}}/api/Products/FindByProductName?ProductName=Analgesico XYZ",
 							"host": [
 								"{{AppURL}}"
 							],
@@ -68,7 +68,44 @@
 							"query": [
 								{
 									"key": "ProductName",
-									"value": "Amoxicilina"
+									"value": "Analgesico XYZ"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindByCategory",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{AppURL}}/api/Products/FindByCategory?Category_id=1&page=0&size=200",
+							"host": [
+								"{{AppURL}}"
+							],
+							"path": [
+								"api",
+								"Products",
+								"FindByCategory"
+							],
+							"query": [
+								{
+									"key": "Category_id",
+									"value": "1"
+								},
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "200"
 								}
 							]
 						}
@@ -85,13 +122,23 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{AppURL}}/api/Products",
+							"raw": "{{AppURL}}/api/Products?page=0&size=200",
 							"host": [
 								"{{AppURL}}"
 							],
 							"path": [
 								"api",
 								"Products"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "200"
+								}
 							]
 						}
 					},
@@ -107,7 +154,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{AppURL}}/api/Products/GetProductById?ProductId=2",
+							"raw": "{{AppURL}}/api/Products/GetProductById?ProductId=108",
 							"host": [
 								"{{AppURL}}"
 							],
@@ -119,7 +166,7 @@
 							"query": [
 								{
 									"key": "ProductId",
-									"value": "2"
+									"value": "108"
 								}
 							]
 						}
@@ -140,7 +187,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n \"name\" : \"test4\",\n  \"price\" : 12.4,\n  \"currency\" : \"PEN\",\n  \"stock\" : 1,\n  \"category_id\" : 1,\n  \"lot_number\" : \"aa\",\n    \"sanitary_registration_number\" : \"aa\"\n}"
+							"raw": "{\n    \"name\": \"Analgesico XYZ\",\n    \"price\": 10.12,\n    \"currency\": \"USD\",\n    \"stock\": 1,\n    \"category_id\": 1,\n    \"lot_number\": \"aa\",\n    \"sanitary_registration_number\": \"aa\"\n}"
 						},
 						"url": {
 							"raw": "{{AppURL}}/api/Products",
@@ -169,7 +216,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n \"id\": 108,\n \"status\" : 0,\n  \"price\" : 12.7,\n  \"currency\" : \"PEN\",\n  \"stock\" : 5,\n  \"category_id\" : 3,\n  \"lot_number\" : \"cc\",\n  \"sanitary_registration_number\" : \"dd\"\n}"
+							"raw": "{\n \"id\": 108,\n  \"name\" : \"Analgesico XYZ\",\n \"status\" : 0,\n  \"price\" : 12,\n  \"currency\" : \"PEN\",\n  \"stock\" : 5,\n  \"category_id\" : 3,\n  \"lot_number\" : \"cc\",\n  \"sanitary_registration_number\" : \"dd\"\n}"
 						},
 						"url": {
 							"raw": "{{AppURL}}/api/Products",
@@ -198,7 +245,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n \"id\": 107\n}"
+							"raw": "{\n \"id\": 108\n}"
 						},
 						"url": {
 							"raw": "{{AppURL}}/api/Products",
@@ -234,7 +281,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{AppURL}}/api/Customers/FindByDocumentNumber?DocumentNumber=123456788",
+							"raw": "{{AppURL}}/api/Customers/FindByDocumentNumber?DocumentNumber=900000001",
 							"host": [
 								"{{AppURL}}"
 							],
@@ -246,7 +293,7 @@
 							"query": [
 								{
 									"key": "DocumentNumber",
-									"value": "123456788"
+									"value": "900000001"
 								}
 							]
 						}
@@ -358,7 +405,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiSmhvbmF0YW4uVGlyYWRvMSIsIm5iZiI6IjE1NDE3MzgzNTYiLCJleHAiOiIxNTQxODI0NzU2In0.j8pDMA4SbFla4aKgxFN2vTGYNN_Bn495FHVgDcESdD0",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiSmhvbmF0YW4uVGlyYWRvMSIsIm5iZiI6IjE1NDM4ODg5NjMiLCJleHAiOiIxNTQzOTc1MzYzIn0.INe8ZOJ-1IvZCEbhSidT9P9z0LMYczUXQfc8iXJ8V50",
 				"type": "string"
 			}
 		]
