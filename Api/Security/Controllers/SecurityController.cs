@@ -64,6 +64,7 @@ namespace InkaPharmacy.Api.Controllers
             catch (ArgumentException ex)
             {
                 _unitOfWork.Rollback(uowStatus);
+                Console.WriteLine(ex.StackTrace);
                 return Unauthorized();
             }
             catch (Exception ex)

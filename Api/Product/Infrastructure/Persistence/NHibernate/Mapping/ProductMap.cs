@@ -14,7 +14,7 @@ namespace InkaPharmacy.Api.Customers.Infrastructure.Persistence.NHibernate.Mappi
             Component(x => x.Price, m =>
             {
                 m.Map(x => x.Amount, "Price");
-                m.Map(x => x.Currency, "Currency").CustomType<Currency>();
+                m.Map(x => x.Currency, "currency_Id").CustomType<Currency>();
             });
             Map(x => x.Stock).Column("Stock");
             Map(x => x.Category_id).Column("Category_id");

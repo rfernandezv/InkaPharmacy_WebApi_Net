@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using InkaPharmacy.Api.Common.Application;
 using InkaPharmacy.Api.Common.Domain.Specification;
 using InkaPharmacy.Api.Products.Application.Assembler;
@@ -10,7 +8,6 @@ using InkaPharmacy.Api.Product.Domain.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using InkaPharmacy.Api.Product;
-using InkaPharmacy.Api.Customers.Application.Assembler;
 using InkaPharmacy.Api.Product.Infrastructure.Persistence.NHibernate.Specification;
 using Microsoft.AspNetCore.Authorization;
 using InkaPharmacy.Api.Common.Application.Dto;
@@ -39,7 +36,6 @@ namespace Api.Products.Controllers
             responseHandler = new ResponseHandler();
         }
 
-
         [Route("/api/Products/FindByProductName")]
         [HttpGet]
         public IActionResult FindByProductName([FromQuery] string ProductName)
@@ -48,7 +44,7 @@ namespace Api.Products.Controllers
             try
             {
                 Product product = new Product();
-                Notification notification = product.validateFindByProductName(ProductName);
+                Notification notification = product.ValidateFindByProductName(ProductName);
 
                 if (notification.hasErrors())
                 {
@@ -98,7 +94,6 @@ namespace Api.Products.Controllers
             return specification;
         }
 
-
         [HttpGet]
         public IActionResult Products([FromQuery] int page = 0, [FromQuery] int size = 5)
         {
@@ -106,10 +101,10 @@ namespace Api.Products.Controllers
             try
             {
                 uowStatus = _unitOfWork.BeginTransaction();
-                List<Product> customers = _ProductRepository.GetList(page, size);
+                List<Product> products = _ProductRepository.GetList(page, size);
                 _unitOfWork.Commit(uowStatus);
-                List<ProductDto> customersDto = _ProductAssembler.FromListProductToListProductDto(customers);
-                return StatusCode(StatusCodes.Status200OK, customersDto);
+                List<ProductDto> productsDTO = _ProductAssembler.FromListProductToListProductDto(products);
+                return StatusCode(StatusCodes.Status200OK, productsDTO);
             }
             catch (Exception ex)
             {
@@ -120,7 +115,6 @@ namespace Api.Products.Controllers
 
         }
 
-
         [Route("/api/Products/GetProductById")]
         [HttpGet]
         public IActionResult GetProductById([FromQuery] long ProductId)
@@ -129,7 +123,7 @@ namespace Api.Products.Controllers
             try
             {
                 Product product = new Product();
-                Notification notification = product.validateGetProductById(ProductId);
+                Notification notification = product.ValidateGetProductById(ProductId);
 
                 if (notification.hasErrors())
                 {
@@ -157,7 +151,6 @@ namespace Api.Products.Controllers
             }
         }
 
-
         [HttpPost]
         public IActionResult Create([FromBody] ProductDto ProductDto)
         {
@@ -168,7 +161,7 @@ namespace Api.Products.Controllers
                 uowStatus = _unitOfWork.BeginTransaction();
 
                 Product product = _ProductAssembler.FromProductDtoToProduct(ProductDto);
-                notification = product.validateForSave();
+                notification = product.ValidateForSave();
 
                 if (notification.hasErrors())
                 {
@@ -180,7 +173,7 @@ namespace Api.Products.Controllers
                 _unitOfWork.Commit(uowStatus);
 
                 var message = "Product created!";
-                //KipubitRabbitMQ.SendMessage(message);
+                KipubitRabbitMQ.SendMessage(message);
                 return StatusCode(StatusCodes.Status201Created, product);
             }
             catch (ArgumentException ex)
@@ -192,7 +185,7 @@ namespace Api.Products.Controllers
                 _unitOfWork.Rollback(uowStatus);
                 Console.WriteLine(ex.StackTrace);
                 var message = "Internal Server Error";
-                //KipubitRabbitMQ.SendMessage(message);
+                KipubitRabbitMQ.SendMessage(message);
                 return StatusCode(StatusCodes.Status500InternalServerError, new ApiStringResponseDto(ex.Message));
 
             }
@@ -208,7 +201,7 @@ namespace Api.Products.Controllers
                 uowStatus = _unitOfWork.BeginTransaction();
 
                 Product product = _ProductAssembler.FromProductDtoToProduct(ProductDto);
-                notification = product.validateForSave("U");
+                notification = product.ValidateForSave("U");
 
                 if (notification.hasErrors())
                 {
@@ -218,7 +211,7 @@ namespace Api.Products.Controllers
                 _unitOfWork.Commit(uowStatus);
 
                 var message = "Product Updated!";
-                //KipubitRabbitMQ.SendMessage(message);
+                KipubitRabbitMQ.SendMessage(message);
                 return StatusCode(StatusCodes.Status200OK, product);
             }
             catch (ArgumentException ex)
@@ -230,13 +223,12 @@ namespace Api.Products.Controllers
                 _unitOfWork.Rollback(uowStatus);
                 Console.WriteLine(ex.StackTrace);
                 var message = "Internal Server Error";
-                //KipubitRabbitMQ.SendMessage(message);
+                KipubitRabbitMQ.SendMessage(message);
                 return StatusCode(StatusCodes.Status500InternalServerError, new ApiStringResponseDto(ex.Message));
 
             }
         }
-
-
+        
         [HttpDelete]
         public IActionResult Delete([FromBody] ProductDto ProductDto)
         {
@@ -247,7 +239,7 @@ namespace Api.Products.Controllers
                 Product product = new Product();
                 product = _ProductAssembler.FromProductDtoToProduct(ProductDto);
 
-                notification = product.validateDeleteProduct(product);
+                notification = product.ValidateDeleteProduct(product);
                 if (notification.hasErrors())
                 {
                     throw new ArgumentException(notification.errorMessage());
@@ -264,7 +256,7 @@ namespace Api.Products.Controllers
                 _unitOfWork.Commit(uowStatus);
 
                 var message = "Product Updated!";
-                //KipubitRabbitMQ.SendMessage(message);
+                KipubitRabbitMQ.SendMessage(message);
                 return StatusCode(StatusCodes.Status200OK, product);
             }
             catch (ArgumentException ex)
@@ -276,8 +268,8 @@ namespace Api.Products.Controllers
                 _unitOfWork.Rollback(uowStatus);
                 Console.WriteLine(ex.StackTrace);
                 var message = "Internal Server Error";
-                //KipubitRabbitMQ.SendMessage(message);
-                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message /*, new ApiStringResponseDto(message)*/ );
+                KipubitRabbitMQ.SendMessage(message);
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
 
             }
         }
@@ -290,7 +282,7 @@ namespace Api.Products.Controllers
             try
             {
                 Product product = new Product();
-                Notification notification = product.validateFindByCategory(Category_id);
+                Notification notification = product.ValidateFindByCategory(Category_id);
 
                 if (notification.hasErrors())
                 {
@@ -317,7 +309,6 @@ namespace Api.Products.Controllers
             }
 
         }
-
 
     }
 }

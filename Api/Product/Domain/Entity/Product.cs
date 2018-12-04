@@ -1,5 +1,4 @@
 ﻿using InkaPharmacy.Api.Common.Application;
-using InkaPharmacy.Api.Common.Application.Enum;
 using InkaPharmacy.Api.Common.Domain.ValueObject;
 using System;
 
@@ -10,7 +9,6 @@ namespace InkaPharmacy.Api.Product
         public virtual long Id { get; set; }
         public virtual string Name { get; set; }
         public virtual Money Price { get; set; }
-        public virtual Currency Currency { get; set; }
         public virtual int Stock { get; set; }
         public virtual long Category_id { get; set; }
         public virtual string Lot_number { get; set; }
@@ -24,7 +22,7 @@ namespace InkaPharmacy.Api.Product
         {
         }
 
-        public virtual Notification validateFindByProductName(string ProductName)
+        public virtual Notification ValidateFindByProductName(string ProductName)
         {
             Notification notification = new Notification();
 
@@ -36,7 +34,7 @@ namespace InkaPharmacy.Api.Product
             return notification;
         }
 
-        public virtual Notification validateFindByCategory(long Category_id)
+        public virtual Notification ValidateFindByCategory(long Category_id)
         {
             Notification notification = new Notification();
 
@@ -48,7 +46,7 @@ namespace InkaPharmacy.Api.Product
             return notification;
         }
 
-        public virtual Notification validateGetProductById(long ProductId)
+        public virtual Notification ValidateGetProductById(long ProductId)
         {
             Notification notification = new Notification();
 
@@ -60,7 +58,7 @@ namespace InkaPharmacy.Api.Product
             return notification;
         }
 
-        public virtual Notification validateDeleteProduct(Product product)
+        public virtual Notification ValidateDeleteProduct(Product product)
         {
             Notification notification = new Notification();
 
@@ -78,7 +76,7 @@ namespace InkaPharmacy.Api.Product
         }
 
 
-        public virtual Notification validateForSave(string action = "")
+        public virtual Notification ValidateForSave(string action = "")
         {
             Notification notification = new Notification();
 
@@ -104,11 +102,6 @@ namespace InkaPharmacy.Api.Product
             if (this.Price == null)
             {
                 notification.addError("The Product doesn´t have a valid Price");
-            }
-
-            if(this.Currency == null)
-            {
-                notification.addError("The Product doesn´t have a valid Currency");
             }
 
             if (this.Stock == 0)

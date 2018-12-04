@@ -1,14 +1,13 @@
 ﻿using FluentMigrator;
-using System.Reflection;
 
-namespace InkaPharmacy.Api.Migrations.MySQL
+namespace EnterprisePatterns.Api.Migrations.MySQL
 {
     [Migration(2)]
-    public class PerfilTable : Migration
+    public class CurrencyTable : Migration
     {
         public override void Up()
         {
-            Execute.EmbeddedScript("2_PerfilTable.sql");
+            Execute.EmbeddedScript("2_currency.sql");
         }
 
         public override void Down()

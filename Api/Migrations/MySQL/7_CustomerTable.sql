@@ -11,208 +11,210 @@
   PRIMARY KEY (customer_id))
 	ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','123','Av Grau 123','900000000','JoseQuispe1@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','124','Av Grau 124','900000001','JoseQuispe2@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','125','Av Grau 125','900000002','JoseQuispe3@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','126','Av Grau 126','900000003','JoseQuispe4@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','127','Av Grau 127','900000004','JoseQuispe5@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','128','Av Grau 128','900000005','JoseQuispe6@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','129','Av Grau 129','900000006','JoseQuispe7@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','130','Av Grau 130','900000007','JoseQuispe8@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','131','Av Grau 131','900000008','JoseQuispe9@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','132','Av Grau 132','900000009','JoseQuispe10@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','133','Av Grau 133','900000010','JoseQuispe11@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','134','Av Grau 134','900000011','JoseQuispe12@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','135','Av Grau 135','900000012','JoseQuispe13@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','136','Av Grau 136','900000013','JoseQuispe14@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','137','Av Grau 137','900000014','JoseQuispe15@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','138','Av Grau 138','900000015','JoseQuispe16@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','139','Av Grau 139','900000016','JoseQuispe17@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','140','Av Grau 140','900000017','JoseQuispe18@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','141','Av Grau 141','900000018','JoseQuispe19@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','142','Av Grau 142','900000019','JoseQuispe20@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','143','Av Grau 143','900000020','JoseQuispe21@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','144','Av Grau 144','900000021','JoseQuispe22@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','145','Av Grau 145','900000022','JoseQuispe23@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','146','Av Grau 146','900000023','JoseQuispe24@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','147','Av Grau 147','900000024','JoseQuispe25@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','148','Av Grau 148','900000025','JoseQuispe26@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','149','Av Grau 149','900000026','JoseQuispe27@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','150','Av Grau 150','900000027','JoseQuispe28@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','151','Av Grau 151','900000028','JoseQuispe29@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','152','Av Grau 152','900000029','JoseQuispe30@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','153','Av Grau 153','900000030','JoseQuispe31@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','154','Av Grau 154','900000031','JoseQuispe32@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','155','Av Grau 155','900000032','JoseQuispe33@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','156','Av Grau 156','900000033','JoseQuispe34@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','157','Av Grau 157','900000034','JoseQuispe35@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','158','Av Grau 158','900000035','JoseQuispe36@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','159','Av Grau 159','900000036','JoseQuispe37@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','160','Av Grau 160','900000037','JoseQuispe38@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','161','Av Grau 161','900000038','JoseQuispe39@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','162','Av Grau 162','900000039','JoseQuispe40@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','163','Av Grau 163','900000040','JoseQuispe41@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','164','Av Grau 164','900000041','JoseQuispe42@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','165','Av Grau 165','900000042','JoseQuispe43@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','166','Av Grau 166','900000043','JoseQuispe44@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','167','Av Grau 167','900000044','JoseQuispe45@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','168','Av Grau 168','900000045','JoseQuispe46@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','169','Av Grau 169','900000046','JoseQuispe47@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','170','Av Grau 170','900000047','JoseQuispe48@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','171','Av Grau 171','900000048','JoseQuispe49@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','172','Av Grau 172','900000049','JoseQuispe50@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','173','Av Grau 173','900000050','JoseQuispe51@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','174','Av Grau 174','900000051','JoseQuispe52@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','175','Av Grau 175','900000052','JoseQuispe53@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','176','Av Grau 176','900000053','JoseQuispe54@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','177','Av Grau 177','900000054','JoseQuispe55@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','178','Av Grau 178','900000055','JoseQuispe56@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','179','Av Grau 179','900000056','JoseQuispe57@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','180','Av Grau 180','900000057','JoseQuispe58@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','181','Av Grau 181','900000058','JoseQuispe59@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','182','Av Grau 182','900000059','JoseQuispe60@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','183','Av Grau 183','900000060','JoseQuispe61@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','184','Av Grau 184','900000061','JoseQuispe62@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','185','Av Grau 185','900000062','JoseQuispe63@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','186','Av Grau 186','900000063','JoseQuispe64@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','187','Av Grau 187','900000064','JoseQuispe65@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','188','Av Grau 188','900000065','JoseQuispe66@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','189','Av Grau 189','900000066','JoseQuispe67@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','190','Av Grau 190','900000067','JoseQuispe68@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','191','Av Grau 191','900000068','JoseQuispe69@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','192','Av Grau 192','900000069','JoseQuispe70@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','193','Av Grau 193','900000070','JoseQuispe71@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','194','Av Grau 194','900000071','JoseQuispe72@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','195','Av Grau 195','900000072','JoseQuispe73@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','196','Av Grau 196','900000073','JoseQuispe74@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','197','Av Grau 197','900000074','JoseQuispe75@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','198','Av Grau 198','900000075','JoseQuispe76@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','199','Av Grau 199','900000076','JoseQuispe77@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','200','Av Grau 200','900000077','JoseQuispe78@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','201','Av Grau 201','900000078','JoseQuispe79@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','202','Av Grau 202','900000079','JoseQuispe80@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','203','Av Grau 203','900000080','JoseQuispe81@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','204','Av Grau 204','900000081','JoseQuispe82@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','205','Av Grau 205','900000082','JoseQuispe83@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','206','Av Grau 206','900000083','JoseQuispe84@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','207','Av Grau 207','900000084','JoseQuispe85@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','208','Av Grau 208','900000085','JoseQuispe86@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','209','Av Grau 209','900000086','JoseQuispe87@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','210','Av Grau 210','900000087','JoseQuispe88@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','211','Av Grau 211','900000088','JoseQuispe89@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','212','Av Grau 212','900000089','JoseQuispe90@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','213','Av Grau 213','900000090','JoseQuispe91@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','214','Av Grau 214','900000091','JoseQuispe92@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','215','Av Grau 215','900000092','JoseQuispe93@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','216','Av Grau 216','900000093','JoseQuispe94@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','217','Av Grau 217','900000094','JoseQuispe95@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','218','Av Grau 218','900000095','JoseQuispe96@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','219','Av Grau 219','900000096','JoseQuispe97@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','220','Av Grau 220','900000097','JoseQuispe98@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','221','Av Grau 221','900000098','JoseQuispe99@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','222','Av Grau 222','900000099','JoseQuispe100@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','223','Av Grau 223','900000100','JoseQuispe101@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','224','Av Grau 224','900000101','JoseQuispe102@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','225','Av Grau 225','900000102','JoseQuispe103@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','226','Av Grau 226','900000103','JoseQuispe104@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','227','Av Grau 227','900000104','JoseQuispe105@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','228','Av Grau 228','900000105','JoseQuispe106@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','229','Av Grau 229','900000106','JoseQuispe107@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','230','Av Grau 230','900000107','JoseQuispe108@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','231','Av Grau 231','900000108','JoseQuispe109@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','232','Av Grau 232','900000109','JoseQuispe110@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','233','Av Grau 233','900000110','JoseQuispe111@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','234','Av Grau 234','900000111','JoseQuispe112@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','235','Av Grau 235','900000112','JoseQuispe113@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','236','Av Grau 236','900000113','JoseQuispe114@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','237','Av Grau 237','900000114','JoseQuispe115@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','238','Av Grau 238','900000115','JoseQuispe116@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','239','Av Grau 239','900000116','JoseQuispe117@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','240','Av Grau 240','900000117','JoseQuispe118@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','241','Av Grau 241','900000118','JoseQuispe119@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','242','Av Grau 242','900000119','JoseQuispe120@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','243','Av Grau 243','900000120','JoseQuispe121@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','244','Av Grau 244','900000121','JoseQuispe122@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','245','Av Grau 245','900000122','JoseQuispe123@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','246','Av Grau 246','900000123','JoseQuispe124@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','247','Av Grau 247','900000124','JoseQuispe125@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','248','Av Grau 248','900000125','JoseQuispe126@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','249','Av Grau 249','900000126','JoseQuispe127@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','250','Av Grau 250','900000127','JoseQuispe128@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','251','Av Grau 251','900000128','JoseQuispe129@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','252','Av Grau 252','900000129','JoseQuispe130@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','253','Av Grau 253','900000130','JoseQuispe131@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','254','Av Grau 254','900000131','JoseQuispe132@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','255','Av Grau 255','900000132','JoseQuispe133@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','256','Av Grau 256','900000133','JoseQuispe134@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','257','Av Grau 257','900000134','JoseQuispe135@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','258','Av Grau 258','900000135','JoseQuispe136@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','259','Av Grau 259','900000136','JoseQuispe137@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','260','Av Grau 260','900000137','JoseQuispe138@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','261','Av Grau 261','900000138','JoseQuispe139@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','262','Av Grau 262','900000139','JoseQuispe140@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','263','Av Grau 263','900000140','JoseQuispe141@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','264','Av Grau 264','900000141','JoseQuispe142@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','265','Av Grau 265','900000142','JoseQuispe143@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','266','Av Grau 266','900000143','JoseQuispe144@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','267','Av Grau 267','900000144','JoseQuispe145@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','268','Av Grau 268','900000145','JoseQuispe146@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','269','Av Grau 269','900000146','JoseQuispe147@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','270','Av Grau 270','900000147','JoseQuispe148@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','271','Av Grau 271','900000148','JoseQuispe149@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','272','Av Grau 272','900000149','JoseQuispe150@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','273','Av Grau 273','900000150','JoseQuispe151@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','274','Av Grau 274','900000151','JoseQuispe152@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','275','Av Grau 275','900000152','JoseQuispe153@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','276','Av Grau 276','900000153','JoseQuispe154@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','277','Av Grau 277','900000154','JoseQuispe155@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','278','Av Grau 278','900000155','JoseQuispe156@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','279','Av Grau 279','900000156','JoseQuispe157@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','280','Av Grau 280','900000157','JoseQuispe158@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','281','Av Grau 281','900000158','JoseQuispe159@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','282','Av Grau 282','900000159','JoseQuispe160@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','283','Av Grau 283','900000160','JoseQuispe161@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','284','Av Grau 284','900000161','JoseQuispe162@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','285','Av Grau 285','900000162','JoseQuispe163@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','286','Av Grau 286','900000163','JoseQuispe164@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','287','Av Grau 287','900000164','JoseQuispe165@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','288','Av Grau 288','900000165','JoseQuispe166@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','289','Av Grau 289','900000166','JoseQuispe167@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','290','Av Grau 290','900000167','JoseQuispe168@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','291','Av Grau 291','900000168','JoseQuispe169@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','292','Av Grau 292','900000169','JoseQuispe170@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','293','Av Grau 293','900000170','JoseQuispe171@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','294','Av Grau 294','900000171','JoseQuispe172@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','295','Av Grau 295','900000172','JoseQuispe173@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','296','Av Grau 296','900000173','JoseQuispe174@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','297','Av Grau 297','900000174','JoseQuispe175@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','298','Av Grau 298','900000175','JoseQuispe176@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','299','Av Grau 299','900000176','JoseQuispe177@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','300','Av Grau 300','900000177','JoseQuispe178@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','301','Av Grau 301','900000178','JoseQuispe179@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','302','Av Grau 302','900000179','JoseQuispe180@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','303','Av Grau 303','900000180','JoseQuispe181@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','304','Av Grau 304','900000181','JoseQuispe182@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','305','Av Grau 305','900000182','JoseQuispe183@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','306','Av Grau 306','900000183','JoseQuispe184@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','307','Av Grau 307','900000184','JoseQuispe185@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','308','Av Grau 308','900000185','JoseQuispe186@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','309','Av Grau 309','900000186','JoseQuispe187@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','310','Av Grau 310','900000187','JoseQuispe188@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','311','Av Grau 311','900000188','JoseQuispe189@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','312','Av Grau 312','900000189','JoseQuispe190@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','313','Av Grau 313','900000190','JoseQuispe191@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','314','Av Grau 314','900000191','JoseQuispe192@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','315','Av Grau 315','900000192','JoseQuispe193@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','316','Av Grau 316','900000193','JoseQuispe194@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','317','Av Grau 317','900000194','JoseQuispe195@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','318','Av Grau 318','900000195','JoseQuispe196@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','319','Av Grau 319','900000196','JoseQuispe197@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','320','Av Grau 320','900000197','JoseQuispe198@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','321','Av Grau 321','900000198','JoseQuispe199@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','322','Av Grau 322','900000199','JoseQuispe200@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','323','Av Grau 323','900000200','JoseQuispe201@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','324','Av Grau 324','900000201','JoseQuispe202@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','325','Av Grau 325','900000202','JoseQuispe203@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','326','Av Grau 326','900000203','JoseQuispe204@gmail.com',1);
-INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) VALUES ('Jose','Quispe','327','Av Grau 327','900000204','JoseQuispe205@gmail.com',1);
+INSERT INTO customer (name, last_name1,last_name2,address,telephone,email,status) 
+VALUES 
+('Jose','Quispe','123','Av Grau 123','900000000','JoseQuispe1@gmail.com',1),
+('Jose','Quispe','124','Av Grau 124','900000001','JoseQuispe2@gmail.com',1),
+('Jose','Quispe','125','Av Grau 125','900000002','JoseQuispe3@gmail.com',1),
+('Jose','Quispe','126','Av Grau 126','900000003','JoseQuispe4@gmail.com',1),
+('Jose','Quispe','127','Av Grau 127','900000004','JoseQuispe5@gmail.com',1),
+('Jose','Quispe','128','Av Grau 128','900000005','JoseQuispe6@gmail.com',1),
+('Jose','Quispe','129','Av Grau 129','900000006','JoseQuispe7@gmail.com',1),
+('Jose','Quispe','130','Av Grau 130','900000007','JoseQuispe8@gmail.com',1),
+('Jose','Quispe','131','Av Grau 131','900000008','JoseQuispe9@gmail.com',1),
+('Jose','Quispe','132','Av Grau 132','900000009','JoseQuispe10@gmail.com',1),
+('Jose','Quispe','133','Av Grau 133','900000010','JoseQuispe11@gmail.com',1),
+('Jose','Quispe','134','Av Grau 134','900000011','JoseQuispe12@gmail.com',1),
+('Jose','Quispe','135','Av Grau 135','900000012','JoseQuispe13@gmail.com',1),
+('Jose','Quispe','136','Av Grau 136','900000013','JoseQuispe14@gmail.com',1),
+('Jose','Quispe','137','Av Grau 137','900000014','JoseQuispe15@gmail.com',1),
+('Jose','Quispe','138','Av Grau 138','900000015','JoseQuispe16@gmail.com',1),
+('Jose','Quispe','139','Av Grau 139','900000016','JoseQuispe17@gmail.com',1),
+('Jose','Quispe','140','Av Grau 140','900000017','JoseQuispe18@gmail.com',1),
+('Jose','Quispe','141','Av Grau 141','900000018','JoseQuispe19@gmail.com',1),
+('Jose','Quispe','142','Av Grau 142','900000019','JoseQuispe20@gmail.com',1),
+('Jose','Quispe','143','Av Grau 143','900000020','JoseQuispe21@gmail.com',1),
+('Jose','Quispe','144','Av Grau 144','900000021','JoseQuispe22@gmail.com',1),
+('Jose','Quispe','145','Av Grau 145','900000022','JoseQuispe23@gmail.com',1),
+('Jose','Quispe','146','Av Grau 146','900000023','JoseQuispe24@gmail.com',1),
+('Jose','Quispe','147','Av Grau 147','900000024','JoseQuispe25@gmail.com',1),
+('Jose','Quispe','148','Av Grau 148','900000025','JoseQuispe26@gmail.com',1),
+('Jose','Quispe','149','Av Grau 149','900000026','JoseQuispe27@gmail.com',1),
+('Jose','Quispe','150','Av Grau 150','900000027','JoseQuispe28@gmail.com',1),
+('Jose','Quispe','151','Av Grau 151','900000028','JoseQuispe29@gmail.com',1),
+('Jose','Quispe','152','Av Grau 152','900000029','JoseQuispe30@gmail.com',1),
+('Jose','Quispe','153','Av Grau 153','900000030','JoseQuispe31@gmail.com',1),
+('Jose','Quispe','154','Av Grau 154','900000031','JoseQuispe32@gmail.com',1),
+('Jose','Quispe','155','Av Grau 155','900000032','JoseQuispe33@gmail.com',1),
+('Jose','Quispe','156','Av Grau 156','900000033','JoseQuispe34@gmail.com',1),
+('Jose','Quispe','157','Av Grau 157','900000034','JoseQuispe35@gmail.com',1),
+('Jose','Quispe','158','Av Grau 158','900000035','JoseQuispe36@gmail.com',1),
+('Jose','Quispe','159','Av Grau 159','900000036','JoseQuispe37@gmail.com',1),
+('Jose','Quispe','160','Av Grau 160','900000037','JoseQuispe38@gmail.com',1),
+('Jose','Quispe','161','Av Grau 161','900000038','JoseQuispe39@gmail.com',1),
+('Jose','Quispe','162','Av Grau 162','900000039','JoseQuispe40@gmail.com',1),
+('Jose','Quispe','163','Av Grau 163','900000040','JoseQuispe41@gmail.com',1),
+('Jose','Quispe','164','Av Grau 164','900000041','JoseQuispe42@gmail.com',1),
+('Jose','Quispe','165','Av Grau 165','900000042','JoseQuispe43@gmail.com',1),
+('Jose','Quispe','166','Av Grau 166','900000043','JoseQuispe44@gmail.com',1),
+('Jose','Quispe','167','Av Grau 167','900000044','JoseQuispe45@gmail.com',1),
+('Jose','Quispe','168','Av Grau 168','900000045','JoseQuispe46@gmail.com',1),
+('Jose','Quispe','169','Av Grau 169','900000046','JoseQuispe47@gmail.com',1),
+('Jose','Quispe','170','Av Grau 170','900000047','JoseQuispe48@gmail.com',1),
+('Jose','Quispe','171','Av Grau 171','900000048','JoseQuispe49@gmail.com',1),
+('Jose','Quispe','172','Av Grau 172','900000049','JoseQuispe50@gmail.com',1),
+('Jose','Quispe','173','Av Grau 173','900000050','JoseQuispe51@gmail.com',1),
+('Jose','Quispe','174','Av Grau 174','900000051','JoseQuispe52@gmail.com',1),
+('Jose','Quispe','175','Av Grau 175','900000052','JoseQuispe53@gmail.com',1),
+('Jose','Quispe','176','Av Grau 176','900000053','JoseQuispe54@gmail.com',1),
+('Jose','Quispe','177','Av Grau 177','900000054','JoseQuispe55@gmail.com',1),
+('Jose','Quispe','178','Av Grau 178','900000055','JoseQuispe56@gmail.com',1),
+('Jose','Quispe','179','Av Grau 179','900000056','JoseQuispe57@gmail.com',1),
+('Jose','Quispe','180','Av Grau 180','900000057','JoseQuispe58@gmail.com',1),
+('Jose','Quispe','181','Av Grau 181','900000058','JoseQuispe59@gmail.com',1),
+('Jose','Quispe','182','Av Grau 182','900000059','JoseQuispe60@gmail.com',1),
+('Jose','Quispe','183','Av Grau 183','900000060','JoseQuispe61@gmail.com',1),
+('Jose','Quispe','184','Av Grau 184','900000061','JoseQuispe62@gmail.com',1),
+('Jose','Quispe','185','Av Grau 185','900000062','JoseQuispe63@gmail.com',1),
+('Jose','Quispe','186','Av Grau 186','900000063','JoseQuispe64@gmail.com',1),
+('Jose','Quispe','187','Av Grau 187','900000064','JoseQuispe65@gmail.com',1),
+('Jose','Quispe','188','Av Grau 188','900000065','JoseQuispe66@gmail.com',1),
+('Jose','Quispe','189','Av Grau 189','900000066','JoseQuispe67@gmail.com',1),
+('Jose','Quispe','190','Av Grau 190','900000067','JoseQuispe68@gmail.com',1),
+('Jose','Quispe','191','Av Grau 191','900000068','JoseQuispe69@gmail.com',1),
+('Jose','Quispe','192','Av Grau 192','900000069','JoseQuispe70@gmail.com',1),
+('Jose','Quispe','193','Av Grau 193','900000070','JoseQuispe71@gmail.com',1),
+('Jose','Quispe','194','Av Grau 194','900000071','JoseQuispe72@gmail.com',1),
+('Jose','Quispe','195','Av Grau 195','900000072','JoseQuispe73@gmail.com',1),
+('Jose','Quispe','196','Av Grau 196','900000073','JoseQuispe74@gmail.com',1),
+('Jose','Quispe','197','Av Grau 197','900000074','JoseQuispe75@gmail.com',1),
+('Jose','Quispe','198','Av Grau 198','900000075','JoseQuispe76@gmail.com',1),
+('Jose','Quispe','199','Av Grau 199','900000076','JoseQuispe77@gmail.com',1),
+('Jose','Quispe','200','Av Grau 200','900000077','JoseQuispe78@gmail.com',1),
+('Jose','Quispe','201','Av Grau 201','900000078','JoseQuispe79@gmail.com',1),
+('Jose','Quispe','202','Av Grau 202','900000079','JoseQuispe80@gmail.com',1),
+('Jose','Quispe','203','Av Grau 203','900000080','JoseQuispe81@gmail.com',1),
+('Jose','Quispe','204','Av Grau 204','900000081','JoseQuispe82@gmail.com',1),
+('Jose','Quispe','205','Av Grau 205','900000082','JoseQuispe83@gmail.com',1),
+('Jose','Quispe','206','Av Grau 206','900000083','JoseQuispe84@gmail.com',1),
+('Jose','Quispe','207','Av Grau 207','900000084','JoseQuispe85@gmail.com',1),
+('Jose','Quispe','208','Av Grau 208','900000085','JoseQuispe86@gmail.com',1),
+('Jose','Quispe','209','Av Grau 209','900000086','JoseQuispe87@gmail.com',1),
+('Jose','Quispe','210','Av Grau 210','900000087','JoseQuispe88@gmail.com',1),
+('Jose','Quispe','211','Av Grau 211','900000088','JoseQuispe89@gmail.com',1),
+('Jose','Quispe','212','Av Grau 212','900000089','JoseQuispe90@gmail.com',1),
+('Jose','Quispe','213','Av Grau 213','900000090','JoseQuispe91@gmail.com',1),
+('Jose','Quispe','214','Av Grau 214','900000091','JoseQuispe92@gmail.com',1),
+('Jose','Quispe','215','Av Grau 215','900000092','JoseQuispe93@gmail.com',1),
+('Jose','Quispe','216','Av Grau 216','900000093','JoseQuispe94@gmail.com',1),
+('Jose','Quispe','217','Av Grau 217','900000094','JoseQuispe95@gmail.com',1),
+('Jose','Quispe','218','Av Grau 218','900000095','JoseQuispe96@gmail.com',1),
+('Jose','Quispe','219','Av Grau 219','900000096','JoseQuispe97@gmail.com',1),
+('Jose','Quispe','220','Av Grau 220','900000097','JoseQuispe98@gmail.com',1),
+('Jose','Quispe','221','Av Grau 221','900000098','JoseQuispe99@gmail.com',1),
+('Jose','Quispe','222','Av Grau 222','900000099','JoseQuispe100@gmail.com',1),
+('Jose','Quispe','223','Av Grau 223','900000100','JoseQuispe101@gmail.com',1),
+('Jose','Quispe','224','Av Grau 224','900000101','JoseQuispe102@gmail.com',1),
+('Jose','Quispe','225','Av Grau 225','900000102','JoseQuispe103@gmail.com',1),
+('Jose','Quispe','226','Av Grau 226','900000103','JoseQuispe104@gmail.com',1),
+('Jose','Quispe','227','Av Grau 227','900000104','JoseQuispe105@gmail.com',1),
+('Jose','Quispe','228','Av Grau 228','900000105','JoseQuispe106@gmail.com',1),
+('Jose','Quispe','229','Av Grau 229','900000106','JoseQuispe107@gmail.com',1),
+('Jose','Quispe','230','Av Grau 230','900000107','JoseQuispe108@gmail.com',1),
+('Jose','Quispe','231','Av Grau 231','900000108','JoseQuispe109@gmail.com',1),
+('Jose','Quispe','232','Av Grau 232','900000109','JoseQuispe110@gmail.com',1),
+('Jose','Quispe','233','Av Grau 233','900000110','JoseQuispe111@gmail.com',1),
+('Jose','Quispe','234','Av Grau 234','900000111','JoseQuispe112@gmail.com',1),
+('Jose','Quispe','235','Av Grau 235','900000112','JoseQuispe113@gmail.com',1),
+('Jose','Quispe','236','Av Grau 236','900000113','JoseQuispe114@gmail.com',1),
+('Jose','Quispe','237','Av Grau 237','900000114','JoseQuispe115@gmail.com',1),
+('Jose','Quispe','238','Av Grau 238','900000115','JoseQuispe116@gmail.com',1),
+('Jose','Quispe','239','Av Grau 239','900000116','JoseQuispe117@gmail.com',1),
+('Jose','Quispe','240','Av Grau 240','900000117','JoseQuispe118@gmail.com',1),
+('Jose','Quispe','241','Av Grau 241','900000118','JoseQuispe119@gmail.com',1),
+('Jose','Quispe','242','Av Grau 242','900000119','JoseQuispe120@gmail.com',1),
+('Jose','Quispe','243','Av Grau 243','900000120','JoseQuispe121@gmail.com',1),
+('Jose','Quispe','244','Av Grau 244','900000121','JoseQuispe122@gmail.com',1),
+('Jose','Quispe','245','Av Grau 245','900000122','JoseQuispe123@gmail.com',1),
+('Jose','Quispe','246','Av Grau 246','900000123','JoseQuispe124@gmail.com',1),
+('Jose','Quispe','247','Av Grau 247','900000124','JoseQuispe125@gmail.com',1),
+('Jose','Quispe','248','Av Grau 248','900000125','JoseQuispe126@gmail.com',1),
+('Jose','Quispe','249','Av Grau 249','900000126','JoseQuispe127@gmail.com',1),
+('Jose','Quispe','250','Av Grau 250','900000127','JoseQuispe128@gmail.com',1),
+('Jose','Quispe','251','Av Grau 251','900000128','JoseQuispe129@gmail.com',1),
+('Jose','Quispe','252','Av Grau 252','900000129','JoseQuispe130@gmail.com',1),
+('Jose','Quispe','253','Av Grau 253','900000130','JoseQuispe131@gmail.com',1),
+('Jose','Quispe','254','Av Grau 254','900000131','JoseQuispe132@gmail.com',1),
+('Jose','Quispe','255','Av Grau 255','900000132','JoseQuispe133@gmail.com',1),
+('Jose','Quispe','256','Av Grau 256','900000133','JoseQuispe134@gmail.com',1),
+('Jose','Quispe','257','Av Grau 257','900000134','JoseQuispe135@gmail.com',1),
+('Jose','Quispe','258','Av Grau 258','900000135','JoseQuispe136@gmail.com',1),
+('Jose','Quispe','259','Av Grau 259','900000136','JoseQuispe137@gmail.com',1),
+('Jose','Quispe','260','Av Grau 260','900000137','JoseQuispe138@gmail.com',1),
+('Jose','Quispe','261','Av Grau 261','900000138','JoseQuispe139@gmail.com',1),
+('Jose','Quispe','262','Av Grau 262','900000139','JoseQuispe140@gmail.com',1),
+('Jose','Quispe','263','Av Grau 263','900000140','JoseQuispe141@gmail.com',1),
+('Jose','Quispe','264','Av Grau 264','900000141','JoseQuispe142@gmail.com',1),
+('Jose','Quispe','265','Av Grau 265','900000142','JoseQuispe143@gmail.com',1),
+('Jose','Quispe','266','Av Grau 266','900000143','JoseQuispe144@gmail.com',1),
+('Jose','Quispe','267','Av Grau 267','900000144','JoseQuispe145@gmail.com',1),
+('Jose','Quispe','268','Av Grau 268','900000145','JoseQuispe146@gmail.com',1),
+('Jose','Quispe','269','Av Grau 269','900000146','JoseQuispe147@gmail.com',1),
+('Jose','Quispe','270','Av Grau 270','900000147','JoseQuispe148@gmail.com',1),
+('Jose','Quispe','271','Av Grau 271','900000148','JoseQuispe149@gmail.com',1),
+('Jose','Quispe','272','Av Grau 272','900000149','JoseQuispe150@gmail.com',1),
+('Jose','Quispe','273','Av Grau 273','900000150','JoseQuispe151@gmail.com',1),
+('Jose','Quispe','274','Av Grau 274','900000151','JoseQuispe152@gmail.com',1),
+('Jose','Quispe','275','Av Grau 275','900000152','JoseQuispe153@gmail.com',1),
+('Jose','Quispe','276','Av Grau 276','900000153','JoseQuispe154@gmail.com',1),
+('Jose','Quispe','277','Av Grau 277','900000154','JoseQuispe155@gmail.com',1),
+('Jose','Quispe','278','Av Grau 278','900000155','JoseQuispe156@gmail.com',1),
+('Jose','Quispe','279','Av Grau 279','900000156','JoseQuispe157@gmail.com',1),
+('Jose','Quispe','280','Av Grau 280','900000157','JoseQuispe158@gmail.com',1),
+('Jose','Quispe','281','Av Grau 281','900000158','JoseQuispe159@gmail.com',1),
+('Jose','Quispe','282','Av Grau 282','900000159','JoseQuispe160@gmail.com',1),
+('Jose','Quispe','283','Av Grau 283','900000160','JoseQuispe161@gmail.com',1),
+('Jose','Quispe','284','Av Grau 284','900000161','JoseQuispe162@gmail.com',1),
+('Jose','Quispe','285','Av Grau 285','900000162','JoseQuispe163@gmail.com',1),
+('Jose','Quispe','286','Av Grau 286','900000163','JoseQuispe164@gmail.com',1),
+('Jose','Quispe','287','Av Grau 287','900000164','JoseQuispe165@gmail.com',1),
+('Jose','Quispe','288','Av Grau 288','900000165','JoseQuispe166@gmail.com',1),
+('Jose','Quispe','289','Av Grau 289','900000166','JoseQuispe167@gmail.com',1),
+('Jose','Quispe','290','Av Grau 290','900000167','JoseQuispe168@gmail.com',1),
+('Jose','Quispe','291','Av Grau 291','900000168','JoseQuispe169@gmail.com',1),
+('Jose','Quispe','292','Av Grau 292','900000169','JoseQuispe170@gmail.com',1),
+('Jose','Quispe','293','Av Grau 293','900000170','JoseQuispe171@gmail.com',1),
+('Jose','Quispe','294','Av Grau 294','900000171','JoseQuispe172@gmail.com',1),
+('Jose','Quispe','295','Av Grau 295','900000172','JoseQuispe173@gmail.com',1),
+('Jose','Quispe','296','Av Grau 296','900000173','JoseQuispe174@gmail.com',1),
+('Jose','Quispe','297','Av Grau 297','900000174','JoseQuispe175@gmail.com',1),
+('Jose','Quispe','298','Av Grau 298','900000175','JoseQuispe176@gmail.com',1),
+('Jose','Quispe','299','Av Grau 299','900000176','JoseQuispe177@gmail.com',1),
+('Jose','Quispe','300','Av Grau 300','900000177','JoseQuispe178@gmail.com',1),
+('Jose','Quispe','301','Av Grau 301','900000178','JoseQuispe179@gmail.com',1),
+('Jose','Quispe','302','Av Grau 302','900000179','JoseQuispe180@gmail.com',1),
+('Jose','Quispe','303','Av Grau 303','900000180','JoseQuispe181@gmail.com',1),
+('Jose','Quispe','304','Av Grau 304','900000181','JoseQuispe182@gmail.com',1),
+('Jose','Quispe','305','Av Grau 305','900000182','JoseQuispe183@gmail.com',1),
+('Jose','Quispe','306','Av Grau 306','900000183','JoseQuispe184@gmail.com',1),
+('Jose','Quispe','307','Av Grau 307','900000184','JoseQuispe185@gmail.com',1),
+('Jose','Quispe','308','Av Grau 308','900000185','JoseQuispe186@gmail.com',1),
+('Jose','Quispe','309','Av Grau 309','900000186','JoseQuispe187@gmail.com',1),
+('Jose','Quispe','310','Av Grau 310','900000187','JoseQuispe188@gmail.com',1),
+('Jose','Quispe','311','Av Grau 311','900000188','JoseQuispe189@gmail.com',1),
+('Jose','Quispe','312','Av Grau 312','900000189','JoseQuispe190@gmail.com',1),
+('Jose','Quispe','313','Av Grau 313','900000190','JoseQuispe191@gmail.com',1),
+('Jose','Quispe','314','Av Grau 314','900000191','JoseQuispe192@gmail.com',1),
+('Jose','Quispe','315','Av Grau 315','900000192','JoseQuispe193@gmail.com',1),
+('Jose','Quispe','316','Av Grau 316','900000193','JoseQuispe194@gmail.com',1),
+('Jose','Quispe','317','Av Grau 317','900000194','JoseQuispe195@gmail.com',1),
+('Jose','Quispe','318','Av Grau 318','900000195','JoseQuispe196@gmail.com',1),
+('Jose','Quispe','319','Av Grau 319','900000196','JoseQuispe197@gmail.com',1),
+('Jose','Quispe','320','Av Grau 320','900000197','JoseQuispe198@gmail.com',1),
+('Jose','Quispe','321','Av Grau 321','900000198','JoseQuispe199@gmail.com',1),
+('Jose','Quispe','322','Av Grau 322','900000199','JoseQuispe200@gmail.com',1),
+('Jose','Quispe','323','Av Grau 323','900000200','JoseQuispe201@gmail.com',1),
+('Jose','Quispe','324','Av Grau 324','900000201','JoseQuispe202@gmail.com',1),
+('Jose','Quispe','325','Av Grau 325','900000202','JoseQuispe203@gmail.com',1),
+('Jose','Quispe','326','Av Grau 326','900000203','JoseQuispe204@gmail.com',1),
+('Jose','Quispe','327','Av Grau 327','900000204','JoseQuispe205@gmail.com',1)

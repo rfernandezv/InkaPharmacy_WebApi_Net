@@ -30,7 +30,7 @@ namespace InkaPharmacy.Api
                 .ConfigureRunner(rb => rb
                     .AddMySql5()
                     .WithGlobalConnectionString(Environment.GetEnvironmentVariable("InkaPharmacyBD"))
-                    .ScanIn(typeof(PerfilTable).Assembly)
+                    .ScanIn(typeof(CategoryTable).Assembly)
                     .For.All()
                 )
                 .AddLogging(lb => lb.AddFluentMigratorConsole())

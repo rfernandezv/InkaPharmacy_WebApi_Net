@@ -1,8 +1,5 @@
 ﻿using InkaPharmacy.Api.Common.Application.Enum;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace InkaPharmacy.Api.Product.Application.Dto
 {
@@ -12,6 +9,7 @@ namespace InkaPharmacy.Api.Product.Application.Dto
         public string Name { get; set; }
         public decimal Price { get; set; }
         public Currency Currency { get; set; }
+        public string CurrencyISOCode { get; set; }
         public int Stock { get; set; }
         public long Category_id { get; set; }
         public string Lot_number { get; set; }
