@@ -40,6 +40,36 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Login Copy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Username\": \"Jhonatan.Tirado1\",\r\n  \"Password\": \"P@ssw0rd1\"\r\n}"
+						},
+						"url": {
+							"raw": "{{AppURL}}/api/Security/Login",
+							"host": [
+								"{{AppURL}}"
+							],
+							"path": [
+								"api",
+								"Security",
+								"Login"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -122,7 +152,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{AppURL}}/api/Products?page=0&size=200",
+							"raw": "{{AppURL}}/api/Products?page=0&size=5",
 							"host": [
 								"{{AppURL}}"
 							],
@@ -137,7 +167,7 @@
 								},
 								{
 									"key": "size",
-									"value": "200"
+									"value": "5"
 								}
 							]
 						}
@@ -187,7 +217,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Analgesico XYZ\",\n    \"price\": 10.12,\n    \"currency\": \"USD\",\n    \"stock\": 1,\n    \"category_id\": 1,\n    \"lot_number\": \"aa\",\n    \"sanitary_registration_number\": \"aa\"\n}"
+							"raw": "{\n    \"name\": \"Analgesico Extra Fuerte 1319\",\n    \"price\": 10.12,\n    \"currency\": \"USD\",\n    \"stock\": 1,\n    \"category_id\": 1,\n    \"lot_number\": \"aa\",\n    \"sanitary_registration_number\": \"aa\"\n}"
 						},
 						"url": {
 							"raw": "{{AppURL}}/api/Products",
@@ -405,7 +435,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiSmhvbmF0YW4uVGlyYWRvMSIsIm5iZiI6IjE1NDM4ODg5NjMiLCJleHAiOiIxNTQzOTc1MzYzIn0.INe8ZOJ-1IvZCEbhSidT9P9z0LMYczUXQfc8iXJ8V50",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiSmhvbmF0YW4uVGlyYWRvMSIsIm5iZiI6IjE1NDQwNTk0ODQiLCJleHAiOiIxNTQ0MTQ1ODg0In0.aG2hQOyhsqE-x009hyzhoOr1PRPGoQ8pi4og8nC2lX8",
 				"type": "string"
 			}
 		]
