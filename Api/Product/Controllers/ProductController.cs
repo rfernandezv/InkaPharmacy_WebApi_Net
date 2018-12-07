@@ -234,24 +234,14 @@ namespace Api.Products.Controllers
         }
         
         [HttpDelete]
-        public IActionResult Delete([FromBody] ProductDto ProductDto)
+        public IActionResult Delete([FromQuery] int ProductId)
         {
-            Notification notification = new Notification();
             bool uowStatus = false;
             try
             {
                 Product product = new Product();
-                product = _ProductAssembler.FromProductDtoToProduct(ProductDto);
-
-                notification = product.ValidateDeleteProduct(product);
-                if (notification.hasErrors())
-                {
-                    throw new ArgumentException(notification.errorMessage());
-                }
-
                 uowStatus = _unitOfWork.BeginTransaction();
-            
-                Specification<Product> specification = GetById(product.Id);
+                Specification<Product> specification = GetById(ProductId);
                 product = _ProductRepository.GetById(specification);
                 _unitOfWork.Commit(uowStatus);
 
