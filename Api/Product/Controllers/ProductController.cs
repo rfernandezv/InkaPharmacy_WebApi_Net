@@ -51,7 +51,7 @@ namespace Api.Products.Controllers
 
                 if (notification.hasErrors())
                 {
-                    throw new ArgumentException(notification.errorMessage());
+                    return BadRequest(notification.errorMessage());
                 }
 
                 Specification<Product> specification = GetFindByName(ProductName);
@@ -130,7 +130,7 @@ namespace Api.Products.Controllers
 
                 if (notification.hasErrors())
                 {
-                    throw new ArgumentException(notification.errorMessage());
+                    return BadRequest(notification.errorMessage());
                 }
 
                 Specification<Product> specification = GetById(ProductId);
@@ -168,7 +168,7 @@ namespace Api.Products.Controllers
 
                 if (notification.hasErrors())
                 {
-                    throw new ArgumentException(notification.errorMessage());
+                    return BadRequest(notification.errorMessage());
                 }
 
                 product.Status = 1;
@@ -209,7 +209,7 @@ namespace Api.Products.Controllers
 
                 if (notification.hasErrors())
                 {
-                    throw new ArgumentException(notification.errorMessage());
+                    return BadRequest(notification.errorMessage());
                 }
                 _ProductRepository.Update(product);
                 _unitOfWork.Commit(uowStatus);
@@ -236,6 +236,14 @@ namespace Api.Products.Controllers
         [HttpDelete]
         public IActionResult Delete([FromQuery] int ProductId)
         {
+            Notification notification = new Notification();
+
+            if (ProductId == 0)
+            {
+                notification.addError("ProductId is missing");
+                return BadRequest(notification.errorMessage());
+            }
+
             bool uowStatus = false;
             try
             {
@@ -243,8 +251,13 @@ namespace Api.Products.Controllers
                 uowStatus = _unitOfWork.BeginTransaction();
                 Specification<Product> specification = GetById(ProductId);
                 product = _ProductRepository.GetById(specification);
-                _unitOfWork.Commit(uowStatus);
 
+                if (product == null)
+                {
+                    notification.addError("Product not found");
+                    return BadRequest(notification.errorMessage());
+                }
+                    
                 product.Status = 0;
                 _ProductRepository.Update(product);
                 _unitOfWork.Commit(uowStatus);
@@ -280,7 +293,7 @@ namespace Api.Products.Controllers
 
                 if (notification.hasErrors())
                 {
-                    throw new ArgumentException(notification.errorMessage());
+                    return BadRequest(notification.errorMessage());
                 }
 
                 Specification<Product> specification = GetFindByCategory(Category_id);
@@ -301,8 +314,6 @@ namespace Api.Products.Controllers
                 Console.WriteLine(ex.StackTrace);
                 return StatusCode(StatusCodes.Status500InternalServerError, new ApiStringResponseDto(ex.Message));
             }
-
         }
-
     }
 }

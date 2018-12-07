@@ -42,7 +42,7 @@ namespace Api.Customers.Controllers
             try
             {
                 Customer customer = new Customer();
-               Notification notification = customer.validateFindByDocumentNumber(DocumentNumber);
+                Notification notification = customer.validateFindByDocumentNumber(DocumentNumber);
 
                 if (notification.hasErrors())
                 {
