@@ -195,8 +195,8 @@ namespace Api.Products.Controllers
             }
         }
 
-        [HttpPut]
-        public IActionResult Update([FromBody] ProductDto ProductDto)
+        [HttpPut ("{ProductId}")]
+        public IActionResult Update(int ProductId,[FromBody] ProductDto ProductDto)
         {
             Notification notification = new Notification();
             bool uowStatus = false;
@@ -205,6 +205,7 @@ namespace Api.Products.Controllers
                 uowStatus = _unitOfWork.BeginTransaction();
 
                 Product product = _ProductAssembler.FromProductDtoToProduct(ProductDto);
+                product.Id = ProductId;
                 notification = product.ValidateForSave("U");
 
                 if (notification.hasErrors())
@@ -233,8 +234,8 @@ namespace Api.Products.Controllers
             }
         }
         
-        [HttpDelete]
-        public IActionResult Delete([FromQuery] int ProductId)
+        [HttpDelete("{ProductId}")]
+        public IActionResult Delete(int ProductId)
         {
             Notification notification = new Notification();
 
