@@ -39,7 +39,6 @@ namespace Api.Products.Controllers
             responseHandler = new ResponseHandler();
         }
 
-        [ProducesResponseType(typeof(ProductDto), 200)]
         [Route("/api/Products/FindByName")]
         [HttpGet]
         public IActionResult FindByProductName([FromQuery] string ProductName)
@@ -98,7 +97,6 @@ namespace Api.Products.Controllers
             return specification;
         }
 
-        [ProducesResponseType(typeof(List<ProductDto>), 200)]
         [HttpGet]
         public IActionResult Products([FromQuery] int page = 0, [FromQuery] int size = 5)
         {
@@ -120,7 +118,6 @@ namespace Api.Products.Controllers
 
         }
 
-        [ProducesResponseType(typeof(ProductDto), 200)]
         [Route("/api/Products/")]
         [HttpGet("{ProductId}")]
         public IActionResult GetProductById(long ProductId)
@@ -285,7 +282,6 @@ namespace Api.Products.Controllers
             }
         }
 
-        [ProducesResponseType(typeof(List<ProductDto>), 200)]
         [Route("/api/Products/FindByCategory")]
         [HttpGet]
         public IActionResult FindByCategory([FromQuery] long Category_id, [FromQuery] int page = 0, [FromQuery] int size = 5)
