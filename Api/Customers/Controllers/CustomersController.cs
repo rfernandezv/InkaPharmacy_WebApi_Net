@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using InkaPharmacy.Api.Common.Application;
 using InkaPharmacy.Api.Common.Application.Dto;
 using InkaPharmacy.Api.Common.Application.Email;
+using InkaPharmacy.Api.Common.Application.Enum;
 using InkaPharmacy.Api.Common.Domain.Specification;
 using InkaPharmacy.Api.Customers;
 using InkaPharmacy.Api.Customers.Application.Assembler;
 using InkaPharmacy.Api.Customers.Application.Dto;
 using InkaPharmacy.Api.Customers.Domain.Repository;
 using InkaPharmacy.Api.Customers.Infrastructure.Persistence.NHibernate.Specification;
+using InkaPharmacy.API.Common.Controllers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -18,7 +20,7 @@ namespace Api.Customers.Controllers
     [Authorize]
     [Route("api/Customers")]
     [ApiController]
-    public class CustomerController : ControllerBase
+    public class CustomerController : BaseController
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly ICustomerRepository _customerRepository;
@@ -148,16 +150,26 @@ namespace Api.Customers.Controllers
                 customer.Id = CustomerId;
                 notification = customer.ValidateForSave("U");
 
+                ThrowErrors(notification);
+
                 if (notification.hasErrors())
                 {
                     return BadRequest(notification.errorMessage());
                 }
 
                 Specification<Customer> specification = GetById(CustomerId);
+                // Handled by ConsoleLogger since the console has a loglevel of all
+                logger.Message("Verifying customer exists", LogLevel.Debug);
                 customer = _customerRepository.GetById(specification);
+                logger.Message("Customer retrieved.", LogLevel.Info);
 
                 if (customer == null)
                 {
+                    // Handled by ConsoleLogger and FileLogger since filelogger implements Warning & Error
+                    logger.Message("Customer doesn't exist", LogLevel.Warning);
+                    logger.Message("Preventing NULL exception", LogLevel.Error);
+                    // Handled by ConsoleLogger and EmailLogger as it implements functional error
+                    logger.Message("Business exception", LogLevel.FunctionalError);
                     notification.addError("Customer not found");
                     return BadRequest(notification.errorMessage());
 
