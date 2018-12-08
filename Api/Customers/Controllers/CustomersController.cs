@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using InkaPharmacy.Api.Common.Application;
+using InkaPharmacy.Api.Common.Application.Dto;
+using InkaPharmacy.Api.Common.Application.Email;
 using InkaPharmacy.Api.Common.Domain.Specification;
 using InkaPharmacy.Api.Customers;
 using InkaPharmacy.Api.Customers.Application.Assembler;
@@ -21,6 +24,8 @@ namespace Api.Customers.Controllers
         private readonly ICustomerRepository _customerRepository;
         private readonly CustomerAssembler _customerAssembler;
         ResponseHandler responseHandler;
+        static readonly string sender = "jhonatantiradotiradodeep@gmail.com";
+        static readonly string receiver = "jhonatan.tirado@unmsm.edu.pe";
 
         public CustomerController(
             IUnitOfWork unitOfWork,
@@ -32,6 +37,27 @@ namespace Api.Customers.Controllers
             _customerRepository = customerRepository;
             _customerAssembler = customerAssembler;
             responseHandler = new ResponseHandler();
+        }
+
+        [HttpGet]
+        public IActionResult Customers([FromQuery] int page = 0, [FromQuery] int size = 5)
+        {
+            bool uowStatus = false;
+            try
+            {
+                uowStatus = _unitOfWork.BeginTransaction();
+                List<Customer> customers = _customerRepository.GetList(page, size);
+                _unitOfWork.Commit(uowStatus);
+                List<CustomerDto> customersDto = _customerAssembler.FromListCustomerToListCustomerDto(customers);
+                return StatusCode(StatusCodes.Status200OK, customersDto);
+            }
+            catch (Exception ex)
+            {
+                _unitOfWork.Rollback(uowStatus);
+                Console.WriteLine(ex.StackTrace);
+                return StatusCode(StatusCodes.Status500InternalServerError, new ApiStringResponseDto(ex.Message));
+            }
+
         }
 
         [Route("/api/Customers/FindByDocumentNumber")]
@@ -68,6 +94,188 @@ namespace Api.Customers.Controllers
             }
         }
 
+        [HttpPost]
+        public IActionResult Create([FromBody] CustomerDto customerDto)
+        {
+            Notification notification = new Notification();
+            bool uowStatus = false;
+            try
+            {
+                uowStatus = _unitOfWork.BeginTransaction();
+
+                Customer customer = _customerAssembler.FromCustomerDtoToCustomer(customerDto);
+                notification = customer.ValidateForSave();
+
+                if (notification.hasErrors())
+                {
+                    return BadRequest(notification.errorMessage());
+                }
+
+                customer.Status = 1;
+                _customerRepository.Create(customer);
+                _unitOfWork.Commit(uowStatus);
+
+                var message = "Customer created!";
+                KipubitRabbitMQ.SendMessage(message);
+                SendGridEmail.Submit(sender, receiver, message);
+                return StatusCode(StatusCodes.Status201Created, customer);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(this.responseHandler.getAppCustomErrorResponse(ex.Message));
+            }
+            catch (Exception ex)
+            {
+                _unitOfWork.Rollback(uowStatus);
+                Console.WriteLine(ex.StackTrace);
+                var message = "Internal Server Error";
+                KipubitRabbitMQ.SendMessage(message);
+                return StatusCode(StatusCodes.Status500InternalServerError, new ApiStringResponseDto(ex.Message));
+
+            }
+        }
+
+        [HttpPut("{CustomerId}")]
+        public IActionResult Update(int CustomerId, [FromBody] CustomerDto CustomerDto)
+        {
+            Notification notification = new Notification();
+            bool uowStatus = false;
+            try
+            {
+                uowStatus = _unitOfWork.BeginTransaction();
+
+                Customer customer = _customerAssembler.FromCustomerDtoToCustomer(CustomerDto);
+                customer.Id = CustomerId;
+                notification = customer.ValidateForSave("U");
+
+                if (notification.hasErrors())
+                {
+                    return BadRequest(notification.errorMessage());
+                }
+
+                Specification<Customer> specification = GetById(CustomerId);
+                customer = _customerRepository.GetById(specification);
+
+                if (customer == null)
+                {
+                    notification.addError("Customer not found");
+                    return BadRequest(notification.errorMessage());
+
+                }
+                _customerRepository.Update(customer);
+                _unitOfWork.Commit(uowStatus);
+
+                var message = "Customer Updated!";
+                KipubitRabbitMQ.SendMessage(message);
+                return StatusCode(StatusCodes.Status200OK, customer);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(this.responseHandler.getAppCustomErrorResponse(ex.Message));
+            }
+            catch (Exception ex)
+            {
+                _unitOfWork.Rollback(uowStatus);
+                Console.WriteLine(ex.StackTrace);
+                var message = "Internal Server Error";
+                KipubitRabbitMQ.SendMessage(message);
+                return StatusCode(StatusCodes.Status500InternalServerError, new ApiStringResponseDto(ex.Message));
+
+            }
+        }
+
+        [HttpDelete("{CustomerId}")]
+        public IActionResult Delete(int CustomerId)
+        {
+            Notification notification = new Notification();
+
+            if (CustomerId == 0)
+            {
+                notification.addError("CustomerId is missing");
+                return BadRequest(notification.errorMessage());
+            }
+
+            bool uowStatus = false;
+            try
+            {
+                Customer customer = new Customer();
+                uowStatus = _unitOfWork.BeginTransaction();
+                Specification<Customer> specification = GetById(CustomerId);
+                customer = _customerRepository.GetById(specification);
+
+                if (customer == null)
+                {
+                    notification.addError("Customer not found");
+                    return BadRequest(notification.errorMessage());
+
+                }
+
+                customer.Status = 0;
+                _customerRepository.Update(customer);
+                _unitOfWork.Commit(uowStatus);
+
+                var message = "Customer deleted!";
+                KipubitRabbitMQ.SendMessage(message);
+                return StatusCode(StatusCodes.Status200OK, customer);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(this.responseHandler.getAppCustomErrorResponse(ex.Message));
+            }
+            catch (Exception ex)
+            {
+                _unitOfWork.Rollback(uowStatus);
+                Console.WriteLine(ex.StackTrace);
+                var message = "Internal Server Error";
+                KipubitRabbitMQ.SendMessage(message);
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+
+            }
+        }
+
+        [Route("/api/Customers/")]
+        [HttpGet("{CustomerId}")]
+        public IActionResult GetProductById(long CustomerId)
+        {
+            bool uowStatus = false;
+            try
+            {
+                Customer customer = new Customer();
+                Notification notification = new Notification();
+
+                if (CustomerId == 0)
+                {
+                    notification.addError("CustomerId is missing");
+                    return BadRequest(notification.errorMessage());
+                }
+
+                Specification<Customer> specification = GetById(CustomerId);
+
+                uowStatus = _unitOfWork.BeginTransaction();
+                customer = _customerRepository.GetById(specification);
+                _unitOfWork.Commit(uowStatus);
+
+                CustomerDto customerDto = _customerAssembler.FromCustomerToCustomerDto(customer);
+                return StatusCode(StatusCodes.Status200OK, customerDto);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(this.responseHandler.getAppCustomErrorResponse(ex.Message));
+            }
+            catch (Exception ex)
+            {
+                _unitOfWork.Rollback(uowStatus);
+                Console.WriteLine(ex.StackTrace);
+                return StatusCode(StatusCodes.Status500InternalServerError, this.responseHandler.getAppExceptionResponse());
+            }
+        }
+
+        private Specification<Customer> GetById(long CustomerId)
+        {
+            Specification<Customer> specification = Specification<Customer>.All;
+            specification = specification.And(new GetByIdBySpecification(CustomerId));
+            return specification;
+        }
         private Specification<Customer> GetFindByDocumentNumber(string DocumentNumber)
         {
             Specification<Customer> specification = Specification<Customer>.All;

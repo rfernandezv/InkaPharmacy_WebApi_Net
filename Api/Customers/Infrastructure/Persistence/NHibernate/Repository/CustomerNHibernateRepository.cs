@@ -31,5 +31,45 @@ namespace InkaPharmacy.Api.Customers.Infrastructure.Persistence.NHibernate.Repos
             }
             return customer;
         }
+
+        public Customer GetById(Specification<Customer> specification)
+        {
+            Customer customer = new Customer();
+            bool uowStatus = false;
+            try
+            {
+                uowStatus = _unitOfWork.BeginTransaction();
+                customer = _unitOfWork.GetSession().Query<Customer>()
+                .Where(specification.ToExpression()).FirstOrDefault();
+                _unitOfWork.Commit(uowStatus);
+            }
+            catch (Exception ex)
+            {
+                _unitOfWork.Rollback(uowStatus);
+                throw ex;
+            }
+            return customer;
+        }
+
+        public List<Customer> GetList(int page = 0, int pageSize = 5)
+        {
+            List<Customer> customers = new List<Customer>();
+            bool uowStatus = false;
+            try
+            {
+                uowStatus = _unitOfWork.BeginTransaction();
+                customers = _unitOfWork.GetSession().Query<Customer>()
+                        .Skip(page * pageSize)
+                        .Take(pageSize)
+                        .ToList();
+                _unitOfWork.Commit(uowStatus);
+            }
+            catch (Exception ex)
+            {
+                _unitOfWork.Rollback(uowStatus);
+                throw ex;
+            }
+            return customers;
+        }
     }
 }

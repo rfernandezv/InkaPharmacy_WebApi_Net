@@ -42,15 +42,15 @@
 					"response": []
 				},
 				{
-					"name": "Login Copy",
+					"name": "Login POST",
 					"request": {
 						"method": "POST",
 						"header": [
 							{
 								"key": "Content-Type",
 								"name": "Content-Type",
-								"value": "application/json",
-								"type": "text"
+								"type": "text",
+								"value": "application/json"
 							}
 						],
 						"body": {
@@ -86,19 +86,19 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{AppURL}}/api/Products/FindByProductName?ProductName=Analgesico XYZ",
+							"raw": "{{AppURL}}/api/Products/FindByName?ProductName=Dicloxacilina",
 							"host": [
 								"{{AppURL}}"
 							],
 							"path": [
 								"api",
 								"Products",
-								"FindByProductName"
+								"FindByName"
 							],
 							"query": [
 								{
 									"key": "ProductName",
-									"value": "Analgesico XYZ"
+									"value": "Dicloxacilina"
 								}
 							]
 						}
@@ -115,7 +115,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{AppURL}}/api/Products/FindByCategory?Category_id=1&page=0&size=200",
+							"raw": "{{AppURL}}/api/Products/FindByCategory?Category_id=1&page=0&size=5",
 							"host": [
 								"{{AppURL}}"
 							],
@@ -135,7 +135,7 @@
 								},
 								{
 									"key": "size",
-									"value": "200"
+									"value": "5"
 								}
 							]
 						}
@@ -184,40 +184,34 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{AppURL}}/api/Products/GetProductById?ProductId=108",
+							"raw": "{{AppURL}}/api/Products/109",
 							"host": [
 								"{{AppURL}}"
 							],
 							"path": [
 								"api",
 								"Products",
-								"GetProductById"
-							],
-							"query": [
-								{
-									"key": "ProductId",
-									"value": "108"
-								}
+								"109"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "CreateProducts",
+					"name": "CreateProduct",
 					"request": {
 						"method": "POST",
 						"header": [
 							{
 								"key": "Content-Type",
 								"name": "Content-Type",
-								"value": "application/json",
-								"type": "text"
+								"type": "text",
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Analgesico Extra Fuerte 1319\",\n    \"price\": 10.12,\n    \"currency\": \"USD\",\n    \"stock\": 1,\n    \"category_id\": 1,\n    \"lot_number\": \"aa\",\n    \"sanitary_registration_number\": \"aa\"\n}"
+							"raw": "{\n    \"name\": \"Dicloxacilina\",\n    \"price\": 1.2,\n    \"currency\": \"PEN\",\n    \"stock\": 1,\n    \"category_id\": 1,\n    \"lot_number\": \"123lote\",\n    \"sanitary_registration_number\": \"registro123\",\n    \"registration_date\": \"2018-01-01T00:00:00\",\n    \"expiration_date\": \"2021-01-01T00:00:00\",\n    \"status\": 1,\n    \"stock_status\": 1\n}"
 						},
 						"url": {
 							"raw": "{{AppURL}}/api/Products",
@@ -233,58 +227,60 @@
 					"response": []
 				},
 				{
-					"name": "UpdateProducts",
+					"name": "UpdateProduct",
 					"request": {
 						"method": "PUT",
 						"header": [
 							{
 								"key": "Content-Type",
 								"name": "Content-Type",
-								"value": "application/json",
-								"type": "text"
+								"type": "text",
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n \"id\": 108,\n  \"name\" : \"Analgesico XYZ\",\n \"status\" : 0,\n  \"price\" : 12,\n  \"currency\" : \"PEN\",\n  \"stock\" : 5,\n  \"category_id\" : 3,\n  \"lot_number\" : \"cc\",\n  \"sanitary_registration_number\" : \"dd\"\n}"
+							"raw": "{\n    \"name\": \"Dicloxacilina\",\n    \"price\": 1.3,\n    \"currency\": \"PEN\",\n    \"stock\": 10,\n    \"category_id\": 1,\n    \"lot_number\": \"123lote\",\n    \"sanitary_registration_number\": \"registro123\",\n    \"registration_date\": \"2018-01-01T00:00:00\",\n    \"expiration_date\": \"2021-01-01T00:00:00\",\n    \"status\": 1,\n    \"stock_status\": 1\n}"
 						},
 						"url": {
-							"raw": "{{AppURL}}/api/Products",
+							"raw": "{{AppURL}}/api/Products/109",
 							"host": [
 								"{{AppURL}}"
 							],
 							"path": [
 								"api",
-								"Products"
+								"Products",
+								"109"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "borradoLogico",
+					"name": "DeleteProduct",
 					"request": {
 						"method": "DELETE",
 						"header": [
 							{
 								"key": "Content-Type",
 								"name": "Content-Type",
-								"value": "application/json",
-								"type": "text"
+								"type": "text",
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n \"id\": 108\n}"
+							"raw": ""
 						},
 						"url": {
-							"raw": "{{AppURL}}/api/Products",
+							"raw": "{{AppURL}}/api/Products/3",
 							"host": [
 								"{{AppURL}}"
 							],
 							"path": [
 								"api",
-								"Products"
+								"Products",
+								"3"
 							]
 						}
 					},
@@ -311,7 +307,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{AppURL}}/api/Customers/FindByDocumentNumber?DocumentNumber=900000001",
+							"raw": "{{AppURL}}/api/Customers/FindByDocumentNumber?DocumentNumber=900000000",
 							"host": [
 								"{{AppURL}}"
 							],
@@ -323,8 +319,152 @@
 							"query": [
 								{
 									"key": "DocumentNumber",
-									"value": "900000001"
+									"value": "900000000"
 								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetCustomers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{AppURL}}/api/Customers?page=0&size=5",
+							"host": [
+								"{{AppURL}}"
+							],
+							"path": [
+								"api",
+								"Customers"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetCustomerById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{AppURL}}/api/Customers/206",
+							"host": [
+								"{{AppURL}}"
+							],
+							"path": [
+								"api",
+								"Customers",
+								"206"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteCustomer",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{AppURL}}/api/Customers/3",
+							"host": [
+								"{{AppURL}}"
+							],
+							"path": [
+								"api",
+								"Customers",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateCustomer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Name\": \"Mariano\",\r\n  \"Last_Name1\": \"Tirado\",\r\n  \"Last_Name2\": \"Castillo\",\r\n  \"Address\": \"Jose Marti 187\",\r\n  \"Telephone\": \"324234324\",\r\n  \"Email\": \"mtirado@gmail.com\",\r\n  \"Document_Number\": \"17171717\",\r\n  \"Status\": 1\r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{AppURL}}/api/Customers",
+							"host": [
+								"{{AppURL}}"
+							],
+							"path": [
+								"api",
+								"Customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateCustomer",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Name\": \"Mariano J\",\r\n  \"Last_Name1\": \"Tirado\",\r\n  \"Last_Name2\": \"Castillo\",\r\n  \"Address\": \"Jose Marti 187\",\r\n  \"Telephone\": \"324234324\",\r\n  \"Email\": \"mtirado@gmail.com\",\r\n  \"Document_Number\": \"17171717\",\r\n  \"Status\": 1\r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{AppURL}}/api/Customers/206000",
+							"host": [
+								"{{AppURL}}"
+							],
+							"path": [
+								"api",
+								"Customers",
+								"206000"
 							]
 						}
 					},
@@ -435,7 +575,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiSmhvbmF0YW4uVGlyYWRvMSIsIm5iZiI6IjE1NDQwNTk0ODQiLCJleHAiOiIxNTQ0MTQ1ODg0In0.aG2hQOyhsqE-x009hyzhoOr1PRPGoQ8pi4og8nC2lX8",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiSmhvbmF0YW4uVGlyYWRvMSIsIm5iZiI6IjE1NDQyNDYwNTAiLCJleHAiOiIxNTQ0MzMyNDUwIn0.nAcvJyILIxxw0xU-LkCn2yPYO9IGDCyZxUVf1CCAEX0",
 				"type": "string"
 			}
 		]

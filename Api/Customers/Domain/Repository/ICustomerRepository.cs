@@ -7,5 +7,13 @@ namespace InkaPharmacy.Api.Customers.Domain.Repository
     {
         Customer FindByDocumentNumber( Specification<Customer> specification);
 
+        List<Customer> GetList(int page = 0,int pageSize = 5);
+
+        void Create(Customer customer);
+
+        void Update(Customer customer);
+
+        Customer GetById(Specification<Customer> specification);
+
     }
 }

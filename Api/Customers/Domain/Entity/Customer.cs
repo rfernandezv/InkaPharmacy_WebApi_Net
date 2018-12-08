@@ -30,6 +30,31 @@ namespace InkaPharmacy.Api.Customers
             return notification;
         }
 
+        public virtual Notification ValidateForSave(string action = "")
+        {
+            Notification notification = new Notification();
+
+            if (this == null)
+            {
+                notification.addError("The Customer is null");
+            }
+
+            if (action == "U")
+            {
+                if (this.Id == 0)
+                {
+                    notification.addError("The Customer doesn't have a valid Id");
+                }
+            }
+
+            if (string.IsNullOrEmpty(this.Name))
+            {
+                notification.addError("The Customer doesn't have a valid Name");
+            }
+
+            return notification;
+        }
+
 
     }
 }

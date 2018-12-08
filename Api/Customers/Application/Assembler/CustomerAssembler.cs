@@ -26,5 +26,10 @@ namespace InkaPharmacy.Api.Customers.Application.Assembler
             return _mapper.Map<CustomerDto, Customer>(customerDto);
         }
 
+        public List<CustomerDto> FromListCustomerToListCustomerDto(List<Customer> Customers)
+        {
+            return _mapper.Map<List<Customer>, List<CustomerDto>>(Customers);
+        }
+
     }
 }
