@@ -36,12 +36,6 @@ namespace InkaPharmacy.Api.Controllers
             _responseHandler = new ResponseHandler();
         }
 
-        [HttpGet]
-        public Object Get()
-        {
-            return new ApiStringResponseDto("api root endpoint");
-        }
-
         [Route("/api/Providers/FindByDocumentNumber")]
         [HttpGet]
         public IActionResult FindByDocumentNumber([FromQuery] string DocumentNumber)
