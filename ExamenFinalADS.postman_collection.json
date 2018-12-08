@@ -1,0 +1,304 @@
+{
+	"info": {
+		"_postman_id": "0a187d5c-d7a0-40d7-809c-43ee5cfcc49b",
+		"name": "ExamenFinalADS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Fibonacci",
+			"item": [
+				{
+					"name": "Fibonacci Lineal",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{server}}/api/Fibonacci/Lineal/10",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"Fibonacci",
+								"Lineal",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fibonacci Logaritmica",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{server}}/api/Fibonacci/Logaritmica/10",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"Fibonacci",
+								"Logaritmica",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fibonacci IoC",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{server}}/api/Fibonacci/40",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"Fibonacci",
+								"40"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fibonacci Exponencial",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{server}}/api/Fibonacci/Exponencial/40",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"Fibonacci",
+								"Exponencial",
+								"40"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api Values",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{server}}/api/values",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"values"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Estudiantes",
+			"item": [
+				{
+					"name": "Get students by type=Pregrado",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{server}}/api/Students/findByType?studentType=Pregrado",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"Students",
+								"findByType"
+							],
+							"query": [
+								{
+									"key": "studentType",
+									"value": "Pregrado"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Calculate scholarship",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{server}}/api/Students/getScholarshipAmount?studentCode=Code201",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"Students",
+								"getScholarshipAmount"
+							],
+							"query": [
+								{
+									"key": "studentCode",
+									"value": "Code201"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get students by type=Maestria",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{server}}/api/Students/findByType?studentType=Maestria",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"Students",
+								"findByType"
+							],
+							"query": [
+								{
+									"key": "studentType",
+									"value": "Maestria"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get students by type=Doctorado",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{server}}/api/Students/findByType?studentType=Doctorado",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"Students",
+								"findByType"
+							],
+							"query": [
+								{
+									"key": "studentType",
+									"value": "Doctorado"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all students",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{server}}/api/Students",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"Students"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
