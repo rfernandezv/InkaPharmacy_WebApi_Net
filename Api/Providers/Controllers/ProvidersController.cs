@@ -36,6 +36,7 @@ namespace InkaPharmacy.Api.Controllers
             _responseHandler = new ResponseHandler();
         }
 
+        [ProducesResponseType(typeof(ProviderDto), 200)]
         [Route("/api/Providers/FindByDocumentNumber")]
         [HttpGet]
         public IActionResult FindByDocumentNumber([FromQuery] string DocumentNumber)
@@ -55,8 +56,8 @@ namespace InkaPharmacy.Api.Controllers
                 uowStatus = _unitOfWork.BeginTransaction();
                 provider = _providerRepository.FindByAnySpecificField(specification);
                 _unitOfWork.Commit(uowStatus);
-                ProviderDto providersDto = _providerAssembler.FromProviderToProviderDto(provider);
-                return StatusCode(StatusCodes.Status200OK, providersDto);
+                ProviderDto providerDto = _providerAssembler.FromProviderToProviderDto(provider);
+                return StatusCode(StatusCodes.Status200OK, providerDto);
             }
             catch (ArgumentException ex)
             {
@@ -70,6 +71,7 @@ namespace InkaPharmacy.Api.Controllers
             }
         }
 
+        [ProducesResponseType(typeof(ProviderDto), 200)]
         [Route("/api/Providers/FindByName")]
         [HttpGet]
         public IActionResult FindByName([FromQuery] string Name)
@@ -89,8 +91,8 @@ namespace InkaPharmacy.Api.Controllers
                 uowStatus = _unitOfWork.BeginTransaction();
                 provider = _providerRepository.FindByAnySpecificField(specification);
                 _unitOfWork.Commit(uowStatus);
-                ProviderDto providersDto = _providerAssembler.FromProviderToProviderDto(provider);
-                return StatusCode(StatusCodes.Status200OK, providersDto);
+                ProviderDto providerDto = _providerAssembler.FromProviderToProviderDto(provider);
+                return StatusCode(StatusCodes.Status200OK, providerDto);
             }
             catch (ArgumentException ex)
             {

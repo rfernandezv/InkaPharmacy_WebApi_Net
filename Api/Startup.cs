@@ -23,6 +23,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using InkaPharmacy.Api.Employees.Application.Assembler;
 using Swashbuckle.AspNetCore.Swagger;
+using System.Collections.Generic;
 
 namespace InkaPharmacy.Api
 {
@@ -103,7 +104,13 @@ namespace InkaPharmacy.Api
 
             services.AddSwaggerGen(c =>
             {
+                var security = new Dictionary<string, IEnumerable<string>>
+                {
+                    {"Bearer", new string[] { }},
+                };
                 c.SwaggerDoc("v1", new Info { Title = "InkaPharmacy API", Version = "v1" });
+                c.AddSecurityDefinition("Bearer", new ApiKeyScheme() { In = "header", Description = "Please insert JWT with Bearer into field", Name = "Authorization", Type = "apiKey" });
+                c.AddSecurityRequirement(security);
             });
 
         }

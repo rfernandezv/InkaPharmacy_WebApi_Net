@@ -41,6 +41,7 @@ namespace Api.Customers.Controllers
             responseHandler = new ResponseHandler();
         }
 
+        [ProducesResponseType(typeof(List<CustomerDto>), 200)]
         [HttpGet]
         public IActionResult Customers([FromQuery] int page = 0, [FromQuery] int size = 5)
         {
@@ -62,6 +63,7 @@ namespace Api.Customers.Controllers
 
         }
 
+        [ProducesResponseType(typeof(CustomerDto), 200)]
         [Route("/api/Customers/FindByDocumentNumber")]
         [HttpGet]
         public IActionResult FindByDocumentNumber([FromQuery] string DocumentNumber)
@@ -81,8 +83,8 @@ namespace Api.Customers.Controllers
                 uowStatus = _unitOfWork.BeginTransaction();
                 customer = _customerRepository.FindByDocumentNumber(specification);
                 _unitOfWork.Commit(uowStatus);
-                CustomerDto customersDto = _customerAssembler.FromCustomerToCustomerDto(customer);
-                return StatusCode(StatusCodes.Status200OK, customersDto);
+                CustomerDto customerDto = _customerAssembler.FromCustomerToCustomerDto(customer);
+                return StatusCode(StatusCodes.Status200OK, customerDto);
             }
             catch (ArgumentException ex)
             {
@@ -245,7 +247,7 @@ namespace Api.Customers.Controllers
             }
         }
 
-        //[Route("/api/Customers/")]
+        [ProducesResponseType(typeof(CustomerDto), 200)]
         [HttpGet("{CustomerId}")]
         public IActionResult GetCustomerById(long CustomerId)
         {

@@ -33,6 +33,7 @@ namespace InkaPharmacy.Api.Controllers
             _responseHandler = new ResponseHandler();
         }
 
+        [ProducesResponseType(typeof(EmployeeDto), 200)]
         [Route("/api/Employees/FindByUsername")]
         [HttpGet]
         public IActionResult FindByUsername([FromQuery] string Username)
