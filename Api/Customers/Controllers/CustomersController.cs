@@ -120,7 +120,7 @@ namespace Api.Customers.Controllers
                 var message = "Customer created!";
                 KipubitRabbitMQ.SendMessage(message);
                 SendGridEmail.Submit(sender, receiver, message);
-                return StatusCode(StatusCodes.Status201Created, customer);
+                return StatusCode(StatusCodes.Status201Created, message);
             }
             catch (ArgumentException ex)
             {
@@ -179,7 +179,7 @@ namespace Api.Customers.Controllers
 
                 var message = "Customer Updated!";
                 KipubitRabbitMQ.SendMessage(message);
-                return StatusCode(StatusCodes.Status200OK, customer);
+                return StatusCode(StatusCodes.Status200OK, message);
             }
             catch (ArgumentException ex)
             {
@@ -228,7 +228,7 @@ namespace Api.Customers.Controllers
 
                 var message = "Customer deleted!";
                 KipubitRabbitMQ.SendMessage(message);
-                return StatusCode(StatusCodes.Status200OK, customer);
+                return StatusCode(StatusCodes.Status200OK, message);
             }
             catch (ArgumentException ex)
             {
@@ -245,9 +245,9 @@ namespace Api.Customers.Controllers
             }
         }
 
-        [Route("/api/Customers/")]
+        //[Route("/api/Customers/")]
         [HttpGet("{CustomerId}")]
-        public IActionResult GetProductById(long CustomerId)
+        public IActionResult GetCustomerById(long CustomerId)
         {
             bool uowStatus = false;
             try

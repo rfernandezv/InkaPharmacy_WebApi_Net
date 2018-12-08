@@ -118,7 +118,6 @@ namespace Api.Products.Controllers
 
         }
 
-        [Route("/api/Products/")]
         [HttpGet("{ProductId}")]
         public IActionResult GetProductById(long ProductId)
         {
@@ -178,7 +177,7 @@ namespace Api.Products.Controllers
                 var message = "Product created!";
                 KipubitRabbitMQ.SendMessage(message);
                 SendGridEmail.Submit(sender, receiver, message);
-                return StatusCode(StatusCodes.Status201Created, product);
+                return StatusCode(StatusCodes.Status201Created, message);
             }
             catch (ArgumentException ex)
             {
@@ -217,7 +216,7 @@ namespace Api.Products.Controllers
 
                 var message = "Product Updated!";
                 KipubitRabbitMQ.SendMessage(message);
-                return StatusCode(StatusCodes.Status200OK, product);
+                return StatusCode(StatusCodes.Status200OK, message);
             }
             catch (ArgumentException ex)
             {
@@ -263,9 +262,9 @@ namespace Api.Products.Controllers
                 _ProductRepository.Update(product);
                 _unitOfWork.Commit(uowStatus);
 
-                var message = "Product Updated!";
+                var message = "Product deleted!";
                 KipubitRabbitMQ.SendMessage(message);
-                return StatusCode(StatusCodes.Status200OK, product);
+                return StatusCode(StatusCodes.Status200OK, message);
             }
             catch (ArgumentException ex)
             {

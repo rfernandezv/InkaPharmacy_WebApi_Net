@@ -22,7 +22,6 @@ using InkaPharmacy.Api.Providers.Infrastructure.Persistence.NHibernate.Repositor
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using InkaPharmacy.Api.Employees.Application.Assembler;
-using Web.Site.Common.Api.Middleware;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace InkaPharmacy.Api
@@ -130,11 +129,10 @@ namespace InkaPharmacy.Api
             options.DefaultFileNames.Clear();
             options.DefaultFileNames.Add("index.html");
 
-            app.UseMiddleware(typeof(ErrorMiddleware))
-                .UseMvc()
+            app.UseMvc()
                .UseDefaultFiles(options)
                .UseStaticFiles()
-                .UseSwagger()
+               .UseSwagger()
                .UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"); });
         }
     }

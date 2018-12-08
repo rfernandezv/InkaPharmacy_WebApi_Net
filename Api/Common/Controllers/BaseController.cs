@@ -16,6 +16,7 @@ namespace InkaPharmacy.API.Common.Controllers
             logger2 = logger1.SetNext(new FileLogger(LogLevel.Warning | LogLevel.Error));
         }
 
+        [NonAction]
         public void ThrowErrors(Notification notification)
         {
             if (notification.hasErrors()) {
