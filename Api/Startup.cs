@@ -105,7 +105,6 @@ namespace InkaPharmacy.Api
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = "System API", Version = "v1" });
-                c.AddSecurityDefinition("Bearer", new ApiKeyScheme() { In = "header", Description = "Please insert JWT with Bearer into field", Name = "Authorization", Type = "apiKey" });
             });
 
         }
@@ -132,13 +131,11 @@ namespace InkaPharmacy.Api
             options.DefaultFileNames.Add("index.html");
 
             app.UseMiddleware(typeof(ErrorMiddleware))
-               .UseMvc()
+                .UseMvc()
                .UseDefaultFiles(options)
                .UseStaticFiles()
-               .UseSwagger()
-               .UseSwaggerUI(c => {
-                   c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
-               });
+                .UseSwagger()
+               .UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"); });
         }
     }
 }
