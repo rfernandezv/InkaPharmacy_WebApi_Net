@@ -39,7 +39,7 @@ namespace Api.Products.Controllers
             responseHandler = new ResponseHandler();
         }
 
-        [Route("/api/Products/FindByProductName")]
+        [Route("/api/Products/FindByName")]
         [HttpGet]
         public IActionResult FindByProductName([FromQuery] string ProductName)
         {
@@ -118,9 +118,9 @@ namespace Api.Products.Controllers
 
         }
 
-        [Route("/api/Products/GetProductById")]
-        [HttpGet]
-        public IActionResult GetProductById([FromQuery] long ProductId)
+        [Route("/api/Products/")]
+        [HttpGet("{ProductId}")]
+        public IActionResult GetProductById(long ProductId)
         {
             bool uowStatus = false;
             try

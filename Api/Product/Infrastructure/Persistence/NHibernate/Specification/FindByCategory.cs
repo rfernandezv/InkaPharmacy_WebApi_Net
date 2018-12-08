@@ -1,9 +1,6 @@
-﻿    using InkaPharmacy.Api.Common.Domain.Specification;
+﻿using InkaPharmacy.Api.Common.Domain.Specification;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Threading.Tasks;
 
 namespace InkaPharmacy.Api.Product.Infrastructure.Persistence.NHibernate.Specification
 {
@@ -19,7 +16,7 @@ namespace InkaPharmacy.Api.Product.Infrastructure.Persistence.NHibernate.Specifi
 
         public override Expression<Func<Product, bool>> ToExpression()
         {
-            return customer => (customer.Category_id == _Category_id);
+            return product => (product.Category_id == _Category_id);
         }
     }
 }

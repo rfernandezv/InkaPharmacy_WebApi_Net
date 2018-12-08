@@ -18,12 +18,12 @@ namespace InkaPharmacy.Api.Customers.Infrastructure.Persistence.NHibernate.Repos
 
         public Product FindByProductName(Specification<Product> specification)
         {
-            Product customer = new Product();
+            Product product = new Product();
             bool uowStatus = false;
             try
             {
                 uowStatus = _unitOfWork.BeginTransaction();
-                customer = _unitOfWork.GetSession().Query<Product>()
+                product = _unitOfWork.GetSession().Query<Product>()
                 .Where(specification.ToExpression()).FirstOrDefault();
                 _unitOfWork.Commit(uowStatus);
             }
@@ -32,17 +32,17 @@ namespace InkaPharmacy.Api.Customers.Infrastructure.Persistence.NHibernate.Repos
                 _unitOfWork.Rollback(uowStatus);
                 throw ex;
             }
-            return customer;
+            return product;
         }
 
         public Product GetById(Specification<Product> specification)
         {
-            Product customer = new Product();
+            Product product = new Product();
             bool uowStatus = false;
             try
             {
                 uowStatus = _unitOfWork.BeginTransaction();
-                customer = _unitOfWork.GetSession().Query<Product>()
+                product = _unitOfWork.GetSession().Query<Product>()
                 .Where(specification.ToExpression()).FirstOrDefault();
                 _unitOfWork.Commit(uowStatus);
             }
@@ -51,7 +51,7 @@ namespace InkaPharmacy.Api.Customers.Infrastructure.Persistence.NHibernate.Repos
                 _unitOfWork.Rollback(uowStatus);
                 throw ex;
             }
-            return customer;
+            return product;
         }
 
         public List<Product> GetList(int page = 0, int pageSize = 5)
@@ -81,8 +81,6 @@ namespace InkaPharmacy.Api.Customers.Infrastructure.Persistence.NHibernate.Repos
             bool uowStatus = false;
             try
             {
-                       //.Where(specification.ToExpression())
-
                 uowStatus = _unitOfWork.BeginTransaction();
                 products = _unitOfWork.GetSession().Query<Product>()
                        .Where(specification.ToExpression())
