@@ -5,12 +5,13 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace InkaPharmacy.Api.Employees.Application.Queries
 {
     public class EmployeeMySQLDapperQueries : IEmployeeQueries
     {
-        public List<EmployeeQueryDto> GetListPaginated(long storeId, int page = 0, int pageSize = 5)
+        public async Task<List<EmployeeQueryDto>> GetListPaginated(long storeId, int page = 0, int pageSize = 5)
         {
             string sql = @"
                     SELECT e.employee_id,e.name, e.last_name1,e.last_name2,e.address,e.telephone,e.username,e.email,
@@ -27,15 +28,14 @@ namespace InkaPharmacy.Api.Employees.Application.Queries
                 try
                 {
                     connection.Open();
-                    List<EmployeeQueryDto> employees = connection
-                    .Query<EmployeeQueryDto>(sql, new
+                    var result = await connection
+                    .QueryAsync<EmployeeQueryDto>(sql, new
                     {
                         Page = page,
                         PageSize = pageSize,
                         StoreId = storeId
-                    })
-                    .ToList();
-                    return employees;
+                    });
+                    return result.ToList<EmployeeQueryDto>();
                 }
                 catch (Exception ex)
                 {

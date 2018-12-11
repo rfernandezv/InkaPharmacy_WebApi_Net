@@ -12,6 +12,7 @@ using InkaPharmacy.Api.Employees.Application.Assembler;
 using System.Collections.Generic;
 using InkaPharmacy.Api.Employees.Application.Contracts;
 using InkaPharmacy.Api.Common.Application.Dto;
+using System.Threading.Tasks;
 
 namespace InkaPharmacy.Api.Controllers
 {
@@ -76,11 +77,11 @@ namespace InkaPharmacy.Api.Controllers
         [ProducesResponseType(typeof(List<EmployeeQueryDto>), 200)]
         [Route("/api/Employees")]
         [HttpGet]
-        public IActionResult GetEmployeesByStore([FromQuery] long StoreId,[FromQuery] int page = 0, [FromQuery] int size = 5)
+        public async Task<ActionResult<List<EmployeeQueryDto>>> GetEmployeesByStore([FromQuery] long StoreId,[FromQuery] int page = 0, [FromQuery] int size = 5)
         {
             try
             {
-                List<EmployeeQueryDto> employeesDto = _employeeQueries.GetListPaginated(StoreId, page, size);
+                var employeesDto = await _employeeQueries.GetListPaginated(StoreId, page, size);
                 return StatusCode(StatusCodes.Status200OK, employeesDto);
             }
             catch (Exception ex)
