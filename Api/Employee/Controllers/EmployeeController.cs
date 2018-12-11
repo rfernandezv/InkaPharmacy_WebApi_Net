@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.Http;
 using InkaPharmacy.Api.Employees.Application.Dto;
 using InkaPharmacy.Api.Employees.Infrastructure.Persistence.NHibernate.Specification;
 using InkaPharmacy.Api.Employees.Application.Assembler;
+using System.Collections.Generic;
+using InkaPharmacy.Api.Employees.Application.Contracts;
+using InkaPharmacy.Api.Common.Application.Dto;
 
 namespace InkaPharmacy.Api.Controllers
 {
@@ -21,16 +24,18 @@ namespace InkaPharmacy.Api.Controllers
         private readonly IEmployeeRepository _employeeRepository;
         private readonly EmployeeAssembler _employeeAssembler;
         public ResponseHandler _responseHandler;
+        private readonly IEmployeeQueries _employeeQueries;
 
         public EmployeesController(
             IUnitOfWork unitOfWork,
             IEmployeeRepository EmployeeRepository,
-            EmployeeAssembler EmployeeAssembler)
+            EmployeeAssembler EmployeeAssembler, IEmployeeQueries employeeQueries)
         {
             _unitOfWork = unitOfWork;
             _employeeRepository = EmployeeRepository;
             _employeeAssembler = EmployeeAssembler;
             _responseHandler = new ResponseHandler();
+            _employeeQueries = employeeQueries;
         }
 
         [ProducesResponseType(typeof(EmployeeDto), 200)]
@@ -65,6 +70,23 @@ namespace InkaPharmacy.Api.Controllers
                 _unitOfWork.Rollback(uowStatus);
                 Console.WriteLine(ex.StackTrace);
                 return StatusCode(StatusCodes.Status500InternalServerError, this._responseHandler.getAppExceptionResponse());
+            }
+        }
+
+        [ProducesResponseType(typeof(List<EmployeeQueryDto>), 200)]
+        [Route("/api/Employees")]
+        [HttpGet]
+        public IActionResult GetEmployeesByStore([FromQuery] long StoreId,[FromQuery] int page = 0, [FromQuery] int size = 5)
+        {
+            try
+            {
+                List<EmployeeQueryDto> employeesDto = _employeeQueries.GetListPaginated(StoreId, page, size);
+                return StatusCode(StatusCodes.Status200OK, employeesDto);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.StackTrace);
+                return StatusCode(StatusCodes.Status500InternalServerError, new ApiStringResponseDto(ex.Message));
             }
         }
 

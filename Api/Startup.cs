@@ -24,6 +24,8 @@ using System.Text;
 using InkaPharmacy.Api.Employees.Application.Assembler;
 using Swashbuckle.AspNetCore.Swagger;
 using System.Collections.Generic;
+using InkaPharmacy.Api.Employees.Application.Contracts;
+using InkaPharmacy.Api.Employees.Application.Queries;
 
 namespace InkaPharmacy.Api
 {
@@ -81,6 +83,8 @@ namespace InkaPharmacy.Api
                 IUnitOfWork unitOfWork = ctx.GetService<IUnitOfWork>();
                 return new CustomerCustomerNHibernateRepository((UnitOfWorkNHibernate)unitOfWork);
             });
+
+            services.AddSingleton<IEmployeeQueries, EmployeeMySQLDapperQueries>();
 
             var TokenSecret = Environment.GetEnvironmentVariable("InkaPharmacyTokenSecret");
             Console.WriteLine(TokenSecret);
