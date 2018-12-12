@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace InkaPharmacy.Api.Common.Infrastructure.Persistence.NHibernate
 {
@@ -70,22 +71,22 @@ namespace InkaPharmacy.Api.Common.Infrastructure.Persistence.NHibernate
             }
         }
 
-        //private void SaveOrUpdate2(T entity)
-        //{
-        //    bool uowStatus = false;
-        //    try
-        //    {
-        //        uowStatus = _unitOfWork.BeginTransaction();
-        //        _unitOfWork.GetSession().SaveOrUpdate(entity);
-        //        _unitOfWork.Commit(uowStatus);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        _unitOfWork.Rollback(uowStatus);
-        //        throw ex;
-        //    }
-        //}
-
-
+        public int CountTotalRecords()
+        {
+            int totalRecords;
+            bool uowStatus = false;
+            try
+            {
+                uowStatus = _unitOfWork.BeginTransaction();
+                totalRecords = _unitOfWork.GetSession().Query<T>().ToList().Count();
+                _unitOfWork.Commit(uowStatus);
+            }
+            catch (Exception ex)
+            {
+                _unitOfWork.Rollback(uowStatus);
+                throw ex;
+            }
+            return totalRecords;
+        }
     }
 }

@@ -1,9 +1,6 @@
 ﻿using AutoMapper;
 using InkaPharmacy.Api.Product.Application.Dto;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace InkaPharmacy.Api.Products.Application.Assembler
 {
@@ -26,11 +23,6 @@ namespace InkaPharmacy.Api.Products.Application.Assembler
         public Product FromProductDtoToProduct(ProductDto ProductDto)
         {
             return _mapper.Map<ProductDto, Product>(ProductDto);
-        }
-
-        public ProductDto FromListProductToListProductDto(Product Product)
-        {
-            return _mapper.Map<Product, ProductDto>(Product);
         }
 
         public List<Product> FromListProductDtoToListProduct( List<ProductDto> ProductDto)

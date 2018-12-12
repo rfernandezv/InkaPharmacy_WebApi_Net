@@ -98,6 +98,7 @@ namespace Api.Products.Controllers
             return specification;
         }
 
+        [NonAction]
         [ProducesResponseType(typeof(List<ProductDto>), 200)]
         [HttpGet]
         public IActionResult Products([FromQuery] int page = 0, [FromQuery] int size = 5)
@@ -110,6 +111,29 @@ namespace Api.Products.Controllers
                 _unitOfWork.Commit(uowStatus);
                 List<ProductDto> productsDTO = _ProductAssembler.FromListProductToListProductDto(products);
                 return StatusCode(StatusCodes.Status200OK, productsDTO);
+            }
+            catch (Exception ex)
+            {
+                _unitOfWork.Rollback(uowStatus);
+                Console.WriteLine(ex.StackTrace);
+                return StatusCode(StatusCodes.Status500InternalServerError, new ApiStringResponseDto(ex.Message));
+            }
+
+        }
+
+        [ProducesResponseType(typeof(GridDto), 200)]
+        [HttpGet]
+        public IActionResult ProductsPaginated([FromQuery] int page = 0, [FromQuery] int size = 5)
+        {
+            bool uowStatus = false;
+            try
+            {
+                uowStatus = _unitOfWork.BeginTransaction();
+                GridDto products = _ProductRepository.GetListWithPageCounters(page, size);
+                _unitOfWork.Commit(uowStatus);
+                List<ProductDto> productsDTO = _ProductAssembler.FromListProductToListProductDto((List<Product>) products.Content);
+                products.Content = productsDTO;
+                return StatusCode(StatusCodes.Status200OK, products);
             }
             catch (Exception ex)
             {

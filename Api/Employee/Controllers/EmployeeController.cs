@@ -81,7 +81,7 @@ namespace InkaPharmacy.Api.Controllers
         {
             try
             {
-                var employeesDto = await _employeeQueries.GetListPaginated(StoreId, page, size);
+                List<EmployeeQueryDto> employeesDto = await _employeeQueries.GetListPaginated(StoreId, page, size);
                 return StatusCode(StatusCodes.Status200OK, employeesDto);
             }
             catch (Exception ex)

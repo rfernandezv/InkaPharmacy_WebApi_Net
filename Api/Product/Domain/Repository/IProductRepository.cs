@@ -1,4 +1,5 @@
-﻿using InkaPharmacy.Api.Common.Domain.Specification;
+﻿using InkaPharmacy.Api.Common.Application.Dto;
+using InkaPharmacy.Api.Common.Domain.Specification;
 using System.Collections.Generic;
 
 namespace InkaPharmacy.Api.Product.Domain.Repository
@@ -12,6 +13,8 @@ namespace InkaPharmacy.Api.Product.Domain.Repository
         List<Product> GetList(
             int page = 0,
             int pageSize = 5);
+
+        GridDto GetListWithPageCounters(int page = 0,int pageSize = 5);
 
         List<Product> GetListFindByCategory(
              Specification<Product> specification,
