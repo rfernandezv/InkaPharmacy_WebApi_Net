@@ -184,14 +184,14 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{AppURL}}/api/Products/109",
+							"raw": "{{AppURL}}/api/Products/119",
 							"host": [
 								"{{AppURL}}"
 							],
 							"path": [
 								"api",
 								"Products",
-								"109"
+								"119"
 							]
 						}
 					},
@@ -211,7 +211,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Dicloxacilina\",\n    \"price\": 1.2,\n    \"currency\": \"PEN\",\n    \"stock\": 1,\n    \"category_id\": 1,\n    \"lot_number\": \"123lote\",\n    \"sanitary_registration_number\": \"registro123\",\n    \"registration_date\": \"2018-01-01T00:00:00\",\n    \"expiration_date\": \"2021-01-01T00:00:00\",\n    \"status\": 1,\n    \"stock_status\": 1\n}"
+							"raw": "{\n    \"name\": \"Dicloxacilina 123\",\n    \"price\": 1.2,\n    \"currency\": \"PEN\",\n    \"stock\": 1,\n    \"category_id\": 1,\n    \"lot_number\": \"123lote\",\n    \"sanitary_registration_number\": \"registro123\",\n    \"registration_date\": \"2018-01-01T00:00:00\",\n    \"expiration_date\": \"2021-01-01T00:00:00\",\n    \"status\": 1,\n    \"stock_status\": 1\n}"
 						},
 						"url": {
 							"raw": "{{AppURL}}/api/Products",
@@ -240,17 +240,17 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Dicloxacilina\",\n    \"price\": 1.3,\n    \"currency\": \"PEN\",\n    \"stock\": 10,\n    \"category_id\": 1,\n    \"lot_number\": \"123lote\",\n    \"sanitary_registration_number\": \"registro123\",\n    \"registration_date\": \"2018-01-01T00:00:00\",\n    \"expiration_date\": \"2021-01-01T00:00:00\",\n    \"status\": 1,\n    \"stock_status\": 1\n}"
+							"raw": "{\n    \"name\": \"Dicloxacilina\",\n    \"price\": 1.3,\n    \"currency\": \"PEN\",\n    \"stock\": 10,\n    \"category_id\": 1,\n    \"lot_number\": \"123loteXXXXX\",\n    \"sanitary_registration_number\": \"registro123\",\n    \"registration_date\": \"2018-01-01T00:00:00\",\n    \"expiration_date\": \"2021-01-01T00:00:00\",\n    \"status\": 1,\n    \"stock_status\": 1\n}"
 						},
 						"url": {
-							"raw": "{{AppURL}}/api/Products/109",
+							"raw": "{{AppURL}}/api/Products/119",
 							"host": [
 								"{{AppURL}}"
 							],
 							"path": [
 								"api",
 								"Products",
-								"109"
+								"119"
 							]
 						}
 					},
@@ -273,14 +273,14 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{AppURL}}/api/Products/3",
+							"raw": "{{AppURL}}/api/Products/119",
 							"host": [
 								"{{AppURL}}"
 							],
 							"path": [
 								"api",
 								"Products",
-								"3"
+								"119"
 							]
 						}
 					},
@@ -398,14 +398,14 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{AppURL}}/api/Customers/3",
+							"raw": "{{AppURL}}/api/Customers/213",
 							"host": [
 								"{{AppURL}}"
 							],
 							"path": [
 								"api",
 								"Customers",
-								"3"
+								"213"
 							]
 						}
 					},
@@ -425,7 +425,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"Name\": \"Mariano\",\r\n  \"Last_Name1\": \"Tirado\",\r\n  \"Last_Name2\": \"Castillo\",\r\n  \"Address\": \"Jose Marti 187\",\r\n  \"Telephone\": \"324234324\",\r\n  \"Email\": \"mtirado@gmail.com\",\r\n  \"Document_Number\": \"17171717\",\r\n  \"Status\": 1\r\n}\r\n"
+							"raw": "{\r\n  \"Name\": \"Mariano\",\r\n  \"Last_Name1\": \"Tirado\",\r\n  \"Last_Name2\": \"Castillo\",\r\n  \"Address\": \"Jose Marti 187\",\r\n  \"Telephone\": \"324234324\",\r\n  \"Email\": \"mtirado@gmail.com\",\r\n  \"Document_Number\": \"17171717\",\r\n  \"Status\": 1000000000\r\n}\r\n"
 						},
 						"url": {
 							"raw": "{{AppURL}}/api/Customers",
@@ -454,17 +454,17 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"Name\": \"Mariano J\",\r\n  \"Last_Name1\": \"Tirado\",\r\n  \"Last_Name2\": \"Castillo\",\r\n  \"Address\": \"Jose Marti 187\",\r\n  \"Telephone\": \"324234324\",\r\n  \"Email\": \"mtirado@gmail.com\",\r\n  \"Document_Number\": \"17171717\",\r\n  \"Status\": 1\r\n}\r\n"
+							"raw": "{\r\n  \"Name\": \"Mariano J\",\r\n  \"Last_Name1\": \"Tirado\",\r\n  \"Last_Name2\": \"Castillo\",\r\n  \"Address\": \"Jose Marti 187\",\r\n  \"Telephone\": \"324234324324234324324234324324234324324234324324234324324234324324234324\",\r\n  \"Email\": \"mtirado@gmail.com\",\r\n  \"Document_Number\": \"17171717\",\r\n  \"Status\": 1\r\n}\r\n"
 						},
 						"url": {
-							"raw": "{{AppURL}}/api/Customers/206000",
+							"raw": "{{AppURL}}/api/Customers/213",
 							"host": [
 								"{{AppURL}}"
 							],
 							"path": [
 								"api",
 								"Customers",
-								"206000"
+								"213"
 							]
 						}
 					},
@@ -566,6 +566,42 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "GetEmployees",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{AppURL}}/api/Employees?StoreId=1&page=0&size=10",
+							"host": [
+								"{{AppURL}}"
+							],
+							"path": [
+								"api",
+								"Employees"
+							],
+							"query": [
+								{
+									"key": "StoreId",
+									"value": "1"
+								},
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}
@@ -575,7 +611,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiSmhvbmF0YW4uVGlyYWRvMSIsIm5iZiI6IjE1NDQyNDYwNTAiLCJleHAiOiIxNTQ0MzMyNDUwIn0.nAcvJyILIxxw0xU-LkCn2yPYO9IGDCyZxUVf1CCAEX0",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiSmhvbmF0YW4uVGlyYWRvMSIsIm5iZiI6IjE1NDQ1NjQyMzkiLCJleHAiOiIxNTQ0NjUwNjM5In0.vAZQL5Ciofa8kdBGwuW559Gz0wISsi-kO3v6gOhq_cs",
 				"type": "string"
 			}
 		]
