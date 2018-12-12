@@ -201,7 +201,7 @@ namespace Api.Products.Controllers
                 _ProductRepository.Create(product);
                 _unitOfWork.Commit(uowStatus);
 
-                var message = "Product created!";
+                var message = "Product " + product.Id + " created!";
                 KipubitRabbitMQ.SendMessage(message);
                 SendGridEmail.Submit(sender, receiver, message);
                 return StatusCode(StatusCodes.Status201Created, message);

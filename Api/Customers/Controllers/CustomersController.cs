@@ -143,7 +143,7 @@ namespace Api.Customers.Controllers
                 _customerRepository.Create(customer);
                 _unitOfWork.Commit(uowStatus);
 
-                var message = "Customer created!";
+                var message = "Customer " + customer.Id + " created!";
                 KipubitRabbitMQ.SendMessage(message);
                 SendGridEmail.Submit(sender, receiver, message);
                 return StatusCode(StatusCodes.Status201Created, message);
