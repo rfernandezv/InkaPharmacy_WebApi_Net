@@ -1,4 +1,5 @@
-﻿using InkaPharmacy.Api.Common.Domain.Specification;
+﻿using InkaPharmacy.Api.Common.Application.Dto;
+using InkaPharmacy.Api.Common.Domain.Specification;
 using System.Collections.Generic;
 
 namespace InkaPharmacy.Api.Customers.Domain.Repository
@@ -14,6 +15,6 @@ namespace InkaPharmacy.Api.Customers.Domain.Repository
         void Update(Customer customer);
 
         Customer GetById(Specification<Customer> specification);
-
+        GridDto GetListWithPageCounters(int page, int size);
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using InkaPharmacy.Api.Common.Application.Dto;
 using InkaPharmacy.Api.Common.Domain.Specification;
 using InkaPharmacy.Api.Common.Infrastructure.Persistence.NHibernate;
 using InkaPharmacy.Api.Customers.Domain.Repository;
@@ -70,6 +71,35 @@ namespace InkaPharmacy.Api.Customers.Infrastructure.Persistence.NHibernate.Repos
                 throw ex;
             }
             return customers;
+        }
+
+        public GridDto GetListWithPageCounters(int page = 0, int pageSize = 5)
+        {
+            List<Customer> customers = new List<Customer>();
+            GridDto result = new GridDto();
+            bool uowStatus = false;
+            try
+            {
+                uowStatus = _unitOfWork.BeginTransaction();
+                customers = _unitOfWork.GetSession().Query<Customer>()
+                        .Skip(page * pageSize)
+                        .Take(pageSize)
+                        .ToList();
+                _unitOfWork.Commit(uowStatus);
+                result = new GridDto
+                {
+                    Content = customers,
+                    TotalRecords = CountTotalRecords(),
+                    CurrentPage = page,
+                    PageSize = pageSize
+                };
+            }
+            catch (Exception ex)
+            {
+                _unitOfWork.Rollback(uowStatus);
+                throw ex;
+            }
+            return result;
         }
     }
 }

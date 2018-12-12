@@ -41,6 +41,7 @@ namespace Api.Customers.Controllers
             responseHandler = new ResponseHandler();
         }
 
+        [NonAction]
         [ProducesResponseType(typeof(List<CustomerDto>), 200)]
         [HttpGet]
         public IActionResult Customers([FromQuery] int page = 0, [FromQuery] int size = 5)
@@ -53,6 +54,29 @@ namespace Api.Customers.Controllers
                 _unitOfWork.Commit(uowStatus);
                 List<CustomerDto> customersDto = _customerAssembler.FromListCustomerToListCustomerDto(customers);
                 return StatusCode(StatusCodes.Status200OK, customersDto);
+            }
+            catch (Exception ex)
+            {
+                _unitOfWork.Rollback(uowStatus);
+                Console.WriteLine(ex.StackTrace);
+                return StatusCode(StatusCodes.Status500InternalServerError, new ApiStringResponseDto(ex.Message));
+            }
+
+        }
+
+        [ProducesResponseType(typeof(GridDto), 200)]
+        [HttpGet]
+        public IActionResult CustomersPaginated([FromQuery] int page = 0, [FromQuery] int size = 5)
+        {
+            bool uowStatus = false;
+            try
+            {
+                uowStatus = _unitOfWork.BeginTransaction();
+                GridDto customers = _customerRepository.GetListWithPageCounters(page, size);
+                _unitOfWork.Commit(uowStatus);
+                List<CustomerDto> productsDTO = _customerAssembler.FromListCustomerToListCustomerDto((List<Customer>)customers.Content);
+                customers.Content = productsDTO;
+                return StatusCode(StatusCodes.Status200OK, customers);
             }
             catch (Exception ex)
             {
