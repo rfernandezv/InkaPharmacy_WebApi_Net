@@ -604,6 +604,43 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Sales",
+			"item": [
+				{
+					"name": "http://localhost:8087/api/sales/order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"SaleDate\": \"2018-07-21T17:32:28Z\",\r\n  \"CustomerId\": 1,\r\n  \"EmployeeId\": 1,\r\n  \"Status\": 1,\r\n  \"SalesOrderDetails\": [\r\n    {\r\n      \"ProductId\": 1,\r\n      \"Quantity\": 10,\r\n      \"Currency\": \"PEN\",\r\n      \"Price\": 10,\r\n      \"Status\": 1\r\n    }\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8087/api/sales/order",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"sales",
+								"order"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"auth": {
