@@ -194,7 +194,7 @@ namespace Api.Products.Controllers
 
                 if (notification.HasErrors())
                 {
-                    return BadRequest(notification.ErrorMessage());
+                    return BadRequest(responseHandler.getAppCustomErrorResponse(notification.ErrorMessage()));
                 }
 
                 product.Status = 1;
@@ -204,7 +204,7 @@ namespace Api.Products.Controllers
                 var message = "Product " + product.Id + " created!";
                 KipubitRabbitMQ.SendMessage(message);
                 SendGridEmail.Submit(sender, receiver, message);
-                return StatusCode(StatusCodes.Status201Created, message);
+                return Ok(responseHandler.getOkCommandResponse(message, StatusCodes.Status201Created));
             }
             catch (ArgumentException ex)
             {
@@ -216,7 +216,7 @@ namespace Api.Products.Controllers
                 Console.WriteLine(ex.StackTrace);
                 var message = "Internal Server Error";
                 KipubitRabbitMQ.SendMessage(message);
-                return StatusCode(StatusCodes.Status500InternalServerError, new ApiStringResponseDto(ex.Message));
+                return StatusCode(StatusCodes.Status500InternalServerError, responseHandler.getAppExceptionResponse());
 
             }
         }
@@ -225,6 +225,13 @@ namespace Api.Products.Controllers
         public IActionResult Update(int ProductId,[FromBody] ProductDto ProductDto)
         {
             Notification notification = new Notification();
+
+            if (ProductId == 0)
+            {
+                notification.AddError("ProductId is missing");
+                return BadRequest(responseHandler.getAppCustomErrorResponse(notification.ErrorMessage()));
+            }
+
             bool uowStatus = false;
             try
             {
@@ -236,14 +243,14 @@ namespace Api.Products.Controllers
 
                 if (notification.HasErrors())
                 {
-                    return BadRequest(notification.ErrorMessage());
+                    return BadRequest(responseHandler.getAppCustomErrorResponse(notification.ErrorMessage()));
                 }
                 _ProductRepository.Update(product);
                 _unitOfWork.Commit(uowStatus);
 
                 var message = "Product " + ProductId + " updated!";
                 KipubitRabbitMQ.SendMessage(message);
-                return StatusCode(StatusCodes.Status200OK, message);
+                return Ok(responseHandler.getOkCommandResponse(message, StatusCodes.Status200OK));
             }
             catch (ArgumentException ex)
             {
@@ -255,8 +262,7 @@ namespace Api.Products.Controllers
                 Console.WriteLine(ex.StackTrace);
                 var message = "Internal Server Error";
                 KipubitRabbitMQ.SendMessage(message);
-                return StatusCode(StatusCodes.Status500InternalServerError, new ApiStringResponseDto(ex.Message));
-
+                return StatusCode(StatusCodes.Status500InternalServerError, responseHandler.getAppExceptionResponse());
             }
         }
         
@@ -268,7 +274,7 @@ namespace Api.Products.Controllers
             if (ProductId == 0)
             {
                 notification.AddError("ProductId is missing");
-                return BadRequest(notification.ErrorMessage());
+                return BadRequest(responseHandler.getAppCustomErrorResponse(notification.ErrorMessage()));
             }
 
             bool uowStatus = false;
@@ -282,7 +288,7 @@ namespace Api.Products.Controllers
                 if (product == null)
                 {
                     notification.AddError("Product not found");
-                    return BadRequest(notification.ErrorMessage());
+                    return BadRequest(responseHandler.getAppCustomErrorResponse(notification.ErrorMessage()));
                 }
                     
                 product.Status = 0;
@@ -291,7 +297,7 @@ namespace Api.Products.Controllers
 
                 var message = "Product " + ProductId + " deleted!";
                 KipubitRabbitMQ.SendMessage(message);
-                return StatusCode(StatusCodes.Status200OK, message);
+                return Ok(responseHandler.getOkCommandResponse(message, StatusCodes.Status200OK));
             }
             catch (ArgumentException ex)
             {
@@ -303,7 +309,7 @@ namespace Api.Products.Controllers
                 Console.WriteLine(ex.StackTrace);
                 var message = "Internal Server Error";
                 KipubitRabbitMQ.SendMessage(message);
-                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+                return StatusCode(StatusCodes.Status500InternalServerError, responseHandler.getAppExceptionResponse());
 
             }
         }
