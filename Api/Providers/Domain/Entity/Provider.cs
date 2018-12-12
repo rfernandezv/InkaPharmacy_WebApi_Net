@@ -21,7 +21,7 @@ namespace InkaPharmacy.Api.Providers.Domain.Entity
 
             if (this == null)
             {
-                notification.addError("Provider is null");
+                notification.AddError("Provider is null");
             }
 
             return notification;
@@ -33,7 +33,7 @@ namespace InkaPharmacy.Api.Providers.Domain.Entity
 
             if (string.IsNullOrEmpty(DocumentNumber))
             {
-                notification.addError("The Document Number is null");
+                notification.AddError("The Document Number is null");
             }
 
             return notification;
@@ -45,7 +45,7 @@ namespace InkaPharmacy.Api.Providers.Domain.Entity
 
             if (string.IsNullOrEmpty(Name))
             {
-                notification.addError("The Provider name is null");
+                notification.AddError("The Provider name is null");
             }
 
             return notification;

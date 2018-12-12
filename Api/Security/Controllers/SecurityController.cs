@@ -59,7 +59,7 @@ namespace InkaPharmacy.Api.Controllers
            
                 EmployeeDto EmployeesDto = _empleadoLoginAssembler.toDto(Employees.FirstOrDefault());
                 var token = GenerateToken(EmployeesDto.Username);
-                return Ok(this.responseHandler.getOkCommandResponse("bearer " + token, Constants.HttpStatus.Success, EmployeesDto));
+                return Ok(responseHandler.getOkCommandResponse("bearer " + token, Constants.HttpStatus.Success, EmployeesDto));
 
             }
             catch (ArgumentException ex)
@@ -72,7 +72,7 @@ namespace InkaPharmacy.Api.Controllers
             {
                 _unitOfWork.Rollback(uowStatus);
                 Console.WriteLine(ex.StackTrace);                
-                return StatusCode(StatusCodes.Status500InternalServerError, this.responseHandler.getAppExceptionResponse());
+                return StatusCode(StatusCodes.Status500InternalServerError, responseHandler.getAppExceptionResponse());
                 
             }
         }
@@ -98,7 +98,7 @@ namespace InkaPharmacy.Api.Controllers
 
                 EmployeeDto employeeDto = _empleadoLoginAssembler.toDto(employees.FirstOrDefault());
                 var token = GenerateToken(employeeDto.Username);
-                return Ok(this.responseHandler.getOkCommandResponse("bearer " + token, Constants.HttpStatus.Success, employeeDto));
+                return Ok(responseHandler.getOkCommandResponse("bearer " + token, Constants.HttpStatus.Success, employeeDto));
 
             }
             catch (ArgumentException ex)
@@ -111,7 +111,7 @@ namespace InkaPharmacy.Api.Controllers
             {
                 _unitOfWork.Rollback(uowStatus);
                 Console.WriteLine(ex.StackTrace);
-                return StatusCode(StatusCodes.Status500InternalServerError, this.responseHandler.getAppExceptionResponse());
+                return StatusCode(StatusCodes.Status500InternalServerError, responseHandler.getAppExceptionResponse());
 
             }
         }

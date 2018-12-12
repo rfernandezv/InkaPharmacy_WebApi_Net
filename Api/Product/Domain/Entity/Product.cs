@@ -28,7 +28,7 @@ namespace InkaPharmacy.Api.Product
 
             if (string.IsNullOrEmpty(ProductName))
             {
-                notification.addError("The Product Name is null");
+                notification.AddError("The Product Name is null");
             }
 
             return notification;
@@ -40,7 +40,7 @@ namespace InkaPharmacy.Api.Product
 
             if (Category_id== 0)
             {
-                notification.addError("The Category is null");
+                notification.AddError("The Category is null");
             }
 
             return notification;
@@ -52,7 +52,7 @@ namespace InkaPharmacy.Api.Product
 
             if (ProductId == 0)
             {
-                notification.addError("The Product Id is null");
+                notification.AddError("The Product Id is null");
             }
 
             return notification;
@@ -64,12 +64,12 @@ namespace InkaPharmacy.Api.Product
 
             if (product == null)
             {
-                notification.addError("The Product is null");
+                notification.AddError("The Product is null");
             }
 
             if (product.Id == 0)
             {
-                notification.addError("The Product Id is null");
+                notification.AddError("The Product Id is null");
             }
 
             return notification;
@@ -82,36 +82,36 @@ namespace InkaPharmacy.Api.Product
 
             if (this == null)
             {
-                notification.addError("The Product is null");
+                notification.AddError("The Product is null");
             }
 
             if (action == "U")
             {
                 if (this.Id == 0)
                 {
-                    notification.addError("The Product doesn´t have a valid Id");
+                    notification.AddError("The Product doesn´t have a valid Id");
                 }
             }
 
 
             if (string.IsNullOrEmpty(this.Name))
             {
-                notification.addError("The Product doesn´t have a valid Name");
+                notification.AddError("The Product doesn´t have a valid Name");
             }
 
             if (this.Price == null)
             {
-                notification.addError("The Product doesn´t have a valid Price");
+                notification.AddError("The Product doesn´t have a valid Price");
             }
 
             if (this.Stock == 0)
             {
-                notification.addError("The Product doesn´t have a valid Stock");
+                notification.AddError("The Product doesn´t have a valid Stock");
             }
 
             if (this.Category_id == 0)
             {
-                notification.addError("The Product doesn´t have a valid Category");
+                notification.AddError("The Product doesn´t have a valid Category");
             }
 
             return notification;

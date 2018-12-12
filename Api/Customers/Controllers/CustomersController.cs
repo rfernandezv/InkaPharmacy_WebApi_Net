@@ -98,9 +98,9 @@ namespace Api.Customers.Controllers
                 Customer customer = new Customer();
                 Notification notification = customer.validateFindByDocumentNumber(DocumentNumber);
 
-                if (notification.hasErrors())
+                if (notification.HasErrors())
                 {
-                    throw new ArgumentException(notification.errorMessage());
+                    throw new ArgumentException(notification.ErrorMessage());
                 }
 
                 Specification<Customer> specification = GetFindByDocumentNumber(DocumentNumber);
@@ -112,13 +112,13 @@ namespace Api.Customers.Controllers
             }
             catch (ArgumentException ex)
             {
-                return BadRequest(this.responseHandler.getAppCustomErrorResponse(ex.Message));
+                return BadRequest(responseHandler.getAppCustomErrorResponse(ex.Message));
             }
             catch (Exception ex)
             {
                 _unitOfWork.Rollback(uowStatus);
                 Console.WriteLine(ex.StackTrace);
-                return StatusCode(StatusCodes.Status500InternalServerError, this.responseHandler.getAppExceptionResponse());
+                return StatusCode(StatusCodes.Status500InternalServerError, responseHandler.getAppExceptionResponse());
             }
         }
 
@@ -134,9 +134,9 @@ namespace Api.Customers.Controllers
                 Customer customer = _customerAssembler.FromCustomerDtoToCustomer(customerDto);
                 notification = customer.ValidateForSave();
 
-                if (notification.hasErrors())
+                if (notification.HasErrors())
                 {
-                    return BadRequest(notification.errorMessage());
+                    return BadRequest(responseHandler.getAppCustomErrorResponse(notification.ErrorMessage()));
                 }
 
                 customer.Status = 1;
@@ -146,11 +146,12 @@ namespace Api.Customers.Controllers
                 var message = "Customer " + customer.Id + " created!";
                 KipubitRabbitMQ.SendMessage(message);
                 SendGridEmail.Submit(sender, receiver, message);
-                return StatusCode(StatusCodes.Status201Created, message);
+
+                return Ok(responseHandler.getOkCommandResponse(message, StatusCodes.Status201Created));
             }
             catch (ArgumentException ex)
             {
-                return BadRequest(this.responseHandler.getAppCustomErrorResponse(ex.Message));
+                return BadRequest(responseHandler.getAppCustomErrorResponse(ex.Message));
             }
             catch (Exception ex)
             {
@@ -158,8 +159,7 @@ namespace Api.Customers.Controllers
                 Console.WriteLine(ex.StackTrace);
                 var message = "Internal Server Error";
                 KipubitRabbitMQ.SendMessage(message);
-                return StatusCode(StatusCodes.Status500InternalServerError, new ApiStringResponseDto(ex.Message));
-
+                return StatusCode(StatusCodes.Status500InternalServerError, responseHandler.getAppExceptionResponse());
             }
         }
 
@@ -167,49 +167,41 @@ namespace Api.Customers.Controllers
         public IActionResult Update(int CustomerId, [FromBody] CustomerDto CustomerDto)
         {
             Notification notification = new Notification();
+
+            if (CustomerId == 0)
+            {
+                notification.AddError("CustomerId is missing");
+                return BadRequest(responseHandler.getAppCustomErrorResponse(notification.ErrorMessage()));
+            }
+
             bool uowStatus = false;
             try
             {
-                uowStatus = _unitOfWork.BeginTransaction();
 
-                Customer customer = _customerAssembler.FromCustomerDtoToCustomer(CustomerDto);
+                Customer customer = new Customer();
+                uowStatus = _unitOfWork.BeginTransaction();
+                customer = _customerAssembler.FromCustomerDtoToCustomer(CustomerDto);
                 customer.Id = CustomerId;
                 notification = customer.ValidateForSave("U");
 
                 ThrowErrors(notification);
 
-                if (notification.hasErrors())
+                if (notification.HasErrors())
                 {
-                    return BadRequest(notification.errorMessage());
+                    return BadRequest(responseHandler.getAppCustomErrorResponse(notification.ErrorMessage()));
                 }
 
-                Specification<Customer> specification = GetById(CustomerId);
-                // Handled by ConsoleLogger since the console has a loglevel of all
-                logger.Message("Verifying customer exists", LogLevel.Debug);
-                customer = _customerRepository.GetById(specification);
-                logger.Message("Customer retrieved.", LogLevel.Info);
-
-                if (customer == null)
-                {
-                    // Handled by ConsoleLogger and FileLogger since filelogger implements Warning & Error
-                    logger.Message("Customer doesn't exist", LogLevel.Warning);
-                    logger.Message("Preventing NULL exception", LogLevel.Error);
-                    // Handled by ConsoleLogger and EmailLogger as it implements functional error
-                    logger.Message("Business exception", LogLevel.FunctionalError);
-                    notification.addError("Customer not found");
-                    return BadRequest(notification.errorMessage());
-
-                }
                 _customerRepository.Update(customer);
                 _unitOfWork.Commit(uowStatus);
 
                 var message = "Customer " + CustomerId + " updated!";
                 KipubitRabbitMQ.SendMessage(message);
-                return StatusCode(StatusCodes.Status200OK, message);
+                return Ok(responseHandler.getOkCommandResponse(message, StatusCodes.Status200OK));
+
             }
             catch (ArgumentException ex)
             {
-                return BadRequest(this.responseHandler.getAppCustomErrorResponse(ex.Message));
+                return BadRequest(responseHandler.getAppCustomErrorResponse(ex.Message));
             }
             catch (Exception ex)
             {
@@ -217,8 +209,7 @@ namespace Api.Customers.Controllers
                 Console.WriteLine(ex.StackTrace);
                 var message = "Internal Server Error";
                 KipubitRabbitMQ.SendMessage(message);
-                return StatusCode(StatusCodes.Status500InternalServerError, new ApiStringResponseDto(ex.Message));
-
+                return StatusCode(StatusCodes.Status500InternalServerError, responseHandler.getAppExceptionResponse());
             }
         }
 
@@ -229,8 +220,8 @@ namespace Api.Customers.Controllers
 
             if (CustomerId == 0)
             {
-                notification.addError("CustomerId is missing");
-                return BadRequest(notification.errorMessage());
+                notification.AddError("CustomerId is missing");
+                return BadRequest(responseHandler.getAppCustomErrorResponse(notification.ErrorMessage()));
             }
 
             bool uowStatus = false;
@@ -243,8 +234,8 @@ namespace Api.Customers.Controllers
 
                 if (customer == null)
                 {
-                    notification.addError("Customer not found");
-                    return BadRequest(notification.errorMessage());
+                    notification.AddError("Customer not found");
+                    return BadRequest(responseHandler.getAppCustomErrorResponse(notification.ErrorMessage()));
 
                 }
 
@@ -254,11 +245,11 @@ namespace Api.Customers.Controllers
 
                 var message = "Customer " + CustomerId + " deleted!";
                 KipubitRabbitMQ.SendMessage(message);
-                return StatusCode(StatusCodes.Status200OK, message);
+                return Ok(responseHandler.getOkCommandResponse(message, StatusCodes.Status200OK));
             }
             catch (ArgumentException ex)
             {
-                return BadRequest(this.responseHandler.getAppCustomErrorResponse(ex.Message));
+                return BadRequest(responseHandler.getAppCustomErrorResponse(ex.Message));
             }
             catch (Exception ex)
             {
@@ -266,7 +257,7 @@ namespace Api.Customers.Controllers
                 Console.WriteLine(ex.StackTrace);
                 var message = "Internal Server Error";
                 KipubitRabbitMQ.SendMessage(message);
-                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+                return StatusCode(StatusCodes.Status500InternalServerError, responseHandler.getAppExceptionResponse());
 
             }
         }
@@ -283,8 +274,8 @@ namespace Api.Customers.Controllers
 
                 if (CustomerId == 0)
                 {
-                    notification.addError("CustomerId is missing");
-                    return BadRequest(notification.errorMessage());
+                    notification.AddError("CustomerId is missing");
+                    return BadRequest(notification.ErrorMessage());
                 }
 
                 Specification<Customer> specification = GetById(CustomerId);
@@ -298,13 +289,13 @@ namespace Api.Customers.Controllers
             }
             catch (ArgumentException ex)
             {
-                return BadRequest(this.responseHandler.getAppCustomErrorResponse(ex.Message));
+                return BadRequest(responseHandler.getAppCustomErrorResponse(ex.Message));
             }
             catch (Exception ex)
             {
                 _unitOfWork.Rollback(uowStatus);
                 Console.WriteLine(ex.StackTrace);
-                return StatusCode(StatusCodes.Status500InternalServerError, this.responseHandler.getAppExceptionResponse());
+                return StatusCode(StatusCodes.Status500InternalServerError, responseHandler.getAppExceptionResponse());
             }
         }
 

@@ -50,9 +50,9 @@ namespace InkaPharmacy.Api.Controllers
                 Employee employee = new Employee();
                 Notification notification = employee.ValidateFindByUsername(Username);
 
-                if (notification.hasErrors())
+                if (notification.HasErrors())
                 {
-                    throw new ArgumentException(notification.errorMessage());
+                    throw new ArgumentException(notification.ErrorMessage());
                 }
 
                 Specification<Employee> specification = GetFindByUsername(Username);

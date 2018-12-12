@@ -50,9 +50,9 @@ namespace Api.Products.Controllers
                 Product product = new Product();
                 Notification notification = product.ValidateFindByProductName(ProductName);
 
-                if (notification.hasErrors())
+                if (notification.HasErrors())
                 {
-                    return BadRequest(notification.errorMessage());
+                    return BadRequest(notification.ErrorMessage());
                 }
 
                 Specification<Product> specification = GetFindByName(ProductName);
@@ -73,7 +73,7 @@ namespace Api.Products.Controllers
             {
                 _unitOfWork.Rollback(uowStatus);
                 Console.WriteLine(ex.StackTrace);
-                return StatusCode(StatusCodes.Status500InternalServerError, this.responseHandler.getAppExceptionResponse());
+                return StatusCode(StatusCodes.Status500InternalServerError, responseHandler.getAppExceptionResponse());
             }
         }
 
@@ -154,9 +154,9 @@ namespace Api.Products.Controllers
                 Product product = new Product();
                 Notification notification = product.ValidateGetProductById(ProductId);
 
-                if (notification.hasErrors())
+                if (notification.HasErrors())
                 {
-                    return BadRequest(notification.errorMessage());
+                    return BadRequest(notification.ErrorMessage());
                 }
 
                 Specification<Product> specification = GetById(ProductId);
@@ -170,13 +170,13 @@ namespace Api.Products.Controllers
             }
             catch (ArgumentException ex)
             {
-                return BadRequest(this.responseHandler.getAppCustomErrorResponse(ex.Message));
+                return BadRequest(responseHandler.getAppCustomErrorResponse(ex.Message));
             }
             catch (Exception ex)
             {
                 _unitOfWork.Rollback(uowStatus);
                 Console.WriteLine(ex.StackTrace);
-                return StatusCode(StatusCodes.Status500InternalServerError, this.responseHandler.getAppExceptionResponse());
+                return StatusCode(StatusCodes.Status500InternalServerError, responseHandler.getAppExceptionResponse());
             }
         }
 
@@ -192,9 +192,9 @@ namespace Api.Products.Controllers
                 Product product = _ProductAssembler.FromProductDtoToProduct(ProductDto);
                 notification = product.ValidateForSave();
 
-                if (notification.hasErrors())
+                if (notification.HasErrors())
                 {
-                    return BadRequest(notification.errorMessage());
+                    return BadRequest(notification.ErrorMessage());
                 }
 
                 product.Status = 1;
@@ -208,7 +208,7 @@ namespace Api.Products.Controllers
             }
             catch (ArgumentException ex)
             {
-                return BadRequest(this.responseHandler.getAppCustomErrorResponse(ex.Message));
+                return BadRequest(responseHandler.getAppCustomErrorResponse(ex.Message));
             }
             catch (Exception ex)
             {
@@ -234,9 +234,9 @@ namespace Api.Products.Controllers
                 product.Id = ProductId;
                 notification = product.ValidateForSave("U");
 
-                if (notification.hasErrors())
+                if (notification.HasErrors())
                 {
-                    return BadRequest(notification.errorMessage());
+                    return BadRequest(notification.ErrorMessage());
                 }
                 _ProductRepository.Update(product);
                 _unitOfWork.Commit(uowStatus);
@@ -247,7 +247,7 @@ namespace Api.Products.Controllers
             }
             catch (ArgumentException ex)
             {
-                return BadRequest(this.responseHandler.getAppCustomErrorResponse(ex.Message));
+                return BadRequest(responseHandler.getAppCustomErrorResponse(ex.Message));
             }
             catch (Exception ex)
             {
@@ -267,8 +267,8 @@ namespace Api.Products.Controllers
 
             if (ProductId == 0)
             {
-                notification.addError("ProductId is missing");
-                return BadRequest(notification.errorMessage());
+                notification.AddError("ProductId is missing");
+                return BadRequest(notification.ErrorMessage());
             }
 
             bool uowStatus = false;
@@ -281,8 +281,8 @@ namespace Api.Products.Controllers
 
                 if (product == null)
                 {
-                    notification.addError("Product not found");
-                    return BadRequest(notification.errorMessage());
+                    notification.AddError("Product not found");
+                    return BadRequest(notification.ErrorMessage());
                 }
                     
                 product.Status = 0;
@@ -295,7 +295,7 @@ namespace Api.Products.Controllers
             }
             catch (ArgumentException ex)
             {
-                return BadRequest(this.responseHandler.getAppCustomErrorResponse(ex.Message));
+                return BadRequest(responseHandler.getAppCustomErrorResponse(ex.Message));
             }
             catch (Exception ex)
             {
@@ -319,9 +319,9 @@ namespace Api.Products.Controllers
                 Product product = new Product();
                 Notification notification = product.ValidateFindByCategory(Category_id);
 
-                if (notification.hasErrors())
+                if (notification.HasErrors())
                 {
-                    return BadRequest(notification.errorMessage());
+                    return BadRequest(notification.ErrorMessage());
                 }
 
                 Specification<Product> specification = GetFindByCategory(Category_id);
@@ -334,7 +334,7 @@ namespace Api.Products.Controllers
             }
             catch (ArgumentException ex)
             {
-                return BadRequest(this.responseHandler.getAppCustomErrorResponse(ex.Message));
+                return BadRequest(responseHandler.getAppCustomErrorResponse(ex.Message));
             }
             catch (Exception ex)
             {

@@ -19,8 +19,8 @@ namespace InkaPharmacy.API.Common.Controllers
         [NonAction]
         public void ThrowErrors(Notification notification)
         {
-            if (notification.hasErrors()) {
-                throw new ArgumentException(notification.errorMessage());
+            if (notification.HasErrors()) {
+                throw new ArgumentException(notification.ErrorMessage());
             }
         }
     }

@@ -32,7 +32,7 @@ namespace InkaPharmacy.Api.Employees.Domain.Entity
 
             if (string.IsNullOrEmpty(Username))
             {
-                notification.addError("The Username is null");
+                notification.AddError("The Username is null");
             }
 
             return notification;

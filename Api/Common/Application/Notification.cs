@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace InkaPharmacy.Api.Common.Application
 {
@@ -9,22 +8,22 @@ namespace InkaPharmacy.Api.Common.Application
     {
         private List<Error> errors = new List<Error>();
         
-        public void addError(String message)
+        public void AddError(String message)
         {
-            addError(message, null);
+            AddError(message, null);
         }
 
-        public void addError(String message, Exception e)
+        public void AddError(String message, Exception e)
         {
             errors.Add(new Error(message, e));
         }
 
-        public string errorMessage()
+        public string ErrorMessage()
         {
             return string.Join(", ", errors.Select(t => t.message));
         }
 
-        public bool hasErrors()
+        public bool HasErrors()
         {
             return errors.Any();
         }

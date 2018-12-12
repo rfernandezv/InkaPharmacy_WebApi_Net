@@ -47,9 +47,9 @@ namespace InkaPharmacy.Api.Controllers
                 Provider provider = new Provider();
                 Notification notification = provider.ValidateFindByDocumentNumber(DocumentNumber);
 
-                if (notification.hasErrors())
+                if (notification.HasErrors())
                 {
-                    throw new ArgumentException(notification.errorMessage());
+                    throw new ArgumentException(notification.ErrorMessage());
                 }
 
                 Specification<Provider> specification = GetFindByDocumentNumber(DocumentNumber);
@@ -82,9 +82,9 @@ namespace InkaPharmacy.Api.Controllers
                 Provider provider = new Provider();
                 Notification notification = provider.ValidateFindByName(Name);
 
-                if (notification.hasErrors())
+                if (notification.HasErrors())
                 {
-                    throw new ArgumentException(notification.errorMessage());
+                    throw new ArgumentException(notification.ErrorMessage());
                 }
 
                 Specification<Provider> specification = GetFindByName(Name);

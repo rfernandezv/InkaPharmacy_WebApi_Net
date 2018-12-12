@@ -24,7 +24,7 @@ namespace InkaPharmacy.Api.Customers
 
             if (string.IsNullOrEmpty(DocumentNumber))
             {
-                notification.addError("The Document Number is null");
+                notification.AddError("The Document Number is null");
             }
 
             return notification;
@@ -36,20 +36,25 @@ namespace InkaPharmacy.Api.Customers
 
             if (this == null)
             {
-                notification.addError("The Customer is null");
+                notification.AddError("The Customer is null");
             }
 
             if (action == "U")
             {
                 if (this.Id == 0)
                 {
-                    notification.addError("The Customer doesn't have a valid Id");
+                    notification.AddError("The Customer doesn't have a valid Id");
                 }
             }
 
             if (string.IsNullOrEmpty(this.Name))
             {
-                notification.addError("The Customer doesn't have a valid Name");
+                notification.AddError("The Customer doesn't have a valid Name");
+            }
+
+            if (string.IsNullOrEmpty(this.Last_Name1))
+            {
+                notification.AddError("The Customer doesn't have a valid Last Name");
             }
 
             return notification;
