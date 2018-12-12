@@ -203,7 +203,6 @@ namespace Api.Products.Controllers
 
                 var message = "Product " + product.Id + " created!";
                 KipubitRabbitMQ.SendMessage(message);
-                SendGridEmail.Submit(sender, receiver, message);
                 return Ok(responseHandler.getOkCommandResponse(message, StatusCodes.Status201Created));
             }
             catch (ArgumentException ex)
@@ -214,8 +213,6 @@ namespace Api.Products.Controllers
             {
                 _unitOfWork.Rollback(uowStatus);
                 Console.WriteLine(ex.StackTrace);
-                var message = "Internal Server Error";
-                KipubitRabbitMQ.SendMessage(message);
                 return StatusCode(StatusCodes.Status500InternalServerError, responseHandler.getAppExceptionResponse());
 
             }
@@ -249,7 +246,6 @@ namespace Api.Products.Controllers
                 _unitOfWork.Commit(uowStatus);
 
                 var message = "Product " + ProductId + " updated!";
-                KipubitRabbitMQ.SendMessage(message);
                 return Ok(responseHandler.getOkCommandResponse(message, StatusCodes.Status200OK));
             }
             catch (ArgumentException ex)
@@ -260,8 +256,6 @@ namespace Api.Products.Controllers
             {
                 _unitOfWork.Rollback(uowStatus);
                 Console.WriteLine(ex.StackTrace);
-                var message = "Internal Server Error";
-                KipubitRabbitMQ.SendMessage(message);
                 return StatusCode(StatusCodes.Status500InternalServerError, responseHandler.getAppExceptionResponse());
             }
         }
@@ -296,7 +290,6 @@ namespace Api.Products.Controllers
                 _unitOfWork.Commit(uowStatus);
 
                 var message = "Product " + ProductId + " deleted!";
-                KipubitRabbitMQ.SendMessage(message);
                 return Ok(responseHandler.getOkCommandResponse(message, StatusCodes.Status200OK));
             }
             catch (ArgumentException ex)
@@ -307,8 +300,6 @@ namespace Api.Products.Controllers
             {
                 _unitOfWork.Rollback(uowStatus);
                 Console.WriteLine(ex.StackTrace);
-                var message = "Internal Server Error";
-                KipubitRabbitMQ.SendMessage(message);
                 return StatusCode(StatusCodes.Status500InternalServerError, responseHandler.getAppExceptionResponse());
 
             }
