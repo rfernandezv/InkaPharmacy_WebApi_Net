@@ -1,7 +1,18 @@
 # InkaPharmacy REST API
 
-Tecnología: Net Core 2.1
-Lenguaje: C#
+- Tecnología: Net Core 2.1
+- Lenguaje: C#
+
+## Librerías
+
+- Dapper
+- NHibernate
+- AutoMapper
+
+## Otros
+
+- JWT Bearer Token
+- Angular 6.0.8
 
 ## Patrones
 
@@ -26,6 +37,10 @@ Lenguaje: C#
 ## Amazon S3
 
 - Consumo de archivos estáticos (imágenes) alojados en Amazon S3, desde la aplicación web Angular
+
+## Amazon RDS
+
+- Base de datos relacional MySQL. Réplica con High Availability zone desactivada debido al costo.
 
 ## SendGrid
 

@@ -368,14 +368,14 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{AppURL}}/api/Customers/206",
+							"raw": "{{AppURL}}/api/Customers/420",
 							"host": [
 								"{{AppURL}}"
 							],
 							"path": [
 								"api",
 								"Customers",
-								"206"
+								"420"
 							]
 						}
 					},
@@ -398,14 +398,14 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{AppURL}}/api/Customers/213",
+							"raw": "{{AppURL}}/api/Customers/420",
 							"host": [
 								"{{AppURL}}"
 							],
 							"path": [
 								"api",
 								"Customers",
-								"213"
+								"420"
 							]
 						}
 					},
@@ -454,21 +454,82 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"Name\": \"Mariano J\",\r\n  \"Last_Name1\": \"Tirado\",\r\n  \"Last_Name2\": \"Castillo\",\r\n  \"Address\": \"Jose Marti 187\",\r\n  \"Telephone\": \"324234324324234324324234324324234324324234324324234324324234324324234324\",\r\n  \"Email\": \"mtirado@gmail.com\",\r\n  \"Document_Number\": \"17171717\",\r\n  \"Status\": 1\r\n}\r\n"
+							"raw": "{\n    \"id\": 0,\n    \"name\": \"Mariano\",\n    \"last_Name1\": \"Tirado\",\n    \"last_Name2\": \"Castillo\",\n    \"address\": \"Jose Marti 187\",\n    \"telephone\": \"784578\",\n    \"email\": \"mtirado@gmail.com\",\n    \"document_Number\": null,\n    \"status\": 1\n}"
 						},
 						"url": {
-							"raw": "{{AppURL}}/api/Customers/213",
+							"raw": "{{AppURL}}/api/Customers/420",
 							"host": [
 								"{{AppURL}}"
 							],
 							"path": [
 								"api",
 								"Customers",
-								"213"
+								"420"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "UpdateCustomer",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 0,\n    \"name\": \"Mariano\",\n    \"last_Name1\": \"Tirado\",\n    \"last_Name2\": \"Castillo\",\n    \"address\": \"Jose Marti 187\",\n    \"telephone\": \"784578\",\n    \"email\": \"mtirado@gmail.com\",\n    \"document_Number\": null,\n    \"status\": 1\n}"
+								},
+								"url": {
+									"raw": "{{AppURL}}/api/Customers/420",
+									"host": [
+										"{{AppURL}}"
+									],
+									"path": [
+										"api",
+										"Customers",
+										"420"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "X-SourceFiles",
+									"value": "=?UTF-8?B?RTpcRFlDU1xJbmthUGhhcm1hY3lfV2ViQXBpX05ldFxBcGlcYXBpXEN1c3RvbWVyc1w0MjA=?="
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "ASP.NET"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 12 Dec 2018 23:34:44 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"response\": {\n        \"httpStatus\": 200,\n        \"message\": \"Customer 420 updated!\",\n        \"content\": null\n    }\n}"
+						}
+					]
 				}
 			]
 		},
@@ -648,7 +709,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiSmhvbmF0YW4uVGlyYWRvMSIsIm5iZiI6IjE1NDQ1NjQyMzkiLCJleHAiOiIxNTQ0NjUwNjM5In0.vAZQL5Ciofa8kdBGwuW559Gz0wISsi-kO3v6gOhq_cs",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiSmhvbmF0YW4uVGlyYWRvMSIsIm5iZiI6IjE1NDQ2NTM2NjIiLCJleHAiOiIxNTQ0NzQwMDYyIn0.ec02SViavrxvAkYP-Lt5N49JbNZspMWD-bZ1fZT6lik",
 				"type": "string"
 			}
 		]
