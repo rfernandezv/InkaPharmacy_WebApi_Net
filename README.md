@@ -8,6 +8,11 @@
 - Dapper
 - NHibernate
 - AutoMapper
+- Swashbuckle
+- SendGrid
+- RabbitMQ.Client
+- FluentMigrator
+- FluentNHibernate
 
 ## Otros
 
