@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using InkaPharmacy.Api.Common.Application;
 using InkaPharmacy.Api.Common.Application.Dto;
-using InkaPharmacy.Api.Common.Application.Email;
-using InkaPharmacy.Api.Common.Application.Enum;
 using InkaPharmacy.Api.Common.Domain.Specification;
 using InkaPharmacy.Api.Customers;
 using InkaPharmacy.Api.Customers.Application.Assembler;
@@ -14,6 +12,7 @@ using InkaPharmacy.API.Common.Controllers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using InkaPharmacy.Api.Common.Application.Enum;
 
 namespace Api.Customers.Controllers
 {
@@ -136,6 +135,7 @@ namespace Api.Customers.Controllers
 
                 if (notification.HasErrors())
                 {
+                    logger.Message(notification.ErrorMessage(),LogLevel.FunctionalError);
                     return BadRequest(responseHandler.getAppCustomErrorResponse(notification.ErrorMessage()));
                 }
 
@@ -145,18 +145,20 @@ namespace Api.Customers.Controllers
 
                 var message = "Customer " + customer.Id + " created!";
                 KipubitRabbitMQ.SendMessage(message);
+                logger.Message(message, LogLevel.FunctionalMessage);
 
                 return Ok(responseHandler.getOkCommandResponse(message, StatusCodes.Status201Created));
             }
             catch (ArgumentException ex)
             {
+                logger.Message(ex.Message, LogLevel.Error);
                 return BadRequest(responseHandler.getAppCustomErrorResponse(ex.Message));
             }
             catch (Exception ex)
             {
                 _unitOfWork.Rollback(uowStatus);
                 Console.WriteLine(ex.StackTrace);
-                var message = "Internal Server Error";
+                logger.Message(ex.StackTrace, LogLevel.Debug);
                 return StatusCode(StatusCodes.Status500InternalServerError, responseHandler.getAppExceptionResponse());
             }
         }
