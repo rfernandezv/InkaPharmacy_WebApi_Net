@@ -203,7 +203,7 @@ namespace Api.Customers.Controllers
                 _customerRepository.Update(customer);
                 _unitOfWork.Commit(uowStatus);
 
-                var message = "Customer Updated!";
+                var message = "Customer " + CustomerId + " updated!";
                 KipubitRabbitMQ.SendMessage(message);
                 return StatusCode(StatusCodes.Status200OK, message);
             }
@@ -252,7 +252,7 @@ namespace Api.Customers.Controllers
                 _customerRepository.Update(customer);
                 _unitOfWork.Commit(uowStatus);
 
-                var message = "Customer deleted!";
+                var message = "Customer " + CustomerId + " deleted!";
                 KipubitRabbitMQ.SendMessage(message);
                 return StatusCode(StatusCodes.Status200OK, message);
             }

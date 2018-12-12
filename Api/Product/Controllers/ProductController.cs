@@ -241,7 +241,7 @@ namespace Api.Products.Controllers
                 _ProductRepository.Update(product);
                 _unitOfWork.Commit(uowStatus);
 
-                var message = "Product Updated!";
+                var message = "Product " + ProductId + " updated!";
                 KipubitRabbitMQ.SendMessage(message);
                 return StatusCode(StatusCodes.Status200OK, message);
             }
@@ -289,7 +289,7 @@ namespace Api.Products.Controllers
                 _ProductRepository.Update(product);
                 _unitOfWork.Commit(uowStatus);
 
-                var message = "Product deleted!";
+                var message = "Product " + ProductId + " deleted!";
                 KipubitRabbitMQ.SendMessage(message);
                 return StatusCode(StatusCodes.Status200OK, message);
             }
