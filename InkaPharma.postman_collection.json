@@ -211,7 +211,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Dicloxacilina 123\",\n    \"price\": 1.2,\n    \"currency\": \"PEN\",\n    \"stock\": 1,\n    \"category_id\": 1,\n    \"lot_number\": \"123lote\",\n    \"sanitary_registration_number\": \"registro123\",\n    \"registration_date\": \"2018-01-01T00:00:00\",\n    \"expiration_date\": \"2021-01-01T00:00:00\",\n    \"status\": 1,\n    \"stock_status\": 1\n}"
+							"raw": "{\n    \"id\": 0,\n    \"name\": \"Chiquitolina\",\n    \"price\": 1,\n    \"currency\": \"PEN\",\n    \"category_id\": 1,\n    \"lot_number\": 1,\n    \"sanitary_registration_number\": \"a\",\n    \"registration_date\": \"2018-12-12\",\n    \"expiration_date\": \"2018-12-27\",\n    \"status\": 1,\n    \"stock_status\": 1\n}"
 						},
 						"url": {
 							"raw": "{{AppURL}}/api/Products",
@@ -243,14 +243,14 @@
 							"raw": "{\n    \"name\": \"Dicloxacilina\",\n    \"price\": 1.3,\n    \"currency\": \"PEN\",\n    \"stock\": 10,\n    \"category_id\": 1,\n    \"lot_number\": \"123loteXXXXX\",\n    \"sanitary_registration_number\": \"registro123\",\n    \"registration_date\": \"2018-01-01T00:00:00\",\n    \"expiration_date\": \"2021-01-01T00:00:00\",\n    \"status\": 1,\n    \"stock_status\": 1\n}"
 						},
 						"url": {
-							"raw": "{{AppURL}}/api/Products/119",
+							"raw": "{{AppURL}}/api/Products/151",
 							"host": [
 								"{{AppURL}}"
 							],
 							"path": [
 								"api",
 								"Products",
-								"119"
+								"151"
 							]
 						}
 					},
@@ -273,14 +273,14 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{AppURL}}/api/Products/119",
+							"raw": "{{AppURL}}/api/Products/151",
 							"host": [
 								"{{AppURL}}"
 							],
 							"path": [
 								"api",
 								"Products",
-								"119"
+								"151"
 							]
 						}
 					},
