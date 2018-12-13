@@ -25,8 +25,6 @@ namespace Api.Customers.Controllers
         private readonly ICustomerRepository _customerRepository;
         private readonly CustomerAssembler _customerAssembler;
         ResponseHandler responseHandler;
-        static readonly string sender = "jhonatantiradotiradodeep@gmail.com";
-        static readonly string receiver = "jhonatan.tirado@unmsm.edu.pe";
 
         public CustomerController(
             IUnitOfWork unitOfWork,

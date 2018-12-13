@@ -18,6 +18,7 @@ namespace InkaPharmacy.Api.Product.Application.Dto
         public DateTime Expiration_date { get; set; }
         public int Status { get; set; }
         public int Stock_status { get; set; }
+        public string FirebaseClientKey { get; set; }
 
     }
 }

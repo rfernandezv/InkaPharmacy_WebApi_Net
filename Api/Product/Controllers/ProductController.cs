@@ -11,7 +11,6 @@ using InkaPharmacy.Api.Product;
 using InkaPharmacy.Api.Product.Infrastructure.Persistence.NHibernate.Specification;
 using Microsoft.AspNetCore.Authorization;
 using InkaPharmacy.Api.Common.Application.Dto;
-using InkaPharmacy.Api.Common.Application.Email;
 
 namespace Api.Products.Controllers
 {
@@ -24,8 +23,6 @@ namespace Api.Products.Controllers
         private readonly IProductRepository _ProductRepository;
         private readonly ProductAssembler _ProductAssembler;
         ResponseHandler responseHandler;
-        static readonly string sender = "jhonatantiradotiradodeep@gmail.com";
-        static readonly string receiver = "jhonatan.tirado@unmsm.edu.pe";
 
         public ProductController(
             IUnitOfWork unitOfWork,
@@ -202,7 +199,8 @@ namespace Api.Products.Controllers
                 _unitOfWork.Commit(uowStatus);
 
                 var message = "Product " + product.Id + " created!";
-                KipubitRabbitMQ.SendMessage(message);
+                var messageForRabbitMQ = message + "---" + ProductDto.FirebaseClientKey;
+                KipubitRabbitMQ.SendMessage(messageForRabbitMQ);
                 return Ok(responseHandler.getOkCommandResponse(message, StatusCodes.Status201Created));
             }
             catch (ArgumentException ex)
