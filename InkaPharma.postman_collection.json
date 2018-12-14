@@ -184,14 +184,14 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{AppURL}}/api/Products/119",
+							"raw": "{{AppURL}}/api/Products/172",
 							"host": [
 								"{{AppURL}}"
 							],
 							"path": [
 								"api",
 								"Products",
-								"119"
+								"172"
 							]
 						}
 					},
@@ -211,7 +211,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": 0,\n    \"name\": \"Chiquitolina\",\n    \"price\": 1,\n    \"currency\": \"PEN\",\n    \"category_id\": 1,\n    \"lot_number\": 1,\n    \"sanitary_registration_number\": \"a\",\n    \"registration_date\": \"2018-12-12\",\n    \"expiration_date\": \"2018-12-27\",\n    \"status\": 1,\n    \"stock_status\": 1\n}"
+							"raw": "{\n    \"id\": 0,\n    \"name\": \"Chiquitolina\",\n    \"price\": 1,\n    \"currency\": \"PEN\",\n    \"category_id\": 1,\n    \"lot_number\": 1,\n    \"sanitary_registration_number\": \"a\",\n    \"registration_date\": \"2018-12-12\",\n    \"expiration_date\": \"2018-12-27\",\n    \"status\": 1,\n    \"stock_status\": 1,\n    \"stock\": 10,\n    \"FirebaseClientKey\": \"eQ3Rtc88CbI:APA91bGeCNyPNhp7I3oQ6oFfIGzdNSjfY6oDtQ4fvKAjH6ubOf8k-Ix_oAh_AGTzGUO_7cqjgdJh8eDH7pJgQlDo0tei5i1lHq49D9F8TG2Is2bHwEjV_GKtZXcwr45cP_idopomzjix\"\n}"
 						},
 						"url": {
 							"raw": "{{AppURL}}/api/Products",
@@ -240,17 +240,17 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Dicloxacilina\",\n    \"price\": 1.3,\n    \"currency\": \"PEN\",\n    \"stock\": 10,\n    \"category_id\": 1,\n    \"lot_number\": \"123loteXXXXX\",\n    \"sanitary_registration_number\": \"registro123\",\n    \"registration_date\": \"2018-01-01T00:00:00\",\n    \"expiration_date\": \"2021-01-01T00:00:00\",\n    \"status\": 1,\n    \"stock_status\": 1\n}"
+							"raw": "{\n    \"id\": 0,\n    \"name\": \"Chiquitolina\",\n    \"price\": 1,\n    \"currency\": \"PEN\",\n    \"category_id\": 1,\n    \"lot_number\": 1,\n    \"sanitary_registration_number\": \"a\",\n    \"registration_date\": \"2018-12-12\",\n    \"expiration_date\": \"2018-12-27\",\n    \"status\": 1,\n    \"stock_status\": 1,\n    \"stock\": 10\n}"
 						},
 						"url": {
-							"raw": "{{AppURL}}/api/Products/151",
+							"raw": "{{AppURL}}/api/Products/172",
 							"host": [
 								"{{AppURL}}"
 							],
 							"path": [
 								"api",
 								"Products",
-								"151"
+								"172"
 							]
 						}
 					},
@@ -273,14 +273,14 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{AppURL}}/api/Products/151",
+							"raw": "{{AppURL}}/api/Products/172",
 							"host": [
 								"{{AppURL}}"
 							],
 							"path": [
 								"api",
 								"Products",
-								"151"
+								"172"
 							]
 						}
 					},
@@ -368,14 +368,14 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{AppURL}}/api/Customers/420",
+							"raw": "{{AppURL}}/api/Customers/150",
 							"host": [
 								"{{AppURL}}"
 							],
 							"path": [
 								"api",
 								"Customers",
-								"420"
+								"150"
 							]
 						}
 					},
@@ -398,14 +398,14 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{AppURL}}/api/Customers/420",
+							"raw": "{{AppURL}}/api/Customers/150",
 							"host": [
 								"{{AppURL}}"
 							],
 							"path": [
 								"api",
 								"Customers",
-								"420"
+								"150"
 							]
 						}
 					},
@@ -425,7 +425,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"Name\": \"Mariano\",\r\n  \"Last_Name1\": \"Tirado\",\r\n  \"Last_Name2\": \"Castillo\",\r\n  \"Address\": \"Jose Marti 187\",\r\n  \"Telephone\": \"324234324\",\r\n  \"Email\": \"mtirado@gmail.com\",\r\n  \"Document_Number\": \"17171717\",\r\n  \"Status\": 1000000000\r\n}\r\n"
+							"raw": "{\r\n  \"Name\": \"Mariano\",\r\n  \"Last_Name1\": \"Tirado\",\r\n  \"Last_Name2\": \"Castillo\",\r\n  \"Address\": \"Jose Marti 187\",\r\n  \"Telephone\": \"324234324\",\r\n  \"Email\": \"mtirado@gmail.com\",\r\n  \"Document_Number\": \"17171717\",\r\n  \"Status\": 1,\r\n  \"FirebaseClientKey\": \"eQ3Rtc88CbI:APA91bGeCNyPNhp7I3oQ6oFfIGzdNSjfY6oDtQ4fvKAjH6ubOf8k-Ix_oAh_AGTzGUO_7cqjgdJh8eDH7pJgQlDo0tei5i1lHq49D9F8TG2Is2bHwEjV_GKtZXcwr45cP_idopomzjix\"\r\n}\r\n"
 						},
 						"url": {
 							"raw": "{{AppURL}}/api/Customers",
@@ -670,28 +670,29 @@
 			"name": "Sales",
 			"item": [
 				{
-					"name": "http://localhost:8087/api/sales/order",
+					"name": "Venta",
 					"request": {
 						"method": "POST",
 						"header": [
 							{
 								"key": "Content-Type",
 								"name": "Content-Type",
-								"value": "application/json",
-								"type": "text"
+								"type": "text",
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"SaleDate\": \"2018-07-21T17:32:28Z\",\r\n  \"CustomerId\": 1,\r\n  \"EmployeeId\": 1,\r\n  \"Status\": 1,\r\n  \"SalesOrderDetails\": [\r\n    {\r\n      \"ProductId\": 1,\r\n      \"Quantity\": 10,\r\n      \"Currency\": \"PEN\",\r\n      \"Price\": 10,\r\n      \"Status\": 1\r\n    }\r\n  ]\r\n}"
+							"raw": "{\n    \"customer_id\": 1,\n    \"employee_id\": 1,\n    \"salesorderdetall\": {\n        \"product_id\": 1,\n        \"quantity\": 10,\n        \"currency\": \"PEN\",\n        \"price\": 10,\n        \"status\": 1\n    }\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8087/api/sales/order",
-							"protocol": "http",
+							"raw": "https://inkapharmacysb-busy-klipspringer.cfapps.io/api/sales/order",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"inkapharmacysb-busy-klipspringer",
+								"cfapps",
+								"io"
 							],
-							"port": "8087",
 							"path": [
 								"api",
 								"sales",
@@ -702,6 +703,46 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "https://fcm.googleapis.com/fcm/send",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "key=AAAA_3pLCcQ:APA91bGO1yeIKbMNzuMtjOMP1TOjDLsqTpJm-aDBhH0HAsz0ZpNv-VDPDTcFisfIzHRu1n6Z5_eXEoFg583SfuMksOumrjO7RbH8sQ8CO5SxggZeu1BdbANEuS8rFsb3lzWGuMN3J4kM",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"notification\": {\n        \"title\": \"InkaPharmacy Notification\",\n        \"body\": \"Product 423423 updated!\",\n        \"icon\": \"https://s3.us-east-2.amazonaws.com/kipubit/logo_unmsm.png\"\n    },\n    \"to\": \"eQ3Rtc88CbI:APA91bGeCNyPNhp7I3oQ6oFfIGzdNSjfY6oDtQ4fvKAjH6ubOf8k-Ix_oAh_AGTzGUO_7cqjgdJh8eDH7pJgQlDo0tei5i1lHq49D9F8TG2Is2bHwEjV_GKtZXcwr45cP_idopomzjix\"\n}"
+				},
+				"url": {
+					"raw": "https://fcm.googleapis.com/fcm/send",
+					"protocol": "https",
+					"host": [
+						"fcm",
+						"googleapis",
+						"com"
+					],
+					"path": [
+						"fcm",
+						"send"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"auth": {
@@ -709,7 +750,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiSmhvbmF0YW4uVGlyYWRvMSIsIm5iZiI6IjE1NDQ2NTM2NjIiLCJleHAiOiIxNTQ0NzQwMDYyIn0.ec02SViavrxvAkYP-Lt5N49JbNZspMWD-bZ1fZT6lik",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiSmhvbmF0YW4uVGlyYWRvMSIsIm5iZiI6IjE1NDQ4MDkzOTYiLCJleHAiOiIxNTQ0ODk1Nzk2In0.Hi8rGksZVpz6A2MQfSnWGMrkTuv_uYsDGm3l6uXuANU",
 				"type": "string"
 			}
 		]
