@@ -16,6 +16,8 @@ namespace InkaPharmacy.Api.Product.Domain.Repository
 
         GridDto GetListWithPageCounters(int page = 0,int pageSize = 5);
 
+        GridDto GetListLikeSearchWithPageCounters(Specification<Product> specification, int page = 0, int pageSize = 5);
+
         List<Product> GetListFindByCategory(
              Specification<Product> specification,
            int page = 0,

@@ -88,6 +88,13 @@ namespace Api.Products.Controllers
             return specification;
         }
 
+        private Specification<Product> GetLikeSearchByName(string ProductName)
+        {
+            Specification<Product> specification = Specification<Product>.All;
+            specification = specification.And(new LikeSearchByNameSpecification(ProductName));
+            return specification;
+        }
+
         private Specification<Product> GetFindByCategory(long Category_id)
         {
             Specification<Product> specification = Specification<Product>.All;
@@ -140,6 +147,32 @@ namespace Api.Products.Controllers
             }
 
         }
+
+        [ProducesResponseType(typeof(GridDto), 200)]
+        [Route("/api/Products/LikeSearchByName")]
+        [HttpGet]
+        public IActionResult LikeSearchProductsPaginated([FromQuery] string productName,[FromQuery] int page = 0, [FromQuery] int size = 5)
+        {
+            bool uowStatus = false;
+            try
+            {
+                uowStatus = _unitOfWork.BeginTransaction();
+                Specification<Product> specification = GetLikeSearchByName(productName);
+                GridDto products = _ProductRepository.GetListLikeSearchWithPageCounters(specification, page, size);
+                _unitOfWork.Commit(uowStatus);
+                List<ProductDto> productsDTO = _ProductAssembler.FromListProductToListProductDto((List<Product>)products.Content);
+                products.Content = productsDTO;
+                return StatusCode(StatusCodes.Status200OK, products);
+            }
+            catch (Exception ex)
+            {
+                _unitOfWork.Rollback(uowStatus);
+                Console.WriteLine(ex.StackTrace);
+                return StatusCode(StatusCodes.Status500InternalServerError, new ApiStringResponseDto(ex.Message));
+            }
+
+        }
+
 
         [ProducesResponseType(typeof(ProductDto), 200)]
         [HttpGet("{ProductId}")]

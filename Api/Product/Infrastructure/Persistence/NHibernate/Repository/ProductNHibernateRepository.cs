@@ -126,5 +126,54 @@ namespace InkaPharmacy.Api.Customers.Infrastructure.Persistence.NHibernate.Repos
             }
             return result;
         }
+
+
+        public GridDto GetListLikeSearchWithPageCounters(Specification<Product> specification, int page = 0, int pageSize = 5)
+        {
+            List<Product> products = new List<Product>();
+            GridDto result = new GridDto();
+            bool uowStatus = false;
+            try
+            {
+                uowStatus = _unitOfWork.BeginTransaction();
+                products = _unitOfWork.GetSession().Query<Product>()
+                        .Where(specification.ToExpression())
+                        .Skip(page * pageSize)
+                        .Take(pageSize)
+                        .ToList();
+                _unitOfWork.Commit(uowStatus);
+                result = new GridDto
+                {
+                    Content = products,
+                    TotalRecords = CountTotalRecordsLikeSearchByName(specification),
+                    CurrentPage = page,
+                    PageSize = pageSize
+                };
+            }
+            catch (Exception ex)
+            {
+                _unitOfWork.Rollback(uowStatus);
+                throw ex;
+            }
+            return result;
+        }
+
+        public int CountTotalRecordsLikeSearchByName(Specification<Product> specification)
+        {
+            int totalRecords;
+            bool uowStatus = false;
+            try
+            {
+                uowStatus = _unitOfWork.BeginTransaction();
+                totalRecords = _unitOfWork.GetSession().Query<Product>().Where(specification.ToExpression()).ToList().Count();
+                _unitOfWork.Commit(uowStatus);
+            }
+            catch (Exception ex)
+            {
+                _unitOfWork.Rollback(uowStatus);
+                throw ex;
+            }
+            return totalRecords;
+        }
     }
 }
