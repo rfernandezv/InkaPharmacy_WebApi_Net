@@ -106,6 +106,43 @@
 					"response": []
 				},
 				{
+					"name": "LikeSearchByProductName",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{AppURL}}/api/Products/LikeSearchByName?productName=chiquitolina&page=10&size=5",
+							"host": [
+								"{{AppURL}}"
+							],
+							"path": [
+								"api",
+								"Products",
+								"LikeSearchByName"
+							],
+							"query": [
+								{
+									"key": "productName",
+									"value": "chiquitolina"
+								},
+								{
+									"key": "page",
+									"value": "10"
+								},
+								{
+									"key": "size",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "FindByCategory",
 					"request": {
 						"method": "GET",
@@ -327,6 +364,45 @@
 					"response": []
 				},
 				{
+					"name": "LikeSearchByNameAndDocumentNumber",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiSmhvbmF0YW4uVGlyYWRvMSIsIm5iZiI6IjE1NDE3Mzc2MTAiLCJleHAiOiIxNTQxODI0MDEwIn0.JZ4osBtvth01JuwBLsypVk7P4J3utvaJUGRcPY5MkHY"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{AppURL}}/api/Customers/LikeSearchByNameAndDocumentNumber?Name=castillo&page=15",
+							"host": [
+								"{{AppURL}}"
+							],
+							"path": [
+								"api",
+								"Customers",
+								"LikeSearchByNameAndDocumentNumber"
+							],
+							"query": [
+								{
+									"key": "Name",
+									"value": "castillo"
+								},
+								{
+									"key": "page",
+									"value": "15"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "GetCustomers",
 					"request": {
 						"method": "GET",
@@ -425,7 +501,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"Name\": \"Mariano\",\r\n  \"Last_Name1\": \"Tirado\",\r\n  \"Last_Name2\": \"Castillo\",\r\n  \"Address\": \"Jose Marti 187\",\r\n  \"Telephone\": \"324234324\",\r\n  \"Email\": \"mtirado@gmail.com\",\r\n  \"Document_Number\": \"17171717\",\r\n  \"Status\": 1,\r\n  \"FirebaseClientKey\": \"eQ3Rtc88CbI:APA91bGeCNyPNhp7I3oQ6oFfIGzdNSjfY6oDtQ4fvKAjH6ubOf8k-Ix_oAh_AGTzGUO_7cqjgdJh8eDH7pJgQlDo0tei5i1lHq49D9F8TG2Is2bHwEjV_GKtZXcwr45cP_idopomzjix\"\r\n}\r\n"
+							"raw": "{\r\n  \"Name\": \"Jorge\",\r\n  \"Last_Name1\": \"Tirado\",\r\n  \"Last_Name2\": \"Castillo\",\r\n  \"Address\": \"Libertad 123\",\r\n  \"Telephone\": \"252525\",\r\n  \"Email\": \"jtirado@gmail.com\",\r\n  \"Document_Number\": \"18181818\",\r\n  \"Status\": 1,\r\n  \"FirebaseClientKey\": \"eQ3Rtc88CbI:APA91bGeCNyPNhp7I3oQ6oFfIGzdNSjfY6oDtQ4fvKAjH6ubOf8k-Ix_oAh_AGTzGUO_7cqjgdJh8eDH7pJgQlDo0tei5i1lHq49D9F8TG2Is2bHwEjV_GKtZXcwr45cP_idopomzjix\"\r\n}\r\n"
 						},
 						"url": {
 							"raw": "{{AppURL}}/api/Customers",
@@ -750,7 +826,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiSmhvbmF0YW4uVGlyYWRvMSIsIm5iZiI6IjE1NDQ4MDkzOTYiLCJleHAiOiIxNTQ0ODk1Nzk2In0.Hi8rGksZVpz6A2MQfSnWGMrkTuv_uYsDGm3l6uXuANU",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiSmhvbmF0YW4uVGlyYWRvMSIsIm5iZiI6IjE1NTcxMDcxNjgiLCJleHAiOiIxNTU3MTkzNTY4In0.xFId5fUk6dVulTeJmZsphpF3IAEvDL0WzP-zo3U-H3Y",
 				"type": "string"
 			}
 		]
