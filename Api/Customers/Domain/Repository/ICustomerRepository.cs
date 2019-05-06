@@ -16,5 +16,7 @@ namespace InkaPharmacy.Api.Customers.Domain.Repository
 
         Customer GetById(Specification<Customer> specification);
         GridDto GetListWithPageCounters(int page, int size);
+
+        GridDto GetListSearchLikeByNameAndDocumentNumberWithPageCounters(Specification<Customer> specification,int page, int size);
     }
 }

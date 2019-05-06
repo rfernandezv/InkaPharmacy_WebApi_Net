@@ -84,6 +84,31 @@ namespace Api.Customers.Controllers
 
         }
 
+        [ProducesResponseType(typeof(GridDto), 200)]
+        [Route("/api/Customers/LikeSearchByNameAndDocumentNumber")]
+        [HttpGet]
+        public IActionResult LikeSearchByNameAndDocumentNumberCustomersPaginated([FromQuery] string Name,[FromQuery] string DocumentNumber, [FromQuery] int page = 0, [FromQuery] int size = 5)
+        {
+            bool uowStatus = false;
+            try
+            {
+                Specification<Customer> specification = LikeSearchByNameAndDocumentNumber(Name,DocumentNumber);
+                uowStatus = _unitOfWork.BeginTransaction();
+                GridDto customers = _customerRepository.GetListSearchLikeByNameAndDocumentNumberWithPageCounters(specification,page, size);
+                _unitOfWork.Commit(uowStatus);
+                List<CustomerDto> productsDTO = _customerAssembler.FromListCustomerToListCustomerDto((List<Customer>)customers.Content);
+                customers.Content = productsDTO;
+                return StatusCode(StatusCodes.Status200OK, customers);
+            }
+            catch (Exception ex)
+            {
+                _unitOfWork.Rollback(uowStatus);
+                Console.WriteLine(ex.StackTrace);
+                return StatusCode(StatusCodes.Status500InternalServerError, new ApiStringResponseDto(ex.Message));
+            }
+
+        }
+
         [ProducesResponseType(typeof(CustomerDto), 200)]
         [Route("/api/Customers/FindByDocumentNumber")]
         [HttpGet]
@@ -300,6 +325,31 @@ namespace Api.Customers.Controllers
         {
             Specification<Customer> specification = Specification<Customer>.All;
             specification = specification.And(new FindByDocumentNumberBySpecification(DocumentNumber));
+            return specification;
+        }
+
+        private Specification<Customer> LikeSearchByNameAndDocumentNumber(string Name,string DocumentNumber)
+        {
+            Specification<Customer> specification = Specification<Customer>.All;
+
+            if (!string.IsNullOrEmpty(Name)) {
+                specification = specification.And(new LikeSearchByNameSpecification(Name));
+            }
+
+            if (!string.IsNullOrEmpty(DocumentNumber))
+            {
+                if (!string.IsNullOrEmpty(Name))
+                {
+                    specification = specification.Or(new LikeSearchByDocumentNumberSpecification(DocumentNumber));
+                }
+
+                if (string.IsNullOrEmpty(Name))
+                {
+                    specification = specification.And(new LikeSearchByDocumentNumberSpecification(DocumentNumber));
+                }
+
+            }
+
             return specification;
         }
 
