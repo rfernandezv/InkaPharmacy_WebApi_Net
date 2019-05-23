@@ -3,6 +3,10 @@
 - Tecnología: Net Core 2.1
 - Lenguaje: C#
 
+# Gestión
+- JIRA
+- Confluence
+
 ## Librerías
 
 - Dapper
