@@ -4,7 +4,7 @@
 - Lenguaje: C#
 
 # Gestión
-- JIRA
+- JIRA Software
 - Confluence
 
 ## Librerías
