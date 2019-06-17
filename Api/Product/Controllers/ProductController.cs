@@ -7,12 +7,11 @@ using InkaPharmacy.Api.Product.Application.Dto;
 using InkaPharmacy.Api.Product.Domain.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using InkaPharmacy.Api.Product;
 using InkaPharmacy.Api.Product.Infrastructure.Persistence.NHibernate.Specification;
 using Microsoft.AspNetCore.Authorization;
 using InkaPharmacy.Api.Common.Application.Dto;
 
-namespace Api.Products.Controllers
+namespace InkaPharmacy.Api.Product.Controllers
 {
     [Authorize]
     [Route("api/Products")]
@@ -64,7 +63,7 @@ namespace Api.Products.Controllers
             }
             catch (ArgumentException ex)
             {
-                return BadRequest(this.responseHandler.getAppCustomErrorResponse(ex.Message));
+                return BadRequest(responseHandler.getAppCustomErrorResponse(ex.Message));
             }
             catch (Exception ex)
             {
@@ -102,29 +101,6 @@ namespace Api.Products.Controllers
             return specification;
         }
 
-        [NonAction]
-        [ProducesResponseType(typeof(List<ProductDto>), 200)]
-        [HttpGet]
-        public IActionResult Products([FromQuery] int page = 0, [FromQuery] int size = 5)
-        {
-            bool uowStatus = false;
-            try
-            {
-                uowStatus = _unitOfWork.BeginTransaction();
-                List<Product> products = _ProductRepository.GetList(page, size);
-                _unitOfWork.Commit(uowStatus);
-                List<ProductDto> productsDTO = _ProductAssembler.FromListProductToListProductDto(products);
-                return StatusCode(StatusCodes.Status200OK, productsDTO);
-            }
-            catch (Exception ex)
-            {
-                _unitOfWork.Rollback(uowStatus);
-                Console.WriteLine(ex.StackTrace);
-                return StatusCode(StatusCodes.Status500InternalServerError, new ApiStringResponseDto(ex.Message));
-            }
-
-        }
-
         [ProducesResponseType(typeof(GridDto), 200)]
         [HttpGet]
         public IActionResult ProductsPaginated([FromQuery] int page = 0, [FromQuery] int size = 5)
@@ -135,7 +111,7 @@ namespace Api.Products.Controllers
                 uowStatus = _unitOfWork.BeginTransaction();
                 GridDto products = _ProductRepository.GetListWithPageCounters(page, size);
                 _unitOfWork.Commit(uowStatus);
-                List<ProductDto> productsDTO = _ProductAssembler.FromListProductToListProductDto((List<Product>) products.Content);
+                List<ProductDto> productsDTO = _ProductAssembler.FromListProductToListProductDto((List<Product>)products.Content);
                 products.Content = productsDTO;
                 return StatusCode(StatusCodes.Status200OK, products);
             }
@@ -151,7 +127,7 @@ namespace Api.Products.Controllers
         [ProducesResponseType(typeof(GridDto), 200)]
         [Route("/api/Products/LikeSearchByName")]
         [HttpGet]
-        public IActionResult LikeSearchProductsPaginated([FromQuery] string productName,[FromQuery] int page = 0, [FromQuery] int size = 5)
+        public IActionResult LikeSearchProductsPaginated([FromQuery] string productName, [FromQuery] int page = 0, [FromQuery] int size = 5)
         {
             bool uowStatus = false;
             try
@@ -249,8 +225,8 @@ namespace Api.Products.Controllers
             }
         }
 
-        [HttpPut ("{ProductId}")]
-        public IActionResult Update(int ProductId,[FromBody] ProductDto ProductDto)
+        [HttpPut("{ProductId}")]
+        public IActionResult Update(int ProductId, [FromBody] ProductDto ProductDto)
         {
             Notification notification = new Notification();
 
@@ -290,7 +266,7 @@ namespace Api.Products.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, responseHandler.getAppExceptionResponse());
             }
         }
-        
+
         [HttpDelete("{ProductId}")]
         public IActionResult Delete(int ProductId)
         {
@@ -315,7 +291,7 @@ namespace Api.Products.Controllers
                     notification.AddError("Product not found");
                     return BadRequest(responseHandler.getAppCustomErrorResponse(notification.ErrorMessage()));
                 }
-                    
+
                 product.Status = 0;
                 _ProductRepository.Update(product);
                 _unitOfWork.Commit(uowStatus);
@@ -355,7 +331,7 @@ namespace Api.Products.Controllers
                 Specification<Product> specification = GetFindByCategory(Category_id);
 
                 uowStatus = _unitOfWork.BeginTransaction();
-                List<Product> products = _ProductRepository.GetListFindByCategory(specification, page, size );
+                List<Product> products = _ProductRepository.GetListFindByCategory(specification, page, size);
                 _unitOfWork.Commit(uowStatus);
                 List<ProductDto> productsDto = _ProductAssembler.FromListProductToListProductDto(products);
                 return StatusCode(StatusCodes.Status200OK, productsDto);

@@ -13,10 +13,6 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{AppURL}}/api/Security/Login?usu=Jhonatan.Tirado1&clave=P@ssw0rd1",
 							"host": [
@@ -81,10 +77,6 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{AppURL}}/api/Products/FindByName?ProductName=Dicloxacilina",
 							"host": [
@@ -110,10 +102,6 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{AppURL}}/api/Products/LikeSearchByName?productName=chiquitolina&page=10&size=5",
 							"host": [
@@ -147,10 +135,6 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{AppURL}}/api/Products/FindByCategory?Category_id=1&page=0&size=5",
 							"host": [
@@ -184,10 +168,6 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{AppURL}}/api/Products?page=0&size=5",
 							"host": [
@@ -216,10 +196,6 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{AppURL}}/api/Products/172",
 							"host": [
@@ -259,7 +235,8 @@
 								"api",
 								"Products"
 							]
-						}
+						},
+						"description": "Dispara notificación Firebase"
 					},
 					"response": []
 				},
@@ -335,16 +312,12 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiSmhvbmF0YW4uVGlyYWRvMSIsIm5iZiI6IjE1NDE3Mzc2MTAiLCJleHAiOiIxNTQxODI0MDEwIn0.JZ4osBtvth01JuwBLsypVk7P4J3utvaJUGRcPY5MkHY",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiSmhvbmF0YW4uVGlyYWRvMSIsIm5iZiI6IjE1NTg0NTY4NTMiLCJleHAiOiIxNTU4NTQzMjUzIn0.KKwQmx9kdjCeTp18wdnSH4x9S5y_O1rWZQy1ADKaGyQ",
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
-							"raw": "{{AppURL}}/api/Customers/FindByDocumentNumber?DocumentNumber=900000000",
+							"raw": "{{AppURL}}/api/Customers/FindByDocumentNumber?DocumentNumber=18181819",
 							"host": [
 								"{{AppURL}}"
 							],
@@ -356,7 +329,7 @@
 							"query": [
 								{
 									"key": "DocumentNumber",
-									"value": "900000000"
+									"value": "18181819"
 								}
 							]
 						}
@@ -374,10 +347,6 @@
 								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiSmhvbmF0YW4uVGlyYWRvMSIsIm5iZiI6IjE1NDE3Mzc2MTAiLCJleHAiOiIxNTQxODI0MDEwIn0.JZ4osBtvth01JuwBLsypVk7P4J3utvaJUGRcPY5MkHY"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{AppURL}}/api/Customers/LikeSearchByNameAndDocumentNumber?Name=castillo&page=15",
 							"host": [
@@ -407,10 +376,6 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{AppURL}}/api/Customers?page=0&size=5",
 							"host": [
@@ -439,10 +404,6 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{AppURL}}/api/Customers/150",
 							"host": [
@@ -501,7 +462,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"Name\": \"Jorge\",\r\n  \"Last_Name1\": \"Tirado\",\r\n  \"Last_Name2\": \"Castillo\",\r\n  \"Address\": \"Libertad 123\",\r\n  \"Telephone\": \"252525\",\r\n  \"Email\": \"jtirado@gmail.com\",\r\n  \"Document_Number\": \"18181818\",\r\n  \"Status\": 1,\r\n  \"FirebaseClientKey\": \"eQ3Rtc88CbI:APA91bGeCNyPNhp7I3oQ6oFfIGzdNSjfY6oDtQ4fvKAjH6ubOf8k-Ix_oAh_AGTzGUO_7cqjgdJh8eDH7pJgQlDo0tei5i1lHq49D9F8TG2Is2bHwEjV_GKtZXcwr45cP_idopomzjix\"\r\n}\r\n"
+							"raw": "{\r\n  \"Name\": \"José Luis\",\r\n  \"Last_Name1\": \"Tirado\",\r\n  \"Last_Name2\": \"Galvez\",\r\n  \"Address\": \"Grau 123\",\r\n  \"Telephone\": \"23232314\",\r\n  \"Email\": \"jtirado@gmail.com\",\r\n  \"Document_Number\": \"23232314\",\r\n  \"Status\": 1,\r\n  \"FirebaseClientKey\": \"eQ3Rtc88CbI:APA91bGeCNyPNhp7I3oQ6oFfIGzdNSjfY6oDtQ4fvKAjH6ubOf8k-Ix_oAh_AGTzGUO_7cqjgdJh8eDH7pJgQlDo0tei5i1lHq49D9F8TG2Is2bHwEjV_GKtZXcwr45cP_idopomzjix\"\r\n}\r\n"
 						},
 						"url": {
 							"raw": "{{AppURL}}/api/Customers",
@@ -530,17 +491,17 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": 0,\n    \"name\": \"Mariano\",\n    \"last_Name1\": \"Tirado\",\n    \"last_Name2\": \"Castillo\",\n    \"address\": \"Jose Marti 187\",\n    \"telephone\": \"784578\",\n    \"email\": \"mtirado@gmail.com\",\n    \"document_Number\": null,\n    \"status\": 1\n}"
+							"raw": "{\n    \"id\":413,\n    \"name\": \"José Luis\",\n    \"last_Name1\": \"Tirado\",\n    \"last_Name2\": \"Castillo\",\n    \"address\": \"Jose Marti 187\",\n    \"telephone\": \"784578\",\n    \"email\": \"mtirado@gmail.com\",\n    \"document_Number\": 18181819,\n    \"status\": 1\n}"
 						},
 						"url": {
-							"raw": "{{AppURL}}/api/Customers/420",
+							"raw": "{{AppURL}}/api/Customers/413",
 							"host": [
 								"{{AppURL}}"
 							],
 							"path": [
 								"api",
 								"Customers",
-								"420"
+								"413"
 							]
 						}
 					},
@@ -617,10 +578,6 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{AppURL}}/api/Providers/FindByDocumentNumber?DocumentNumber=203030305",
 							"host": [
@@ -646,10 +603,6 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{AppURL}}/api/Providers/FindByName?Name=Trujimed",
 							"host": [
@@ -680,10 +633,6 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{AppURL}}/api/Employees/FindByUsername?Username=Jhonatan.Tirado1",
 							"host": [
@@ -709,10 +658,6 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{AppURL}}/api/Employees?StoreId=1&page=0&size=10",
 							"host": [
@@ -762,10 +707,10 @@
 							"raw": "{\n    \"customer_id\": 1,\n    \"employee_id\": 1,\n    \"salesorderdetall\": {\n        \"product_id\": 1,\n        \"quantity\": 10,\n        \"currency\": \"PEN\",\n        \"price\": 10,\n        \"status\": 1\n    }\n}"
 						},
 						"url": {
-							"raw": "https://inkapharmacysb-busy-klipspringer.cfapps.io/api/sales/order",
+							"raw": "https://inkapharmacysb-friendly-wombat.cfapps.io/api/sales/order",
 							"protocol": "https",
 							"host": [
-								"inkapharmacysb-busy-klipspringer",
+								"inkapharmacysb-friendly-wombat",
 								"cfapps",
 								"io"
 							],
@@ -826,7 +771,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiSmhvbmF0YW4uVGlyYWRvMSIsIm5iZiI6IjE1NTcxMDcxNjgiLCJleHAiOiIxNTU3MTkzNTY4In0.xFId5fUk6dVulTeJmZsphpF3IAEvDL0WzP-zo3U-H3Y",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiSmhvbmF0YW4uVGlyYWRvMSIsIm5iZiI6IjE1NjA3MzgyNDciLCJleHAiOiIxNTYwODI0NjQ3In0.wUZaiRGH-6UMJEdLIabfZKieETFcC1eKmSEc0BmkoC8",
 				"type": "string"
 			}
 		]

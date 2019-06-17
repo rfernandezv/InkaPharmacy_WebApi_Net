@@ -3,18 +3,17 @@ using System.Collections.Generic;
 using InkaPharmacy.Api.Common.Application;
 using InkaPharmacy.Api.Common.Application.Dto;
 using InkaPharmacy.Api.Common.Domain.Specification;
-using InkaPharmacy.Api.Customers;
 using InkaPharmacy.Api.Customers.Application.Assembler;
 using InkaPharmacy.Api.Customers.Application.Dto;
 using InkaPharmacy.Api.Customers.Domain.Repository;
 using InkaPharmacy.Api.Customers.Infrastructure.Persistence.NHibernate.Specification;
-using InkaPharmacy.API.Common.Controllers;
+using InkaPharmacy.Api.Common.Controllers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using InkaPharmacy.Api.Common.Application.Enum;
 
-namespace Api.Customers.Controllers
+namespace InkaPharmacy.Api.Customers.Controllers
 {
     [Authorize]
     [Route("api/Customers")]
@@ -36,29 +35,6 @@ namespace Api.Customers.Controllers
             _customerRepository = customerRepository;
             _customerAssembler = customerAssembler;
             responseHandler = new ResponseHandler();
-        }
-
-        [NonAction]
-        [ProducesResponseType(typeof(List<CustomerDto>), 200)]
-        [HttpGet]
-        public IActionResult Customers([FromQuery] int page = 0, [FromQuery] int size = 5)
-        {
-            bool uowStatus = false;
-            try
-            {
-                uowStatus = _unitOfWork.BeginTransaction();
-                List<Customer> customers = _customerRepository.GetList(page, size);
-                _unitOfWork.Commit(uowStatus);
-                List<CustomerDto> customersDto = _customerAssembler.FromListCustomerToListCustomerDto(customers);
-                return StatusCode(StatusCodes.Status200OK, customersDto);
-            }
-            catch (Exception ex)
-            {
-                _unitOfWork.Rollback(uowStatus);
-                Console.WriteLine(ex.StackTrace);
-                return StatusCode(StatusCodes.Status500InternalServerError, new ApiStringResponseDto(ex.Message));
-            }
-
         }
 
         [ProducesResponseType(typeof(GridDto), 200)]

@@ -7,7 +7,7 @@ public abstract class Logger
         // The next Handler in the chain
         protected Logger next;
  
-        public Logger(LogLevel mask)
+        protected Logger(LogLevel mask)
         {
             this.logMask = mask;
         }

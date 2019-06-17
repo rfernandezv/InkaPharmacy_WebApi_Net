@@ -62,14 +62,9 @@ namespace InkaPharmacy.Api.Product
         {
             Notification notification = new Notification();
 
-            if (product == null)
+            if (product == null || product.Id == 0)
             {
                 notification.AddError("The Product is null");
-            }
-
-            if (product.Id == 0)
-            {
-                notification.AddError("The Product Id is null");
             }
 
             return notification;

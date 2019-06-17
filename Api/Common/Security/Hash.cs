@@ -10,7 +10,7 @@ namespace InkaPharmacy.Api.Common.Security
         using(var sha256 = SHA256.Create())  
         {  
             var hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(text)); 
-            var result = BitConverter.ToString(hashedBytes).Replace("-", "").ToLower();
+            var result = BitConverter.ToString(hashedBytes).Replace("-", String.Empty).ToLower();
             Console.WriteLine(result);
             return result;   
         }  

@@ -3,7 +3,7 @@ using InkaPharmacy.Api.Common.Application.Enum;
 using Microsoft.AspNetCore.Mvc;
 using System;
 
-namespace InkaPharmacy.API.Common.Controllers
+namespace InkaPharmacy.Api.Common.Controllers
 {
     public class BaseController : ControllerBase
     {

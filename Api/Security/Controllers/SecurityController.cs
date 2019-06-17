@@ -43,8 +43,6 @@ namespace InkaPharmacy.Api.Controllers
         public IActionResult Login([FromQuery]string usu, [FromQuery] string clave)
         {
             bool uowStatus = false;
-            Notification notification = new Notification();
-            Employee employee = new Employee();
             try
             {
                 Specification<Employee> specification = GetLogingSpecification(usu, clave);
@@ -81,7 +79,9 @@ namespace InkaPharmacy.Api.Controllers
         public IActionResult Login(UserCredentialsDTO userCredentialsDTO)
         {
             if (userCredentialsDTO == null)
+            {
                 throw new ArgumentException("Credentials are missing");
+            }
 
             bool uowStatus = false;
             try

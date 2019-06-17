@@ -25,7 +25,7 @@ namespace InkaPharmacy.Api.Common.Application.Email
             var plainTextContent = "SendGrid is awesome";
             var htmlContent = "<strong>and easy to do anywhere, even with C#</strong>";
             var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
-            var response = await client.SendEmailAsync(msg);
+            _ = await client.SendEmailAsync(msg);
             log.Info("Email submitted");
         }
     }
