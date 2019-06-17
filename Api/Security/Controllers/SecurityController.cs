@@ -39,42 +39,6 @@ namespace InkaPharmacy.Api.Controllers
             responseHandler = new ResponseHandler();
         }
 
-        [HttpGet]
-        public IActionResult Login([FromQuery]string usu, [FromQuery] string clave)
-        {
-            bool uowStatus = false;
-            try
-            {
-                Specification<Employee> specification = GetLogingSpecification(usu, clave);
-                uowStatus = _unitOfWork.BeginTransaction();
-                List<Employee> Employees = _securityRepository.GetList(specification);
-                _unitOfWork.Commit(uowStatus);
-
-                if ( Employees.FirstOrDefault() == null)
-                {
-                    throw new ArgumentException("Employee is not logged in");
-                }
-           
-                EmployeeDto EmployeesDto = _empleadoLoginAssembler.toDto(Employees.FirstOrDefault());
-                var token = GenerateToken(EmployeesDto.Username);
-                return Ok(responseHandler.getOkCommandResponse("bearer " + token, Constants.HttpStatus.Success, EmployeesDto));
-
-            }
-            catch (ArgumentException ex)
-            {
-                _unitOfWork.Rollback(uowStatus);
-                Console.WriteLine(ex.StackTrace);
-                return Unauthorized();
-            }
-            catch (Exception ex)
-            {
-                _unitOfWork.Rollback(uowStatus);
-                Console.WriteLine(ex.StackTrace);                
-                return StatusCode(StatusCodes.Status500InternalServerError, responseHandler.getAppExceptionResponse());
-                
-            }
-        }
-
         [HttpPost]
         public IActionResult Login(UserCredentialsDTO userCredentialsDTO)
         {
