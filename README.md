@@ -98,10 +98,11 @@ https://dycsw-inkapharmacy-netcore-api-anxious-echidna.cfapps.io/swagger/index.h
 REST API:
 
 https://dycsw-inkapharmacy-netcore-api-anxious-echidna.cfapps.io
+https://inkapharmacysb-friendly-wombat.cfapps.io
 
 Aplicación web Angular:
 
-https://inkafarma-web-brave-elephant.cfapps.io/login
+https://inkafarma-web-balanced-serval.cfapps.io/login
 
 SwaggerHub (diseño)
 
