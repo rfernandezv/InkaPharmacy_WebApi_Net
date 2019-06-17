@@ -24,6 +24,8 @@
 
   <ItemGroup>
     <Folder Include="Common\Application\Assembler\" />
+    <Folder Include="Common\Application\Email\" />
+    <Folder Include="Common\Security\" />
     <Folder Include="Security\Application\Assembler\" />
     <Folder Include="Security\Domain\Entity\" />
     <Folder Include="Security\Infrastructure\Persistence\NHibernate\Mapping\" />
