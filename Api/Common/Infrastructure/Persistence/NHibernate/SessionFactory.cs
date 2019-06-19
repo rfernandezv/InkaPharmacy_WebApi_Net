@@ -11,6 +11,10 @@ namespace InkaPharmacy.Api.Common.Infrastructure.Persistence.NHibernate
     {
         private readonly ISessionFactory _sessionFactory;
 
+        public SessionFactory()
+        {
+        }
+
         public SessionFactory(string connectionString)
         {
             _sessionFactory = BuildSessionFactory(connectionString);
