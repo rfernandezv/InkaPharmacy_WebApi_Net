@@ -9,6 +9,8 @@ branches:
   only:	
   - master
   - qa
+  - uat
+  - prod
 deploy:
   - provider: cloudfoundry
     username: jhonatantiradotiradodeep@gmail.com
@@ -27,6 +29,22 @@ deploy:
     organization: kipubit
     space: qa
     on:
-        branch: qa
         tags: true
-#        condition: "$TRAVIS_TAG =~ -qa$"
+  - provider: cloudfoundry
+    username: jhonatantiradotiradodeep@gmail.com
+    password:
+     secure: "mrzMsv1LZmbVGjhq1smmEJL26dZFCmfrlDDVfZ0ARnPXelUWDqYyiwSjvjlx+P9mi+qCwvUGIaiJplFZUtJNVY1OB/6Ds5ReFXb+EptlsqPcS+VTUqMiYX/zjB1FxDYIGZzeXBC2vlU2+I3aEY1V3YdxXiegIQoGi8LmtSsgMBuWrJvM8/lBRREI/U4vULXbsDqHFP8SwX2jR2iMovPMcNF2JCq4Hy+gPLwpjkOI1TE9uA5Q33/GzU0HL2eqWMKqMc0vTl6w101QEgSomddt+Ph5nZyh+CNxuWg7E3CONgEXZHJtmMptQigjgmxBkOwlmrYKzFh1baHq6BGdpFSVUn7tOwK7vWLpKFJp9sxtDBxyMOjypBR5+WM623vxxI4c9KLKN/6dUEszflBPmkQpYRvxKOfhBtVtn3aw4n0HVqqKNIAK9HeQy53F86NZiqXB31e/FnFmVl8lRiL775YTs5QGExntFzhbqJxoohh+0B1viu1dt/GJoCC6EMk6JfHg26QVMf9U7hanjiSTZ/W3EeYzf+B4+haDg1koMZgZsDECdeM3uf79WQ1wxtszZVzCgNtVmXUpeTMuNEAtFRFJZXeCCJ1tKoOzeepAjBkjVIDmesxelf4+oYcU4fgymHt1BxBMzn2F4nzGtS7oKP3mBYdz8VogBXDdQygRjGevCfA="
+    api: https://api.run.pivotal.io
+    organization: kipubit
+    space: uat
+    on:
+        tags: true
+  - provider: cloudfoundry
+    username: jhonatantiradotiradodeep@gmail.com
+    password:
+     secure: "mrzMsv1LZmbVGjhq1smmEJL26dZFCmfrlDDVfZ0ARnPXelUWDqYyiwSjvjlx+P9mi+qCwvUGIaiJplFZUtJNVY1OB/6Ds5ReFXb+EptlsqPcS+VTUqMiYX/zjB1FxDYIGZzeXBC2vlU2+I3aEY1V3YdxXiegIQoGi8LmtSsgMBuWrJvM8/lBRREI/U4vULXbsDqHFP8SwX2jR2iMovPMcNF2JCq4Hy+gPLwpjkOI1TE9uA5Q33/GzU0HL2eqWMKqMc0vTl6w101QEgSomddt+Ph5nZyh+CNxuWg7E3CONgEXZHJtmMptQigjgmxBkOwlmrYKzFh1baHq6BGdpFSVUn7tOwK7vWLpKFJp9sxtDBxyMOjypBR5+WM623vxxI4c9KLKN/6dUEszflBPmkQpYRvxKOfhBtVtn3aw4n0HVqqKNIAK9HeQy53F86NZiqXB31e/FnFmVl8lRiL775YTs5QGExntFzhbqJxoohh+0B1viu1dt/GJoCC6EMk6JfHg26QVMf9U7hanjiSTZ/W3EeYzf+B4+haDg1koMZgZsDECdeM3uf79WQ1wxtszZVzCgNtVmXUpeTMuNEAtFRFJZXeCCJ1tKoOzeepAjBkjVIDmesxelf4+oYcU4fgymHt1BxBMzn2F4nzGtS7oKP3mBYdz8VogBXDdQygRjGevCfA="
+    api: https://api.run.pivotal.io
+    organization: kipubit
+    space: prod
+    on:
+        tags: true
