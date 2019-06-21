@@ -462,7 +462,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"Name\": \"José Luis\",\r\n  \"Last_Name1\": \"Tirado\",\r\n  \"Last_Name2\": \"Galvez\",\r\n  \"Address\": \"Grau 123\",\r\n  \"Telephone\": \"23232314\",\r\n  \"Email\": \"jtirado@gmail.com\",\r\n  \"Document_Number\": \"23232314\",\r\n  \"Status\": 1,\r\n  \"FirebaseClientKey\": \"eQ3Rtc88CbI:APA91bGeCNyPNhp7I3oQ6oFfIGzdNSjfY6oDtQ4fvKAjH6ubOf8k-Ix_oAh_AGTzGUO_7cqjgdJh8eDH7pJgQlDo0tei5i1lHq49D9F8TG2Is2bHwEjV_GKtZXcwr45cP_idopomzjix\"\r\n}\r\n"
+							"raw": "{\r\n  \"Name\": \"José Luis\",\r\n  \"Last_Name1\": \"Lopez\",\r\n  \"Last_Name2\": \"Torres\",\r\n  \"Address\": \"Grau 12323\",\r\n  \"Telephone\": \"46565\",\r\n  \"Email\": \"jlopezt@gmail.com\",\r\n  \"Document_Number\": \"23232316\",\r\n  \"Status\": 1,\r\n  \"FirebaseClientKey\": \"eQ3Rtc88CbI:APA91bGeCNyPNhp7I3oQ6oFfIGzdNSjfY6oDtQ4fvKAjH6ubOf8k-Ix_oAh_AGTzGUO_7cqjgdJh8eDH7pJgQlDo0tei5i1lHq49D9F8TG2Is2bHwEjV_GKtZXcwr45cP_idopomzjix\"\r\n}\r\n"
 						},
 						"url": {
 							"raw": "{{AppURL}}/api/Customers",
@@ -771,7 +771,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiSmhvbmF0YW4uVGlyYWRvMSIsIm5iZiI6IjE1NjA3MzgyNDciLCJleHAiOiIxNTYwODI0NjQ3In0.wUZaiRGH-6UMJEdLIabfZKieETFcC1eKmSEc0BmkoC8",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiSmhvbmF0YW4uVGlyYWRvMSIsIm5iZiI6IjE1NjEwMDk1ODAiLCJleHAiOiIxNTYxMDk1OTgwIn0.ft2xm6VQBYkpyX29MXwFaK4JqxRYAPlos3eliPZeC1c",
 				"type": "string"
 			}
 		]
