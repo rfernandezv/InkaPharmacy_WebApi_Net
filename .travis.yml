@@ -4,6 +4,11 @@ dotnet: 2.1.301
 before_script: cd Api
 script:
  - dotnet restore
+# blocklist
+branches:
+  except:
+  - development
+  - api-test
 # safelist	
 branches:	
   only:	
@@ -29,7 +34,7 @@ deploy:
     organization: kipubit
     space: qa
     on:
-        tags: true
+        branch: qa
   - provider: cloudfoundry
     username: jhonatantiradotiradodeep@gmail.com
     password:
@@ -38,7 +43,7 @@ deploy:
     organization: kipubit
     space: uat
     on:
-        tags: true
+        branch: uat
   - provider: cloudfoundry
     username: jhonatantiradotiradodeep@gmail.com
     password:
@@ -47,4 +52,4 @@ deploy:
     organization: kipubit
     space: prod
     on:
-        tags: true
+        branch: prod
