@@ -29,4 +29,4 @@ deploy:
     on:
         branch: qa
         tags: true
-        condition: "$TRAVIS_TAG =~ -qa$"
+#        condition: "$TRAVIS_TAG =~ -qa$"
