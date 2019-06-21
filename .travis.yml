@@ -4,6 +4,11 @@ dotnet: 2.1.301
 before_script: cd Api
 script:
  - dotnet restore
+# safelist	
+branches:	
+  only:	
+  - master
+  - qa
 deploy:
   - provider: cloudfoundry
     username: jhonatantiradotiradodeep@gmail.com
