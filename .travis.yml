@@ -4,10 +4,6 @@ dotnet: 2.1.301
 before_script: cd Api
 script:
  - dotnet restore
-# safelist
-branches:
-  only:
-  - master
 deploy:
   - provider: cloudfoundry
     username: jhonatantiradotiradodeep@gmail.com
@@ -16,6 +12,8 @@ deploy:
     api: https://api.run.pivotal.io
     organization: kipubit
     space: development
+    on:
+        branch: master
   - provider: cloudfoundry
     username: jhonatantiradotiradodeep@gmail.com
     password:
