@@ -7,15 +7,12 @@ using InkaPharmacy.Api.Security.Domain.Repository;
 using InkaPharmacy.Api.Common.Domain.Specification;
 using System.Collections.Generic;
 using InkaPharmacy.Api.Security.Infrastructure.Persistence.NHibernate.Specification;
-using System.Security.Claims;
-using System.IdentityModel.Tokens.Jwt;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
 using InkaPharmacy.Api.Common.Constants;
 using InkaPharmacy.Api.Employees.Domain.Entity;
 using InkaPharmacy.Api.Employees.Application.Dto;
 using InkaPharmacy.Api.Employees.Application.Assembler;
 using InkaPharmacy.Api.Security.Application.Dto;
+using InkaPharmacy.Api.Common.Application.Security;
 
 namespace InkaPharmacy.Api.Controllers
 {
@@ -61,7 +58,7 @@ namespace InkaPharmacy.Api.Controllers
                 }
 
                 EmployeeDto employeeDto = _empleadoLoginAssembler.toDto(employees.FirstOrDefault());
-                var token = GenerateToken(employeeDto.Username);
+                var token = Token.GenerateToken(employeeDto.Username);
                 return Ok(responseHandler.getOkCommandResponse("bearer " + token, Constants.HttpStatus.Success, employeeDto));
 
             }
@@ -79,31 +76,11 @@ namespace InkaPharmacy.Api.Controllers
 
             }
         }
-        private Specification<Employee> GetLogingSpecification(string usu, string clave )
+        private Specification<Employee> GetLogingSpecification(string usu, string clave)
         {
             Specification<Employee> specification = Specification<Employee>.All;
             specification = specification.And(new LoginBySpecification(usu, clave));
             return specification;
-        }
-
-        private string GenerateToken(string username)
-        {
-            var claims = new Claim[]
-            {
-                new Claim(ClaimTypes.Name, username),
-                new Claim(JwtRegisteredClaimNames.Nbf, new DateTimeOffset(DateTime.Now).ToUnixTimeSeconds().ToString()),
-                new Claim(JwtRegisteredClaimNames.Exp, new DateTimeOffset(DateTime.Now.AddDays(1)).ToUnixTimeSeconds().ToString()),
-            };
-
-            var TokenSecret = Environment.GetEnvironmentVariable("InkaPharmacyTokenSecret");
-            Console.WriteLine(TokenSecret);
-
-            var token = new JwtSecurityToken(
-                new JwtHeader(new SigningCredentials(
-                    new SymmetricSecurityKey(Encoding.UTF8.GetBytes(TokenSecret)),
-                                             SecurityAlgorithms.HmacSha256)),
-                    new JwtPayload(claims));
-            return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
     }
